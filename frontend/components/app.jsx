@@ -11,9 +11,10 @@ const App = () => (
       <h1>Homi, more is less</h1>
       <GreetingContainer />
     </header>
-    <AuthRoute path="/login" component={LogInFormContainer} />
+    <AuthRoute path="/login" component={LogInFormContainer} /> 
     <AuthRoute path="/signup" component={SignUpFormContainer} />
   </div>
 );
 
 export default App;
+//authroute link to the containers => connect => sessonForm?

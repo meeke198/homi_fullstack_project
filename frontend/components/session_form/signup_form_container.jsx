@@ -7,11 +7,12 @@ import SessionForm from "./session_form";
 const mapStateToProps = ({ errors }) => ({
     errors: errors.session,
     formType: "signup",
-    navLink: <Link to="/login">Login your account</Link>,
+    navLink: <Link to="/login">Log in</Link>,
   });
 
 const mapDispatchToProps = (dispatch) => ({
     processForm: (user) => dispatch(signup(user)),
+    clearErrors: () => dispatch(clearSessionErrors(errors)),
   });
 
 

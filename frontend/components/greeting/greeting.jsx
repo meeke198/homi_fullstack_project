@@ -22,6 +22,7 @@ const Greeting = ({ currentUser, logout }) => {
   );
   return currentUser ? personalGreeting() : sessionLinks();
 };
+
 //hgroup: HTML element represents a multi-level heading for a section of a document
 //nbsp: no break space =>prevents line breaks
 

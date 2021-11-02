@@ -8,6 +8,7 @@ class SessionForm extends React.Component {
       password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    console.log("sessionform props",this.props)
   }
 
   update(field) {
@@ -24,7 +25,7 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    console.log(this.props)
+    console.log("errors",this.props.errors)
     return (
       <ul>
         {this.props.errors.map((error, i) => (
@@ -34,11 +35,16 @@ class SessionForm extends React.Component {
     );
   }
 
+  // clearErrors(e) {
+  //   this.props.clearErrors();
+  // }
+  
+  
+
   render() {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Homi!
           <br />
           Please {this.props.formType} or {this.props.navLink}
           {this.renderErrors()}
