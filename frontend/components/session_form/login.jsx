@@ -1,18 +1,17 @@
 import React from "react";
 
-class SessionForm extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    console.log("sessionform props",this.props)
-  }
 
-  componentDidMount(){
-      this.props.clearErrors();
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  componentDidMount() {
+    this.props.clearErrors();
   }
 
   update(field) {
@@ -22,6 +21,12 @@ class SessionForm extends React.Component {
       });
   }
 
+  handleInput(type) {
+    return (e) => {
+      this.setState({ [type]: e.target.value });
+    };
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -29,7 +34,7 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    console.log("errors",this.props.errors)
+    console.log("errors", this.props.errors);
     return (
       <ul>
         {this.props.errors.map((error, i) => (
@@ -39,13 +44,11 @@ class SessionForm extends React.Component {
     );
   }
 
-
   render() {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <br />
-          Please {this.props.formType} or {this.props.navLink}
           {this.renderErrors()}
           <div className="login-form">
             <br />
@@ -70,7 +73,7 @@ class SessionForm extends React.Component {
             </label>
             <br />
             <input
-              className="session-submit"
+              className="login-submit"
               type="submit"
               value={this.props.formType}
             />
@@ -80,6 +83,4 @@ class SessionForm extends React.Component {
     );
   }
 }
-
-export default SessionForm;
-//this.props.processForm(user) => similar to action, actions container(mDTP) it either login or signup user
+export default Login;

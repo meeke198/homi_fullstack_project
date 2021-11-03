@@ -19,9 +19,8 @@ export const receiveSessionErrors = errors => ({
   errors
 });
 
-export const clearSessionErrors = errors => ({
+export const clearSessionErrors = () => ({
   type: CLEAR_SESSION_ERRORS,
-  errors
 });
 export const signup = user => dispatch => (
   APIUtil.signup(user)

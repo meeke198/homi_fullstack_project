@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import React from "react";
 import { Link } from "react-router-dom";
-import { login } from "../../actions/session_actions";
-import SessionForm from "./session_form";
+import { login, clearSessionErrors } from "../../actions/session_actions";
+import Login from "./login";
 
 const mapStateToProps = ({ errors }) => ({
     errors: errors.session,
@@ -12,8 +12,8 @@ const mapStateToProps = ({ errors }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     processForm: (user) => dispatch(login(user)),
-    clearErrors: () => dispatch(clearSessionErrors(errors)),
+    clearErrors: () => dispatch(clearSessionErrors()),
   });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
 //login(user) =>thunk action creators
