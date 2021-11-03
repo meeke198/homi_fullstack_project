@@ -9,18 +9,16 @@ import NotFound from "./not_found/not_found"
 
 const App = () => (
   <div>
-    <header>
-      <Route path="/" component={NavBarContainer} />
-    </header>
+    <Route path="/" component={NavBarContainer} />
     <Switch>
-      {/* <Route path="/" component={NavBarContainer} /> */}
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      {/* <Route exact path="/" component={Home} /> */}
-      <Route exact={true} path="*" component={NotFound} />
+      <Route exact path="/" component={Home} />
+      <Route component={NotFound} />
     </Switch>
   </div>
 );
+// exact={true} path="*" 
 
 export default App;
 //authroute link to the containers => connect => sessonForm?
