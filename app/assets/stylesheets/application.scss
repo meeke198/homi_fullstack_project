@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+ $lime-light: 'Limelight', cursive;
+
 html,
 body,
 div {
@@ -74,6 +77,11 @@ div {
       font-size: 20px;
       margin-left: 20px;
     }
+  }
+  .logo{
+      text-decoration: none;
+      font-size: 50px;
+      font-family: $lime-light;
   }
 }
 .user-profile {
