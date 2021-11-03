@@ -4,6 +4,8 @@ import { FaSearchDollar } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 // import { CgProfile } from "react-icons/cg";
 import Profile from "../profile/profile";
+import logo from "../../../app/assets/images/logo.JPG";
+
 export default ({ currentUser, logout }) => {
   const display = currentUser ? (
     <div>
@@ -24,7 +26,7 @@ export default ({ currentUser, logout }) => {
   );
   return (
     <header className="nav-bar">
-      <h1 className="logo">HOMI</h1>
+      <img src={logo} alt="homi-logo" id="homi-logo" />
       <div className="searching-container">
         <input
           className="searching-input"
