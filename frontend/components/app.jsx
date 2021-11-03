@@ -8,11 +8,10 @@ import Home from "./home/home"
 
 const App = () => (
   <div>
-    <Route path="/" component={NavBarContainer} />
-
-    <AuthRoute path="/login" component={LogInFormContainer} />
-    <AuthRoute path="/signup" component={SignUpFormContainer} />
-    <Route path="/" component={Home} />
+    <Route exact path="/" component={NavBarContainer} />
+      <AuthRoute exact path="/login" component={LogInFormContainer} />
+      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+      <Route exact path="/" component={Home} />
   </div>
 );
 
