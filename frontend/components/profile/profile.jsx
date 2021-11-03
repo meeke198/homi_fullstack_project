@@ -20,19 +20,9 @@ class Profile extends React.Component {
   }
   render() {
     return (
-      <div className="user-profile" style={{ position: "relative" }}>
+      <div className="user-profile">
         <CgProfile />
-        <div
-          className="drop-down-profile"
-          style={{
-            width: 300,
-            height: 400,
-            background: "white",
-            position: "absolute",
-            left: 0,
-            top: "25px",
-          }}
-        >
+        <div className="drop-down-profile">
           <p>Profile</p>
           <p>Purchase and reviews</p>
           <p>Account setting</p>

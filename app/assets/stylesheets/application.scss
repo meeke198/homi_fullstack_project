@@ -76,13 +76,16 @@ div {
     }
   }
 }
-.drop-down-profile{
+.user-profile {
+  position: relative;
+  .drop-down-profile {
     width: 300px;
     height: 400px;
     background: white;
     position: absolute;
     left: 0;
     top: 25px;
+  }
 }
 .session-form {
   display: flex;

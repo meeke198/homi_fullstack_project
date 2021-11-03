@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaSearchDollar } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 // import { CgProfile } from "react-icons/cg";
-import Profile from "../header/profile";
+import Profile from "../profile/profile";
 export default ({ currentUser, logout }) => {
   const display = currentUser ? (
     <div>
