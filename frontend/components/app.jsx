@@ -9,13 +9,13 @@ import NotFound from "./not_found/not_found"
 
 const App = () => (
   <div>
-    <Route path="/" component={NavBarContainer} />
-    <Switch>
+     <Route path="/" component={NavBarContainer} />
+    {/* <Switch> */}
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <Route exact path="/" component={Home} />
       <Route component={NotFound} />
-    </Switch>
+    {/* </Switch> */}
   </div>
 );
 // exact={true} path="*" 
