@@ -17,6 +17,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+/* pagenotfound Author: Svieta */
 
 html,
 body,
@@ -194,6 +195,7 @@ body {
     text-decoration: none;
     font-size: 40px;
     font-family: $lime-light;
+    color: orange;
   }
 }
 .submit-form-button {
@@ -292,5 +294,17 @@ body {
         padding: 0px 10px;
     }
   }
+  .notfound_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   
+//   .notfound__image {
+//     display: flex;
+//     width: 100%;
+//     margin-bottom: -150px;
+//     z-index: -1;
+//     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+//   }
+  }
 }
