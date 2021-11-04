@@ -11,9 +11,9 @@ const mapStateToProps = ({ errors }) => ({
   });
 
 const mapDispatchToProps = (dispatch) => ({
-    processForm: (user) => dispatch(login(user)),
-    clearErrors: () => dispatch(clearSessionErrors()),
-  });
+  processForm: (user) => dispatch(login(user)),
+  clearErrors: () => dispatch(clearSessionErrors()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
 //login(user) =>thunk action creators

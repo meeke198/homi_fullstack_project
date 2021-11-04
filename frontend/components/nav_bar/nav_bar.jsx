@@ -2,14 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaSearchDollar } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
-// import { CgProfile } from "react-icons/cg";
+import { CgProfile } from "react-icons/cg";
 import Profile from "../profile/profile";
-export default ({ currentUser, logout }) => {
-  const display = currentUser ? (
-    <div>
-      <h3>Welcome {currentUser.email}!</h3>
-      <button onClick={logout}>Logout</button>
+export default (props) => {
+  const display = props.currentUser ? (
+    <div className="logged-in">
+      <h3 id="welcome">Welcome {props.currentUser.email}!</h3>
+      <button className="logout-button" onClick={props.logout}>Logout</button>
       <Profile />
+      <BsCart4 style={{ marginLeft: 15, width: 25, height: 25 }} />
     </div>
   ) : (
     <div style={{ display: "flex", alignItems: "center" }}>
@@ -35,8 +36,7 @@ export default ({ currentUser, logout }) => {
         />
         <FaSearchDollar style={{ marginRight: 25, width: 30, height: 25 }} />
       </div>
-
-      <div>{display}</div>
+      {display}
     </header>
   );
 };

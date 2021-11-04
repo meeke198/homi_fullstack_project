@@ -45,39 +45,39 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <br />
-          {this.renderErrors()}
-          <div className="login-form">
-            <br />
-            <label>
-              Email:
+      <div className="modal-background">
+        <div className="modal-child">
+          <form onSubmit={this.handleSubmit} className="form-box">
+              <h3>Log in</h3>
+              <br/>
+              {this.renderErrors()}
+              <label className="form-label">
+                Email:
+                <input
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.update("email")}
+                  className="form-input"
+                />
+              </label>
+              <br />
+              <label className="form-label">
+                Password:
+                <input
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  className="form-input"
+                />
+              </label>
+              <br />
               <input
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                className="login-input"
+                className="submit-form-button"
+                type="submit"
+                value="Log in"
               />
-            </label>
-            <br />
-            <label>
-              Password:
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                className="login-input"
-              />
-            </label>
-            <br />
-            <input
-              className="login-submit"
-              type="submit"
-              value={this.props.formType}
-            />
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     );
   }

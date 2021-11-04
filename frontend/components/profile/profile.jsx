@@ -21,7 +21,7 @@ class Profile extends React.Component {
   render() {
     return (
       <div className="user-profile">
-        <CgProfile />
+        <CgProfile style={{ marginLeft: 15, width: 25, height: 25 }} />
         <div className="drop-down-profile">
           <p>Profile</p>
           <p>Purchase and reviews</p>
