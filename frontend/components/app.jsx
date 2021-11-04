@@ -7,16 +7,18 @@ import NavBarContainer from "./nav_bar/nav_bar_container";
 import Home from "./home/home";
 import NotFound from "./not_found/not_found";
 import { Switch } from "react-router";
+import Modal from './modal/modal'
 
 
 const App = () => (
   <div>
+    <Modal />
     <header>
       <Route exact path="/" component={NavBarContainer} />
     </header>
     <Switch>
-      <AuthRoute exact path="/login" component={LogInFormContainer} />
-      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+      {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
+      <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
       <Route exact path="/" component={Home} />
       <Route component={NotFound} />
     </Switch>

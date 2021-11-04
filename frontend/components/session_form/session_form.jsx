@@ -1,4 +1,5 @@
 import React from "react";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
+
     return (
       <ul>
         {this.props.errors.map((error, i) => (
@@ -41,34 +43,40 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+        <AiOutlineCloseCircle
+          className="close-modal-button"
+          onClick={this.props.closeModal}
+        />
+        <form onSubmit={this.handleSubmit} className="form-box">
           <br />
-          Please {this.props.formType} or {this.props.navLink}
+          <h3>
+            Please {this.props.formType} {this.props.navLink}
+          </h3>
           {this.renderErrors()}
           <div className="login-form">
             <br />
-            <label>
+            <label className="form-label">
               Email:
               <input
                 type="text"
                 value={this.state.email}
                 onChange={this.update("email")}
-                className="login-input"
+                className="form-input"
               />
             </label>
             <br />
-            <label>
+            <label className="form-label">
               Password:
               <input
                 type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
-                className="login-input"
+                className="form-input"
               />
             </label>
             <br />
             <input
-              className="session-submit"
+              className="submit-form-button"
               type="submit"
               value={this.props.formType}
             />

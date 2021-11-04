@@ -4,30 +4,7 @@ import { connect } from "react-redux";
 import LoginFormContainer from "../session_form/login_form_container";
 import SignupFormContainer from "../session_form/signup_form_container";
 
-// class Modal extends React.Component {
-//     constructor(props){
-//         super(props)
-//         this.state = {
-//             signup: false,
-//             login: false,
-//         }
-//     }
-
-// onOpenModal = () => {
-//     this.setState({signup: true })
-// }
-// onOpenModalLogin = () => {
-//     this.setState({login: true })
-// }
-
-// onCloseModal = () => {
-//     this.setState({signup: false})
-// }
-
-// onCloseModalClose = () => {
-//     this.setState({login: false})
-// }
-function Modal({modal, closeModal}) {
+function Modal ({modal, closeModal}) {
   if (!modal) {
     return null;
   }
@@ -52,7 +29,7 @@ function Modal({modal, closeModal}) {
 }
 
 const mapStateToProps = (state) => ({
-    modal: state.modal,
+    modal: state.ui.modal,
 });
 
 const mapDispatchToProps = (dispatch) => ({
