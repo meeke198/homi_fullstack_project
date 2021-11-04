@@ -13,6 +13,7 @@ const mapStateToProps = ({ errors }) => ({
 const mapDispatchToProps = (dispatch) => ({
   processForm: (user) => dispatch(login(user)),
   clearErrors: () => dispatch(clearSessionErrors()),
+  closeModal: () => dispatch(closeModal()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

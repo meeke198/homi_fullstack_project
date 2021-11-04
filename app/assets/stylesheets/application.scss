@@ -293,6 +293,13 @@ body {
         color: darkgrey;
         padding: 0px 10px;
     }
+    .close-modal-button {
+        justify-content: flex-end;
+        margin-left: 400px;
+        margin-bottom: 70px;
+        width: 28px;
+        height: 28px;
+    }
   }
   .notfound_div {
     display: flex;

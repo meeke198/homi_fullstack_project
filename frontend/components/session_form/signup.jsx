@@ -1,4 +1,5 @@
 import React from "react";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -32,6 +33,10 @@ class Signup extends React.Component {
     this.props.processForm(user);
   }
 
+  // closeModal(){
+  //    e.preventDefault();
+  //    this.props.closeModal();
+  // }
   renderErrors() {
     return (
       <ul>
@@ -47,12 +52,13 @@ class Signup extends React.Component {
       <div className="modal-background">
         <div className="modal-child">
           <form onSubmit={this.handleSubmit} className="form-box">
+            <AiOutlineCloseCircle className="close-modal-button" />
             <br />
             {this.renderErrors()}
             <br />
             <h3>Sign up</h3>
             <label className="form-label">
-              Email: 
+              Email:
               <input
                 type="text"
                 value={this.state.email}
@@ -62,7 +68,7 @@ class Signup extends React.Component {
             </label>
             <br />
             <label className="form-label">
-              Password: 
+              Password:
               <input
                 type="password"
                 value={this.state.password}
