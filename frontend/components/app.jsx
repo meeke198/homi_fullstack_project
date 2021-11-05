@@ -8,13 +8,14 @@ import Home from "./home/home";
 import NotFound from "./not_found/not_found";
 import { Switch } from "react-router";
 import Modal from './modal/modal'
-
+import Menu from './nav_bar/menu'
 
 const App = () => (
   <div>
     <Modal />
     <header>
       <Route exact path="/" component={NavBarContainer} />
+      <Menu/>
     </header>
     <Switch>
       {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
