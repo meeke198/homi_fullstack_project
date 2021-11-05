@@ -112,7 +112,7 @@ $lime-light: "Limelight", cursive;
 $comfortaa: "Comfortaa", cursive;
 
 body {
-    font-family: $comfortaa;
+  font-family: $comfortaa;
 }
 
 .home {
@@ -133,25 +133,16 @@ body {
 
 .nav-bar {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 20px 20px;
   background: #cee5d0;
   align-items: center;
-  .btn {
-    background-color: white;
-    padding: 10px;
-    box-shadow: 3px 3px 3px darkblue;
-    text-decoration: none;
-  }
-  .btn:hover {
-    background-color: rgb(240, 240, 240);
-    box-shadow: 1px 1px 1px darkblue;
-  }
+
   .searching-container {
     display: flex;
     align-items: center;
     height: 7vh;
-    width: 50vw;
+    width: 65vw;
     background: white;
     padding: 10;
     border-bottom-left-radius: 80px;
@@ -168,27 +159,23 @@ body {
       font-size: 20px;
       margin-left: 20px;
     }
-    .logged-in {
-        display: flex;
-        width: 150px;
-        height: 200px;
-        padding: 10px;
-        justify-content: space-evenly;
-        align-items: center;
-        #welcome{
-            font-size: 25px;
-            font-family: $comfortaa;
-        }
-        .logout-button {
-        width: 100px;
-        height: 40px;
-        border-radius: 80px;
-        margin-left: 5px;
-        font-size: 20px;
-        font-family: $comfortaa;
-        color: darkgrey;
-        padding: 0px 10px;
-    }
+  }
+
+  .logged-in {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+
+    .logout-button {
+      width: 100px;
+      height: 40px;
+      border-radius: 80px;
+      margin-left: 5px;
+      font-size: 20px;
+      font-family: $comfortaa;
+      color: darkgrey;
+      padding: 0px 10px;
     }
   }
   .logo {
@@ -200,13 +187,15 @@ body {
 }
 .submit-form-button {
   border-radius: 80px;
-  height: 30px;
-  width: 200px;
+  width: 100%;
   font-family: $comfortaa;
-  font-size: 20px;
+  font-size: 18px;
   color: white;
+  padding: 5px 10px;
   margin-top: 30px;
-  background-color: black;
+  margin-bottom: 20px;
+  background-color:#191A19;
+
 }
 .user-profile {
   position: relative;
@@ -259,58 +248,88 @@ body {
   display: flex;
   position: absolute;
   justify-content: center;
-  width: 50%;
-  height: 70%;
+  width: 30%;
+  height: 90%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ffdede;
+  background-color: white;
+  border-radius: 30px;
 }
-  .form-box {
+.form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+h3 {
+  font-size: 30px;
+  font-family: $comfortaa;
+  margin-bottom: 50px;
+}
+.form-label {
+  font-size: 20px;
+  font-family: $comfortaa;
+}
+.form-input {
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: 15px;
+  font-size: 18px;
+  font-family: $comfortaa;
+  color: darkgrey;
+  padding: 0px 10px;
+}
+.close-modal-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 25px;
+  margin-top: 25px;
+  width: 100%;
+}
+.notfound_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.notfound_div {
+  display: flex;
+  flex-direction: column;
+}
+.btn {
+  background-color: white;
+  padding: 10px 20px;
+  // box-shadow: 3px 3px 3px darkgrey;
+  text-decoration: none;
+  border-radius: 30px;
+  font-family: $comfortaa;
+  transition: all 0.2s ease-in-out;
+}
+.btn:hover {
+  background-color: rgb(240, 240, 240);
+  box-shadow: 1px 1px 1px lightgrey;
+  transform: scale(1.05);
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0px;
+}
+
+.form-input-wrapper, .login-form-bottom {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+}
+.login-form-bottom {
     align-items: center;
-    width: 100%;
-    height: 100%; 
-  }
-    h3 {
-        font-size: 30px;
-        font-family: $comfortaa;
-        margin-bottom: 50px;
-    }
-    .form-label {
-        font-size: 15px;
-        font-family: $comfortaa;
-    }
-    .form-input {
-        width: 200px;
-        height: 30px;
-        border-radius: 80px;
-        margin-left: 5px;
-        margin-top: 15px;
-        font-size: 20px;
-        font-family: $comfortaa;
-        color: darkgrey;
-        padding: 0px 10px;
-    }
-  .close-modal-button {
-        justify-content: flex-end;
-        margin-left: 400px;
-        // margin-bottom: 70px;
-        align-items: flex-start;
-        width: 28px;
-        height: 28px;
-    }
-  .notfound_div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-//   .notfound__image {
-//     display: flex;
-//     width: 100%;
-//     margin-bottom: -150px;
-//     z-index: -1;
-//     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-//   }
-  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 const NotFound = () => {
     return (
@@ -9,6 +9,9 @@ const NotFound = () => {
           alt=""
           className="notfound__image"
         />
+        <Link className="btn" to="/">
+          Go back
+        </Link>
       </div>
     );
 }

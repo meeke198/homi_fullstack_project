@@ -1,18 +1,29 @@
 import React from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
+
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
+      isSubmited: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loginDemo = this.loginDemo.bind(this);
   }
 
-  componentDidMount(){
-      this.props.clearErrors();
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    if(nextProps.errors.length === 0 && this.state.isSubmited === true) {
+      this.props.closeModal();
+    }
+    return true;
   }
 
   update(field) {
@@ -26,10 +37,19 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+    this.setState({isSubmited: true})
+  }
+
+  loginDemo() {
+    const demoUser = {
+      email: "demo@gmail.com",
+      password: "password123",
+    };
+    this.props.processForm(demoUser);
+    this.props.closeModal();
   }
 
   renderErrors() {
-
     return (
       <ul>
         {this.props.errors.map((error, i) => (
@@ -39,51 +59,111 @@ class SessionForm extends React.Component {
     );
   }
 
-
   render() {
-    return (
-      <div className="login-form-container">
-        <AiOutlineCloseCircle
-          className="close-modal-button"
-          onClick={this.props.closeModal}
-        />
-        <form onSubmit={this.handleSubmit} className="form-box">
-          <br />
-          <h3>
-            Please {this.props.formType} {this.props.navLink}
-          </h3>
-          {this.renderErrors()}
-          <div className="login-form">
-            <br />
-            <label className="form-label">
-              Email:
-              <input
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                className="form-input"
-              />
-            </label>
-            <br />
-            <label className="form-label">
-              Password:
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                className="form-input"
-              />
-            </label>
-            <br />
-            <input
-              className="submit-form-button"
-              type="submit"
-              value={this.props.formType}
+    const { openModal } = this.props
+    if (this.props.formType === "login") {
+      return (
+        <div className="login-form-container">
+          <div className="close-modal-button">
+            <AiOutlineCloseCircle
+              style={{ width: 30, height: 30 }}
+              onClick={this.props.closeModal}
             />
           </div>
-        </form>
-      </div>
-    );
+          <div className="modal-header">
+            <p style={{ fontSize: 20, fontWeight: 50 }}>Log in</p>
+            <button className="btn" onClick={() => openModal("signup")}>
+              Register
+            </button>
+          </div>
+
+          <form className="form-box">
+            <br />
+            {this.renderErrors()}
+            <div className="login-form">
+              <br />
+              <div className="form-input-wrapper">
+                <label className="form-label">Email:</label>
+                <input
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.update("email")}
+                  className="form-input"
+                />
+              </div>
+              <br />
+              <div className="form-input-wrapper">
+                <label className="form-label">Password:</label>
+                <input
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  className="form-input"
+                />
+              </div>
+
+              <br />
+              <div className="login-form-bottom">
+                <input
+                  className="submit-form-button"
+                  type="submit"
+                  value="Log in"
+                  onClick={this.handleSubmit}
+                />
+                <br />
+                <button className="btn" onClick={this.loginDemo}>
+                  Demo User
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      );
+    } else {
+      return (
+        <div className="login-form-container">
+          <AiOutlineCloseCircle
+            className="close-modal-button"
+            onClick={this.props.closeModal}
+          />
+          <form onSubmit={this.handleSubmit} className="form-box">
+            <br />
+            Sign up
+            {this.renderErrors()}
+            <div className="login-form">
+              <br />
+              <div className="form-input-wrapper">
+                <label className="form-label">Email:</label>
+                <input
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.update("email")}
+                  className="form-input"
+                />
+              </div>
+
+              <br />
+              <div className="form-input-wrapper">
+                <label className="form-label">Password:</label>
+                <input
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  className="form-input"
+                />
+              </div>
+
+              <br />
+              <input
+                className="submit-form-button"
+                type="submit"
+                value="Sign up"
+              />
+            </div>
+          </form>
+        </div>
+      );
+    }
   }
 }
 
