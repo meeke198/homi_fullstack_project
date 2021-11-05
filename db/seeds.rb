@@ -7,9 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Product.destroy_all
 
-user1 = User.create(email: "ben@gmail.com", password: 'password')
-user2 = User.create(email: "mia@gmail.com", password: 'password')
-user3 = User.create(email: "tim@gmail.com", password: 'password')
-user4 = User.create(email: "banana@gmail.com", password: 'password')
-user5 = User.create(email: "ben2gmail.com", password: 'password')
+
+user1 = User.create!(email: "ben@gmail.com", password: 'password')
+user2 = User.create!(email: "mia@gmail.com", password: 'password')
+user3 = User.create!(email: "tim@gmail.com", password: 'password')
+user4 = User.create!(email: "banana@gmail.com", password: 'password')
+user5 = User.create!(email: "ben@gmail.com", password: 'password')
+demoUser = User.create!(email: "demo@gmail.com", password: "password123")
+
