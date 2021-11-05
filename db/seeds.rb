@@ -15,5 +15,3 @@ user3 = User.create(email: "tim@gmail.com", password: 'password')
 user4 = User.create(email: "banana@gmail.com", password: 'password')
 user5 = User.create(email: "ben@gmail.com", password: 'password')
 demoUser = User.create(email: "demo@gmail.com", password: 'password123')
-
-product1 = Product.create!()
