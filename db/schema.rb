@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_205603) do
+ActiveRecord::Schema.define(version: 2021_11_06_223838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,30 +52,21 @@ ActiveRecord::Schema.define(version: 2021_11_05_205603) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "category_name", null: false
-    t.datetime "updated_at", null: false
-    t.datetime "created_at", null: false
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "product_name", null: false
-    t.integer "category_id", null: false
-    t.string "labor_estimate", null: false
     t.integer "price", null: false
     t.integer "seller_id", null: false
     t.string "image_url", null: false
     t.text "description", null: false
     t.datetime "updated_at", null: false
     t.datetime "created_at", null: false
-    t.index ["category_id", "image_url"], name: "index_products_on_category_id_and_image_url"
     t.index ["seller_id"], name: "index_products_on_seller_id", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "reviewer_id", null: false
     t.integer "product_id", null: false
-    t.text "content", null: false
+    t.text "content"
     t.integer "rating", null: false
     t.datetime "updated_at", null: false
     t.datetime "created_at", null: false
