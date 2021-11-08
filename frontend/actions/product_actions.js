@@ -9,7 +9,7 @@ export const receiveAllProducts = products => ({
 })
 
 export const receiveProduct = product => ({
-    type: RECEIVE_ALL_PRODUCTS,
+    type: RECEIVE_PRODUCT,
     product
 })
 

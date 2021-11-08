@@ -11,6 +11,7 @@ import Modal from './modal/modal'
 import Menu from './nav_bar/menu'
 import ProfilePage from './profile/profile_page'
 import ProductIndexContainer from "./products/product_index_container";
+import ProductShowContainer from "./products/product_show_container";
 
 const App = () => (
   <div>
@@ -20,8 +21,9 @@ const App = () => (
       <Menu/>
     </header>
     <Switch>
+      <Route exact path="/products/:productId" component={ProductShowContainer}/>
       <Route exact path="/products" component={ProductIndexContainer}/>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={ProductIndexContainer} />
       <Route exact path="/profile" component={ProfilePage}/>
       <Route component={NotFound} />
 
