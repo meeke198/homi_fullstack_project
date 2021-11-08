@@ -58,7 +58,7 @@ product3.photo.attach(io: bedframe3, filename:"bedframe3.jpg")
 
 product4 = Product.create!(product_name: "Tepee House Bed", description: "Adventure awaits with the Teepee full tent complete bed in a box." , price: 290, seller_id: 4)
 bedframe4 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/bedroom4.jpg")
-product4.photo.attach(io: bedframe4, filename:"bedframe4.jpg")
+product4.photo.attach(io: bedframe4, filename:"bedroom4.jpg")
 
 product5 = Product.create!(product_name: "Lucinda Luxurious 6 Piece 100% Cotton Towel Set", description: "Pamper yourself with the luxurious weight of 600gsm towels and washcloths when you use these cotton towels." , price: 22.21, seller_id: 5)
 bath2 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/bath2.jpg")
