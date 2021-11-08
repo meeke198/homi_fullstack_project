@@ -38,7 +38,7 @@ const Message = () => {
 return (
   <div>
     Bring on the holidays! Discover meaningful finds!
-    {messages.map((message, idx) => <MessageItem key={idx} title={message.title} imageUrl={message.imageUrl}/>)}
+    {/* {messages.map((message, idx) => <MessageItem key={idx} title={message.title} imageUrl={message.imageUrl}/>)} */}
   </div>
 );
 }
