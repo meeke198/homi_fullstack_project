@@ -6,6 +6,6 @@ namespace :api, defaults: { format: :json } do
     resource :session, only: [:create, :destroy, :show]
     resources :products, only: [:show, :index]
   end
-  
+
   root "static_pages#root"
 end

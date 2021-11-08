@@ -9,19 +9,22 @@ import NotFound from "./not_found/not_found";
 import { Switch } from "react-router";
 import Modal from './modal/modal'
 import Menu from './nav_bar/menu'
+import ProfilePage from './profile/profile_page'
+import ProductIndexContainer from "./products/product_index_container";
 
 const App = () => (
   <div>
     <Modal />
     <header>
-      <Route exact path="/" component={NavBarContainer} />
+      <Route path="/" component={NavBarContainer} />
       <Menu/>
     </header>
     <Switch>
-      {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
-      <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
+      <Route exact path="/products" component={ProductIndexContainer}/>
       <Route exact path="/" component={Home} />
+      <Route exact path="/profile" component={ProfilePage}/>
       <Route component={NotFound} />
+
     </Switch>
   </div>
 );

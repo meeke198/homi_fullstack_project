@@ -14,7 +14,7 @@
 #  created_at     :datetime         not null
 #
 class Product < ApplicationRecord
-    validates :product_name, :seller_id, :image_url, :description,:price, presence: true
+    validates :product_name, :seller_id, :description,:price, presence: true
     validates :price,  numericality: { greater_than: 0 }
 
 

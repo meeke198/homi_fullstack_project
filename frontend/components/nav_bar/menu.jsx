@@ -2,20 +2,76 @@ import React from "react";
 
 
 const list = [
-  { 
+  {
     name: "Clothing & Shoe",
+    child: [
+      { name: "dresses" },
+      { name: "sweater" },
+      { name: "pants" },
+      { name: "coat" },
+      { name: "skirts" },
+      { name: "bedding" },
+      { name: "bathroom" },
+      { name: "garden" },
+      { name: "bedding" },
+      { name: "livingroom" },
+    ],
   },
   {
     name: "Home & Living",
+    child: [
+      { name: "bedding" },
+      { name: "bathroom" },
+      { name: "garden" },
+      { name: "bedding" },
+      { name: "livingroom" },
+      { name: "bedding" },
+      { name: "bathroom" },
+      { name: "garden" },
+      { name: "bedding" },
+      { name: "livingroom" },
+    ],
   },
+
   {
     name: "Jewelry & Accessories",
+    child: [
+      { name: "rings" },
+      { name: "bracelet" },
+      { name: "watches" },
+      { name: "hihi" },
+      { name: "hehheehe" },
+    ],
   },
   {
     name: "Art & Collectibles",
+    child: [
+      { name: "bedding" },
+      { name: "bathroom" },
+      { name: "garden" },
+      { name: "bedding" },
+      { name: "livingroom" },
+      { name: "bedding" },
+      { name: "bathroom" },
+      { name: "garden" },
+      { name: "bedding" },
+      { name: "livingroom" },
+    ],
   },
   {
     name: "Craft Supplies",
+    child: [
+      { name: "afjfsaf" },
+      { name: "afsdja" },
+      { name: "garden" },
+      { name: "bedding" },
+      { name: "livingroom" },
+      { name: "bedding" },
+      { name: "bathroom" },
+      { name: "garden" },
+      { name: "bedding" },
+      { name: "livingroom" },
+    ],
   },
 ];
 
@@ -30,12 +86,13 @@ class Menu extends React.Component {
     super(props)
     this.state = {
       isShowDropDown: false,
+      listChildDropDown: [],
     };
     this.handleDropDown = this.handleDropDown.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
-  handleDropDown(){
-    // this.setState({isShowDropDown: true})
+  handleDropDown(category){
+    this.setState({listChildDropDown: category.child});
   }
 
   handleMouseLeave(){
@@ -50,23 +107,22 @@ class Menu extends React.Component {
       >
         <div className="menu-bar">
           {list.map((category, idx) => (
-            <div
+            <div style = {{cursor: 'pointer'}}
               key={idx}
-              onMouseEnter={this.handleDropDown}
-              onMouseLeave={this.handleMouseLeave}
+              onMouseEnter={() => this.handleDropDown(category)}
+              onMouseLeave={() => this.handleMouseLeave(category)}
             >
               {category.name}
             </div>
           ))}
         </div>
-        <div style={{ display: this.state.isShowDropDown ? "block" : "none" }}>
-          <ol>
-            <li>Item1</li>
-            <li>Item2</li>
-            <li>Item3</li>
-            <li>Item4</li>
-            <li>Item5</li>
-          </ol>
+        <div className="dropdown-menu" style={{ display: this.state.isShowDropDown ? "block" : "none" }}>
+          
+          <div className="list-menu">
+            {this.state.listChildDropDown.map((child, childId) => (
+            <div className="list-item" key={childId}>{child.name}</div>
+            ))}
+          </div>
         </div>
       </div>
     );

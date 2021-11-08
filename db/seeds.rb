@@ -1,3 +1,4 @@
+require 'open-uri'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -34,86 +35,114 @@ user20 = User.create!(email: "sushi@gmail.com", password: 'password')
 demoUser = User.create!(email: "demo@gmail.com", password: "password123")
 
 
-product1 = Product.create!(product_name: "Horse Watercolor Art Print - Horse Watercolour Print - Gift for Equestrian - Housewarming Gift - Horse Prints - Horse Poster", description: "Horse Watercolor Art Print
-Paper: Epson Heavy Weight High Quality Paper - Made in Japan" , price: 20, seller_id: user1.id)
-image1 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/WWybTsQ2brDRhJAJGcqNv2vW")
-product1.photo.attach(io: image1, filename:"image1.jpg")
+product1 = Product.create!(product_name: "House Bed Frame Twin Full or Queen Made in US", description: "What a great functional piece for your kids room! Now they can have a home inside their home with this adorable house bed frame. Make the transition out of the toddler bed exciting for your little ones!", price: 70, seller_id: user1.id)
+bedframe1 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/bedframe1.webq")
+product1.photo.attach(io: beframe1, filename:"bedframe1.webq")
 
-product2 = Product.create!(product_name: "Ceramic Vases for Flowers- Unique Flower Vase- Modern Decorative Vase for Home Decoration- Nordic Vase Collection", description: "Want something special in your home? Check out these Ceramic Vases for Flowers! Unique and refined, our vases decorate large and small spaces to give them an incredible personality." , price: 18.22, seller_id: user2.id)
-image2 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/WWybTsQ2brDRhJAJGcqNv2vW")
-product2.photo.attach(io: image2, filename:"image2.jpg")
+product2 = Product.create!(product_name: "Natural color linen cover for toddler bed", description: "Add a modern touch to your toddlers house shape bed with our linen covers!" , price: 75.22, seller_id: user2.id)
+bedframe2 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/bedframe2.jpg")
+product2.photo.attach(io: bedframe2, filename:"bedframe2.jpg")
 
-product3 = Product.create!(product_name: "Moon Phase Wall Hanging, Moon Decor Phases of the Moon, Boho Bedroom Art Celestial Bohemian Room", description: "PHASES OF THE MOON shine with this decorative wall hanging, creating peace and comfort in any room
-HANDMADE with hammered metal moons and iron chains, each piece is unique and original as you are too
-EASY BOHO HOME DECOR", price: 20.15, seller_id: user3.id)
-image3 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product3.photo.attach(io: image3, filename:"image2.jpg")
+product3 = Product.create!(product_name: "Montessori toddler beds Frame bed ", description: "Montessori toddler beds are amazing kids' teepee wood house beds for children. Adorable children's furniture frame bed will make transitioning from a nursery bed or a baby bed to a children's bed smoothly.", price: 200, seller_id: user3.id)
+bedframe3 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/bedframe3.jpg")
+product3.photo.attach(io: bedframe3, filename:"bedframe3.jpg")
 
-product4 = Product.create!(product_name: "Moon Phase Glass Mirror Wall Décor - Wall decor, home decor, Moon decoration, Moon phase, Bedroom Decor, Moon phase decor, Boho decor,Mirror", description: "Our moon wall décor mirrors are made of 100% GLASS and non-toxic environmental basswood, which allows a clear imaging effect just as a regular mirror would unlike type moon mirrors out there." , price: 20.44, seller_id: user4.id)
-image4 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product4.photo.attach(io: image4, filename:"image4.jpg")
+product4 = Product.create!(product_name: "Tepee House Bed", description: "Adventure awaits with the Teepee full tent complete bed in a box." , price: 290, seller_id: user4.id)
+bedframe4 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/bedroom4.jpg")
+product4.photo.attach(io: bedframe4, filename:"bedframe4.jpg")
 
-product5 = Product.create!(product_name: "Botanical Print Set, Rustic Farmhouse Gray Beige Botanical Prints, Cream Floral Prints, Living Room Decor, Gray Cream Taupe Botanical Art", description: "The neutrals: Cream and gray botanical prints. Bring rustic charm to your home with these 6 Wild flowers against shades of cream, coffee, beige and grays. Printed on matte, fine art paper" , price: 80.21, seller_id: user5.id)
-image5 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product5.photo.attach(io: image5, filename:"image5.jpg")
+product5 = Product.create!(product_name: "Lucinda Luxurious 6 Piece 100% Cotton Towel Set", description: "Pamper yourself with the luxurious weight of 600gsm towels and washcloths when you use these cotton towels." , price: 22.21, seller_id: user5.id)
+bath2 = open("s3://homi-aa-dev/bath2.jpg")
+product5.photo.attach(io: bath2, filename:"bath2.jpg")
 
-product6 = Product.create!(product_name: "Set of 3 Scandinavian Wall Art, Nordic Wall Art", description: "This set of Scandinavian wall prints are sure to add style to any room, especially a living room, bedroom, dining room or hallway." , price: 19.25, seller_id: user6.id)
-image6 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product6.photo.attach(io: image6, filename:"image6.jpg")
+product6 = Product.create!(product_name: "Wooden Serving Board for Foods Food Serving Platter Cheese No Engraving", description: "HIGH-QUALITY MATERIALS: This serving board for foods is made of Acacia Wood that is a water-resilient and highly durable material." , price: 40.25, seller_id: user6.id)
+kitchen1 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/kitchen1.webp")
+product6.photo.attach(io: kitchen1, filename:"kitchen1.webq")
 
-product7 = Product.create!(product_name: "Custom Dog Portrait Watercolor, Painting Of Dog Custom, Watercolor Dog Art", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s" , price: 55.77, seller_id: user7.id)
-image7 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product7.photo.attach(io: image7, filename:"image7.jpg")
+product7 = Product.create!(product_name: "Funny Dish Towels", description: "Are you looking for a unique gift for someone special? Our personalized kitchen towels are the gift for you!! " , price: 11.77, seller_id: user7.id)
+kitchen2 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/kitchen2.webp")
+product7.photo.attach(io: kitchen2, filename:"kitchen2.webq")
 
-product8 = Product.create!(product_name: "Dried Plant Hanging - Wall Decor", description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.", price: 45.19, seller_id: user8.id)
-image8 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product8.photo.attach(io: image8, filename:"image8.jpg")
+product8 = Product.create!(product_name: "Natural linen table runner", description: "STRIPED linen table runner - natural linen table runner - light white beige table runner - handmade linen table runner", price: 22.19, seller_id: user8.id)
+kitchen3 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/kitchen3.webp")
+product8.photo.attach(io: kitchen3, filename:"kitchen3.webq")
 
-product9 = Product.create!(product_name: "Moon Phase Glass Mirror Wall Décor - Wall decor, home decor, Moon decoration, Moon phase, Bedroom Decor, Moon phase decor, Boho decor,Mirror", description: "Our moon wall décor mirrors are made of 100% GLASS and non-toxic environmental basswood, which allows a clear imaging effect just as a regular mirror would unlike type moon mirrors out there." , price: 20.99, seller_id: user9.id)
-image9 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product9.photo.attach(io: image9, filename:"image9.jpg")
+product9 = Product.create!(product_name: "Kitchen stool Safety", description: "The kitchen step stool, safety stool, or kids step stool is an adjustable kitchen chair or Montessori tower for toddlers. " , price: 55.99, seller_id: user9.id)
+kitchen4 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/kitchen4.webp")
+product9.photo.attach(io: kitchen4, filename:"kitchen4.webq")
 
-product10 = Product.create!(product_name: "Wall Decor,Lavender,Farmhouse Decor", description: "The neutrals: Cream and gray botanical prints. Bring rustic charm to your home with these 6 Wild flowers against shades of cream, coffee, beige and grays. Printed on matte, fine art paper" , price: 80.21, seller_id: user10.id)
-image10 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product10.photo.attach(io: image10, filename:"image10.jpg")
+product10 = Product.create!(product_name: "REGULAR Two Tone Tray ", description: "THE CRAFTY SWIRL is expanding its two tone collection!" , price: 80.21, seller_id: user10.id)
+kitchen5 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/kitchen5.webp")
+product10.photo.attach(io: kitchen5, filename:"kitchen5.webq")
 
 product11 = Product.create!(product_name: "Wood World Map Wall Art Wood Large Wall Decor Travel Home Decor", description: "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, " , price: 22.46, seller_id: user11.id)
-image11 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product11.photo.attach(io: image11, filename:"image11.jpg")
+walldecor1 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/walldecor1.jpg")
+product11.photo.attach(io: walldecor1, filename:"walldecor1.jpg")
 
 product12 = Product.create!(product_name: "Family Last Name Sign for Personalized Wedding", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " , price: 41.19, seller_id: user12.id)
-image12 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product12.photo.attach(io: image12, filename:"image12.jpg")
+walldecor2 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/walldecor2.jpg")
+product12.photo.attach(io: walldecor2, filename:"walldecor2.jpg")
 
 product13 = Product.create!(product_name: "Wine Bottle Bag - Personalized Wine Gift Bag", description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum", price: 20.15, seller_id: user13.id)
-image13 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product13.photo.attach(io: image13, filename:"image2.jpg")
+walldecor3 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/walldecor3.jpg")
+product13.photo.attach(io: walldecor3, filename:"walldecor3.jpg")
 
 product14 = Product.create!(product_name: "Custom Doormat, Personalize Gift, Personalized doormat, Last Name Doormat", description: "This last name doormat also makes for the perfect housewarming gift and wedding gift. There's nothing like receiving such a special personalized gift!" , price: 31.14, seller_id: user14.id)
-image14 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product14.photo.attach(io: image14, filename:"image14.jpg")
+walldecor4 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/walldecor4.jpg")
+product14.photo.attach(io: walldecor4, filename:"walldecor4.jpg")
 
-product15 = Product.create!(product_name: "Custom Chopping Board, Personalized Cutting Board Set", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." , price: 31.21, seller_id: user15.id)
-image15 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product15.photo.attach(io: image15, filename:"image15.jpg")
+product15 = Product.create!(product_name: "Large Hexagon shelf, hexagon shelves", description: "Endless possibilities await with these custom finished shelves." , price: 31.21, seller_id: user15.id)
+walldecor5 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/walldecor5.jpg")
+product15.photo.attach(io: walldecor5, filename:"walldecor5.jpg")
 
 product16 = Product.create!(product_name: "Bridal Shower Gift", description: "This personalized pallet sign makes a beautiful addition to your home. It also makes for a unique wedding or anniversary gift.", price: 25.35, seller_id: user16.id)
-image16 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product16.photo.attach(io: image16, filename:"image16.jpg")
+vase1 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/vase1.jpg")
+product16.photo.attach(io: vase1, filename:"vase1.jpg")
 
 product17 = Product.create!(product_name: "Flower Girl Gift, Bridesmaid Proposal", description: "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages", price: 22.13, seller_id: user17.id)
-image17 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product17.photo.attach(io: image17, filename:"image17.jpg")
+vase2 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/vase2.jpg")
+product17.photo.attach(io: vase2, filename:"vase2.jpg")
 
 product18 = Product.create!(product_name: "SET of 3 -Knitted Pumpkins, Fall Decor, Thanksgiving Decorations, Autumn Decor", description: "These soft knitted pumpkins are sold in a SET OF 3 and I promise you, they will bring indoors all the warmth and coziness of the season!" , price: 37.25, seller_id: user18.id)
-image18 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product18.photo.attach(io: image18, filename:"image18.jpg")
+vase3 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/vase3.jpg")
+product18.photo.attach(io: vase3, filename:"vase3.jpg")
 
 product19 = Product.create!(product_name: "MOSS GREEN linen table runner", description: "MOSS GREEN linen table runner - heavier linen olive green linen table runner - military green table runner - handmade linen table runner", price: 34.21, seller_id: user19.id)
-image19 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product19.photo.attach(io: image19, filename:"image19.jpg")
+vase4 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/vase4.jpg")
+product19.photo.attach(io: vase4, filename:"vase4.jpg")
 
-product20 = Product.create!(product_name: "handmade ceramic oil burner", description: "handmade oil burner", price: 15.21, seller_id: user20.id)
-image20 = URI.open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/zFBebWz6tiTLRs16twPBcYuA")
-product20.photo.attach(io: image20, filename:"image20.jpg")
+product20 = Product.create!(product_name: "Wood Floating Shelves 3-Inches Thick", description: "This beautiful floating wood shelf is the perfect shelving unit designed to work with any theme your décor is going for, making them completely harmonious.", price: 35.21, seller_id: user20.id)
+livingroom1 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/livingroom1.jpg")
+product20.photo.attach(io: livingroom1, filename:"livingroom1.jpg")
 
+product21 = Product.create!(product_name: "Floating Shelf Rustic Shelf Ledge Shelf Open Shelving", description: "Amazing kids' teepee wood house beds for children.", price: 200, seller_id: user16.id)
+livingroom2 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/livingroom2.jpg")
+bedframe1.photo.attach(io: bedframe1, filename:"livingroom2.jpg")
+
+product22 = Product.create!(product_name: "Floating Reclaimed Wood Shelves", description: "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages", price: 22.13, seller_id: user17.id)
+livingroom3 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/livingroom3.jpg")
+product17.photo.attach(io: livingroom3, filename:"livingroom3.jpg")
+
+product23 = Product.create!(product_name: "Rustic Floating Shelves Industrial ", description: "Our floating shelf adds a rustic farmhouse open storage solution to your home or work space." , price: 37.25, seller_id: user18.id)
+livingroom4 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/livingroom4.jpg")
+product18.photo.attach(io: livingroom4, filename:"livingroom4.jpg")
+
+product24 = Product.create!(product_name: "MOSS GREEN linen table runner", description: "MOSS GREEN linen table runner - heavier linen olive green linen table runner - military green table runner - handmade linen table runner", price: 34.21, seller_id: user19.id)
+livingroom5 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/livingroom5.webp")
+product19.photo.attach(io: livingroom5, filename:"livingroom5.webq")
+
+product25 = Product.create!(product_name: "Heavenly Angel Solar Powered Led Outdoor Decor Garden Light", description: "Solar Powered LED Outdoor Garden Light - Great addition for your garden!", price: 15.21, seller_id: user20.id)
+garden1 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/gargen1.webp")
+product20.photo.attach(io: garden1, filename:"garden1.webq")
+
+product26 = Product.create!(product_name: "Solar Powered LED Outdoor Garden Light - Great addition for your garden!", description: "Captures the essence of nature at rest with this lifelike fox pup figure taking time out from his busy day to sleep.", price: 32.99, seller_id: user20.id)
+garden2 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/garden2.webp")
+product20.photo.attach(io: garden2, filename:"garden2.webq")
+
+product27 = Product.create!(product_name: "Rain Slicker Frog Statue", description: "Theme: Animal", price: 38.21, seller_id: user20.id)
+garden3 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/garden3.webp")
+product20.photo.attach(io: garden3, filename:"garden3.webq")
+
+product28 = Product.create!(product_name: "Cherubs Of Contemplation Angel Statue", description: "If you can't sneak a catnap for yourself, you'll envy this feathered fellow's sweet repose in your home or garden. ", price: 34.21, seller_id: user20.id)
+garden4 = open("https://homi-aa-dev.s3.us-east-2.amazonaws.com/garden4.webp")
+product20.photo.attach(io: garden4, filename:"garden4.webq")
