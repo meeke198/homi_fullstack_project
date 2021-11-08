@@ -1,9 +1,11 @@
 //keep track/combine of all the relational data(reducer) in our app.
 import { combineReducers } from 'redux';
+import productsReducer from './products_reducer';
 import usersReducer from './users_reducer';
 
 const entitiesReducer = combineReducers({
-  users: usersReducer
+  users: usersReducer,
+  products: productsReducer,
 });
 
 export default entitiesReducer;

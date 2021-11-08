@@ -14,9 +14,8 @@
 #  created_at     :datetime         not null
 #
 class Product < ApplicationRecord
-    validates :product_name, :category_id, :labor_estimate, :seller_id, :image_url, :description,:price, presence: true
+    validates :product_name, :seller_id, :description,:price, presence: true
     validates :price,  numericality: { greater_than: 0 }
-    validates :quantity, numericality: { greater_than_or_equal_to: 0 }
 
 
     belongs_to :seller,
@@ -27,11 +26,9 @@ class Product < ApplicationRecord
     foreign_key: :product_id,
     class_name: :Review
 
-    belongs_to :categories,
-    foreign_key: :category_id,
-    class_name: :Category
-
     has_many :cart_items,
     foreign_key: :product_id,
     class_name: :Product
+
+    has_one_attached :photo
 end
