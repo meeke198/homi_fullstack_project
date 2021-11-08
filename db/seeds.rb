@@ -57,8 +57,8 @@ bedframe3 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/bedframe3.jp
 product3.photo.attach(io: bedframe3, filename:"bedframe3.jpg")
 
 product4 = Product.create!(product_name: "Tepee House Bed", description: "Adventure awaits with the Teepee full tent complete bed in a box." , price: 290, seller_id: 4)
-bedframe4 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/bedroom4.jpg")
-product4.photo.attach(io: bedframe4, filename:"bedroom4.jpg")
+bedframe4 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/bedframe4.jpg")
+product4.photo.attach(io: bedframe4, filename:"bedframe4.jpg")
 
 product5 = Product.create!(product_name: "Lucinda Luxurious 6 Piece 100% Cotton Towel Set", description: "Pamper yourself with the luxurious weight of 600gsm towels and washcloths when you use these cotton towels." , price: 22.21, seller_id: 5)
 bath2 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/bath2.jpg")
@@ -126,32 +126,32 @@ product20.photo.attach(io: livingroom1, filename:"livingroom1.jpg")
 
 product21 = Product.create!(product_name: "Floating Shelf Rustic Shelf Ledge Shelf URI.open Shelving", description: "Amazing kids' teepee wood house beds for children.", price: 200, seller_id: 21)
 livingroom2 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/livingroom2.jpg")
-bedframe1.photo.attach(io: bedframe1, filename:"livingroom2.jpg")
+product21.photo.attach(io: livingroom2, filename:"livingroom2.jpg")
 
 product22 = Product.create!(product_name: "Floating Reclaimed Wood Shelves", description: "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages", price: 22.13, seller_id: 22)
 livingroom3 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/livingroom3.jpg")
-product17.photo.attach(io: livingroom3, filename:"livingroom3.jpg")
+product22.photo.attach(io: livingroom3, filename:"livingroom3.jpg")
 
 product23 = Product.create!(product_name: "Rustic Floating Shelves Industrial ", description: "Our floating shelf adds a rustic farmhouse URI.open storage solution to your home or work space." , price: 37.25, seller_id: 23)
 livingroom4 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/livingroom4.jpg")
-product18.photo.attach(io: livingroom4, filename:"livingroom4.jpg")
+product23.photo.attach(io: livingroom4, filename:"livingroom4.jpg")
 
 product24 = Product.create!(product_name: "MOSS GREEN linen table runner", description: "MOSS GREEN linen table runner - heavier linen olive green linen table runner - military green table runner - handmade linen table runner", price: 34.21, seller_id: 24)
 livingroom5 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/livingroom5.webp")
-product19.photo.attach(io: livingroom5, filename:"livingroom5.webq")
+product24.photo.attach(io: livingroom5, filename:"livingroom5.webq")
 
 product25 = Product.create!(product_name: "Heavenly Angel Solar Powered Led Outdoor Decor Garden Light", description: "Solar Powered LED Outdoor Garden Light - Great addition for your garden!", price: 15.21, seller_id: 25)
 garden1 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/gargen1.webp")
-product20.photo.attach(io: garden1, filename:"garden1.webq")
+product25.photo.attach(io: garden1, filename:"garden1.webq")
 
 product26 = Product.create!(product_name: "Solar Powered LED Outdoor Garden Light - Great addition for your garden!", description: "Captures the essence of nature at rest with this lifelike fox pup figure taking time out from his busy day to sleep.", price: 32.99, seller_id: 26)
 garden2 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/garden2.webp")
-product20.photo.attach(io: garden2, filename:"garden2.webq")
+product26.photo.attach(io: garden2, filename:"garden2.webq")
 
 product27 = Product.create!(product_name: "Rain Slicker Frog Statue", description: "Theme: Animal", price: 38.21, seller_id: 27)
 garden3 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/garden3.webp")
-product20.photo.attach(io: garden3, filename:"garden3.webq")
+product27.photo.attach(io: garden3, filename:"garden3.webq")
 
 product28 = Product.create!(product_name: "Cherubs Of Contemplation Angel Statue", description: "If you can't sneak a catnap for yourself, you'll envy this feathered fellow's sweet repose in your home or garden. ", price: 34.21, seller_id: 28)
 garden4 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/garden4.webp")
-product20.photo.attach(io: garden4, filename:"garden4.webq")
+product28.photo.attach(io: garden4, filename:"garden4.webq")
