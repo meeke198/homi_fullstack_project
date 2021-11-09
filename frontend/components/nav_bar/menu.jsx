@@ -1,76 +1,77 @@
 import React from "react";
-
+import { Link } from 'react-router-dom';
 
 const list = [
   {
     name: "Clothing & Shoe",
     child: [
-      { name: "dresses" },
-      { name: "sweater" },
-      { name: "pants" },
-      { name: "coat" },
-      { name: "skirts" },
-      { name: "bedding" },
-      { name: "bathroom" },
-      { name: "garden" },
-      { name: "bedding" },
-      { name: "livingroom" },
+      { name: "dresses", route: "bathroom" },
+      { name: "sweater", route: "bathroom" },
+      { name: "sweater", route: "bathroom" },
+      { name: "pants", route: "bathroom" },
+      { name: "coat", route: "bathroom" },
+      { name: "skirts", route: "bathroom" },
+      { name: "bedding", route: "bathroom" },
+      { name: "bathroom", route: "bathroom" },
+      { name: "garden", route: "bathroom" },
+      { name: "bedding", route: "bathroom" },
+      { name: "livingroom", route: "bathroom" },
     ],
   },
   {
     name: "Home & Living",
     child: [
-      { name: "bedding" },
-      { name: "bathroom" },
-      { name: "garden" },
-      { name: "bedding" },
-      { name: "livingroom" },
-      { name: "bedding" },
-      { name: "bathroom" },
-      { name: "garden" },
-      { name: "bedding" },
-      { name: "livingroom" },
+      { name: "bedding", route: "bathroom" },
+      { name: "bathroom", route: "bathroom" },
+      { name: "garden", route: "bathroom" },
+      { name: "bedding", route: "bathroom" },
+      { name: "livingroom", route: "bathroom" },
+      { name: "bedding", route: "bathroom" },
+      { name: "bathroom", route: "bathroom" },
+      { name: "garden", route: "bathroom" },
+      { name: "bedding", route: "bathroom" },
+      { name: "livingroom", route: "bathroom" },
     ],
   },
 
   {
     name: "Jewelry & Accessories",
     child: [
-      { name: "rings" },
-      { name: "bracelet" },
-      { name: "watches" },
-      { name: "hihi" },
-      { name: "hehheehe" },
+      { name: "rings", route: "bathroom" },
+      { name: "bracelet", route: "bathroom" },
+      { name: "watches", route: "bathroom" },
+      { name: "hihi", route: "bathroom" },
+      { name: "hehheehe", route: "bathroom" },
     ],
   },
   {
     name: "Art & Collectibles",
     child: [
-      { name: "bedding" },
-      { name: "bathroom" },
-      { name: "garden" },
-      { name: "bedding" },
-      { name: "livingroom" },
-      { name: "bedding" },
-      { name: "bathroom" },
-      { name: "garden" },
-      { name: "bedding" },
-      { name: "livingroom" },
+      { name: "bedding", route: "bedding" },
+      { name: "bathroom", route: "bathroom" },
+      { name: "garden", route: "bathroom" },
+      { name: "bedding", route: "bathroom" },
+      { name: "livingroom", route: "bathroom" },
+      { name: "bedding", route: "bathroom" },
+      { name: "bathroom", route: "bathroom" },
+      { name: "garden", route: "bathroom" },
+      { name: "bedding", route: "bathroom" },
+      { name: "livingroom", route: "bathroom" },
     ],
   },
   {
     name: "Craft Supplies",
     child: [
-      { name: "afjfsaf" },
-      { name: "afsdja" },
-      { name: "garden" },
-      { name: "bedding" },
-      { name: "livingroom" },
-      { name: "bedding" },
-      { name: "bathroom" },
-      { name: "garden" },
-      { name: "bedding" },
-      { name: "livingroom" },
+      { name: "afjfsaf", route: "bathroom" },
+      { name: "afsdja", route: "bathroom" },
+      { name: "garden", route: "bathroom" },
+      { name: "bedding", route: "bathroom" },
+      { name: "livingroom", route: "bathroom" },
+      { name: "bedding", route: "bathroom" },
+      { name: "bathroom", route: "bathroom" },
+      { name: "garden", route: "bathroom" },
+      { name: "bedding", route: "bathroom" },
+      { name: "livingroom", route: "bathroom" },
     ],
   },
 ];
@@ -89,38 +90,42 @@ class Menu extends React.Component {
       listChildDropDown: [],
     };
     this.handleDropDown = this.handleDropDown.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
   handleDropDown(category){
     this.setState({listChildDropDown: category.child});
   }
 
-  handleMouseLeave(){
-    // this.setState({isShowDropDown: false})
-  }
 
   render() {
     return (
-      <div
+      <div style={{position: 'relative'}}
         onMouseEnter={() => this.setState({ isShowDropDown: true })}
         onMouseLeave={() => this.setState({ isShowDropDown: false })}
       >
         <div className="menu-bar">
           {list.map((category, idx) => (
-            <div style = {{cursor: 'pointer'}}
+            <div
+              style={{ cursor: "pointer" }}
               key={idx}
               onMouseEnter={() => this.handleDropDown(category)}
-              onMouseLeave={() => this.handleMouseLeave(category)}
             >
               {category.name}
             </div>
           ))}
         </div>
-        <div className="dropdown-menu" style={{ display: this.state.isShowDropDown ? "block" : "none" }}>
-          
+        <div
+          className="dropdown-menu"
+          style={{ display: this.state.isShowDropDown ? "block" : "none" }}
+        >
           <div className="list-menu">
             {this.state.listChildDropDown.map((child, childId) => (
-            <div className="list-item" key={childId}>{child.name}</div>
+                <Link style={{textDecoration: 'none'}}
+                  to={`/products/catergories/${child.route}`}
+                  className="list-item"
+                  key={childId}
+                >
+                  {child.name}
+                </Link>
             ))}
           </div>
         </div>
