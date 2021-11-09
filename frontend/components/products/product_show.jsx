@@ -26,20 +26,18 @@ class ProductShow extends React.Component {
   render() {
     const { product } = this.props;
     return (
-      <div className="product-container">
-        <img className="product-img" src={product?.image_url} alt="" />
-        <div className="product-content">
+      <div className="product-container-show">
+        <img className="product-img-show" src={product?.image_url} alt="" />
+        <div className="product-content-show">
           <p className="product-name-show">{product?.product_name}</p>
           <br />
-          <p className="product-description" style={{ fontWeight: 700 }}>
-            Description:
-          </p>
-          <p>{product?.description}</p>
+          <p style={{ fontWeight: 700, paddingBottom: 20 }}>Description:</p>
+          <p className="product-description">{product?.description}</p>
           <p className="price">Price: $ {product?.price}.00</p>
           <form className="add_to_cart" onSubmit={this.addToCartSubmit}>
-            <label style={{padding: "10px 0"}}>Quantity</label>
+            <label style={{ padding: "10px 0" }}>Quantity</label>
             <br />
-            <div className="custom-select" style={{width: "350px"}}>
+            <div className="custom-select" style={{ width: "350px" }}>
               <select
                 className="quantity-select"
                 defaultValue={this.state.quantity}

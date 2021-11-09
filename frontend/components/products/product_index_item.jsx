@@ -10,13 +10,13 @@ class ProductIndexItem extends React.Component {
         const { product } = this.props
         return (
           <div className="product-container">
-            <Link style={{ width: "100%" }} to={`products/${product.id}`}>
+            <Link style={{ width: "100%", alignContent: 'center', textDecoration: 'none'}} to={`products/${product.id}`}>
               <img className="product-img" src={product.image_url} alt="" />
 
               <div className="product-content">
-                <p className="product-name">{product.product_name}</p>
+                <p style={{fontWeight: 700}}>{product.product_name}</p>
                 <p>
-                  <span style={{ fontWeight: 700 }}>Price: $</span>
+                  <span style={{ fontWeight: 700}}>Price: $</span>
                   {product.price}
                 </p>
               </div>

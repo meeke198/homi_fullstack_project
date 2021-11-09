@@ -17,6 +17,10 @@ const Messages = [
     title: "Gifts for kids",
   },
   {
+    imageUrl: "https://i.etsystatic.com/31748115/r/il/f7543b/3305096856/il_1588xN.3305096856_g15r.jpg",
+    title: "Seasonal Shopping"
+  },
+  {
     imageUrl:
       "https://i.etsystatic.com/7131834/r/il/0f8ecc/3359499994/il_1588xN.3359499994_gqsc.jpg",
     title: "On Sale",
@@ -24,7 +28,7 @@ const Messages = [
 ];
 const MessageItem = (props) => {
   return (
-    <div>
+    <div className="message-sub-container">
       <div className="message-block">
         <img className="message-img" src={props.imageUrl} alt="" />
         <p className="message-title">{props.title}</p>
@@ -34,18 +38,25 @@ const MessageItem = (props) => {
 };
 const Message = () => {
   return (
-    <div style={{padding: '40px 20px', backgroundColor: '#FFDFAF'}}>
-      <h3 className="message-text" style={{textAlign: 'center'}}>Bring on the holidays! Discover meaningful finds!</h3>
+    <div
+      style={{ paddingTop: 40, backgroundColor: "#FDEBD2", width: "100wv" }}
+    >
+      <h3 className="message-text" style={{ textAlign: "center", marginBottom: 30 }}>
+        Bring on the holidays! Discover meaningful finds!
+      </h3>
       <div className="message-container">
-        {Messages.map((message, idx) => (
-          <MessageItem
-            key={idx}
-            title={message.title}
-            imageUrl={message.imageUrl}
-          />
-        ))}
+        {/* <div className="blank-div"></div> */}
+        {/* <div className="message-outer-block"> */}
+          {Messages.map((message, idx) => (
+            <MessageItem
+              key={idx}
+              title={message.title}
+              imageUrl={message.imageUrl}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    // </div>
   );
 };
 export default Message;
