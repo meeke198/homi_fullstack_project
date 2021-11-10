@@ -12,9 +12,7 @@ class ProductShow extends React.Component {
   }
   componentDidMount() {
     this.props.fetchProduct(this.props.match.params.productId);
-    console.log(this.props)
     if (this.props.currentUser) {
-      console.log("co chay vao day khong")
      this.props.fetchCart(this.props.currentUser.id);
     }
   }

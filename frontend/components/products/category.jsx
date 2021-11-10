@@ -4,7 +4,6 @@ import ProductIndexItem from './product_index_item';
 class Category extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props)
   }
   componentDidMount(){
       this.props.fetchProducts();
