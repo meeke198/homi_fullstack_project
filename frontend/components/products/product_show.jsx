@@ -11,7 +11,7 @@ class ProductShow extends React.Component {
     this.addToCartSubmit = this.addToCartSubmit.bind(this);
   }
   componentDidMount() {
-    // this.props.fetchProduct(this.props.match.params.productId);
+    this.props.fetchProduct(this.props.match.params.productId);
     console.log(this.props)
     if (this.props.currentUser) {
       console.log("co chay vao day khong")
