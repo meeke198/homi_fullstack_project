@@ -4,7 +4,7 @@ class Api::CartItemsCOntroller < ApplicationController
 
     def create
         @cart_item = CartItem.new(cart_item_params)
-        @cart_item.cart_id = current_user.cart.id #get cartId from current_user, but why current_user.cart.id???
+        @cart_item.cart_id = current_user.cart.id #get cartId from current_user(from model assosication => cart)
     
 
         if @cart_item.save
