@@ -10,7 +10,7 @@ class ProductIndexItem extends React.Component {
         const { product } = this.props
         return (
           <div className="product-container">
-            <Link style={{ width: "100%", alignContent: 'center', textDecoration: 'none'}} to={`products/${product.id}`}>
+            <Link style={{ width: "100%", alignContent: 'center', textDecoration: 'none'}} to={`/products/${product.id}`}>
               <img className="product-img" src={product.image_url} alt="" />
 
               <div className="product-content">

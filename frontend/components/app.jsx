@@ -12,21 +12,30 @@ import Menu from './nav_bar/menu'
 import ProfilePage from './profile/profile_page'
 import ProductIndexContainer from "./products/product_index_container";
 import ProductShowContainer from "./products/product_show_container";
+import CategoryContainer from "./products/category_container";
 
 const App = () => (
   <div>
     <Modal />
     <header>
       <Route path="/" component={NavBarContainer} />
-      <Menu/>
+      <Menu />
     </header>
     <Switch>
-      <Route exact path="/products/:productId" component={ProductShowContainer}/>
-      <Route exact path="/products" component={ProductIndexContainer}/>
+      <Route
+        exact
+        path="/products/categories/:category"
+        component={CategoryContainer}
+      />
+      <Route
+        exact
+        path="/products/:productId"
+        component={ProductShowContainer}
+      />
+      <Route exact path="/products" component={ProductIndexContainer} />
       <Route exact path="/" component={ProductIndexContainer} />
-      <Route exact path="/profile" component={ProfilePage}/>
+      <Route exact path="/profile" component={ProfilePage} />
       <Route component={NotFound} />
-
     </Switch>
   </div>
 );

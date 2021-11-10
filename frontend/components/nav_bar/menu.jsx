@@ -5,10 +5,10 @@ const list = [
   {
     name: "Clothing & Shoe",
     child: [
-      { name: "dresses", route: "bathroom" },
+      { name: "dresses", route: "dresses" },
       { name: "sweater", route: "bathroom" },
-      { name: "sweater", route: "bathroom" },
-      { name: "pants", route: "bathroom" },
+      { name: "sweater", route: "sweater" },
+      { name: "pants", route: "pants" },
       { name: "coat", route: "bathroom" },
       { name: "skirts", route: "bathroom" },
       { name: "bedding", route: "bathroom" },
@@ -120,7 +120,7 @@ class Menu extends React.Component {
           <div className="list-menu">
             {this.state.listChildDropDown.map((child, childId) => (
                 <Link style={{textDecoration: 'none'}}
-                  to={`/products/catergories/${child.route}`}
+                  to={`/products/categories/${child.route}`}
                   className="list-item"
                   key={childId}
                 >

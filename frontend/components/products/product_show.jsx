@@ -11,7 +11,16 @@ class ProductShow extends React.Component {
     this.addToCartSubmit = this.addToCartSubmit.bind(this);
   }
   componentDidMount() {
-    this.props.fetchProduct(this.props.match.params.productId);
+    // this.props.fetchProduct(this.props.match.params.productId);
+    console.log(this.props)
+    if (this.props.currentUser) {
+      console.log("co chay vao day khong")
+     this.props.fetchCart(this.props.currentUser.id);
+    }
+  }
+
+  addItemToCartHandler(){
+    this.props.hunkCreateCartItem(this.props.product.id, this.state.quantity);
   }
 
   quantityHandler() {
@@ -51,7 +60,7 @@ class ProductShow extends React.Component {
               </select>
             </div>
 
-            <button className="submit-form-button">Add to cart</button>
+            <button className="submit-form-button" onClick={this.addToCartSubmit}>Add to cart</button>
           </form>
         </div>
       </div>
