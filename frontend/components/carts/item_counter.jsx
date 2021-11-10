@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Route } from "react-router";
-import { ProductIndexContainer } from "../products/product_index_container";
 
-class CartCounter extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const ItemCounter = ({ items }) => {
 
-  render() {
-    <div>this is cart header</div>;
-  }
-}
+  let totalItems = 0;
+  items.forEach((item) => totalItems += item.quantity)
 
+  return (
+    <div>
+      <div>{isNaN(totalItems) ? 0 : totalItems} items in your cart</div>
+      <div>keep shopping</div>
+    </div>
+  )}
 export default ItemCounter;

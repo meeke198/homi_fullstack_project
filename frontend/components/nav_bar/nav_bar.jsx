@@ -13,7 +13,9 @@ const NavBar = ({ currentUser, openModal, logout }) => {
         Logout
       </button>
       <Profile />
-      <BsCart4 style={{ marginLeft: 15, width: 25, height: 25 }} />
+      <Link to="/cart_items">
+        <BsCart4 style={{ marginLeft: 15, width: 25, height: 25 }}/>
+      </Link>
     </div>
   ) : (
     <div style={{ display: "flex", alignItems: "center" }}>
