@@ -45,8 +45,6 @@ const Message = () => {
         Bring on the holidays! Discover meaningful finds!
       </h3>
       <div className="message-container">
-        {/* <div className="blank-div"></div> */}
-        {/* <div className="message-outer-block"> */}
           {Messages.map((message, idx) => (
             <MessageItem
               key={idx}
