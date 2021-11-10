@@ -7,7 +7,7 @@ class Category extends React.Component {
     console.log(props)
   }
   componentDidMount(){
-    //   this.props.fetchProducts();
+      this.props.fetchProducts();
   }
   render(){
       let { products } = this.props

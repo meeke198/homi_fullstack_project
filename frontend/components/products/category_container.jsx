@@ -5,7 +5,7 @@ import Category from "./category";
 
 const mapStateToProps = (state) => ({
   products: Object.values(state.entities.products),
-//   currentUser: state.entities.users[state.session.id],
+  currentUser: state.entities.users[state.session.id],
 });
 
 const mapDispatchToProps = (dispatch) => ({

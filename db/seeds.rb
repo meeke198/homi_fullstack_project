@@ -102,11 +102,11 @@ product6 = Product.create!(product_name: "Wooden Serving Board for Foods Food Se
 kitchen1 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/kitchen1.jpg")
 product6.photo.attach(io: kitchen1, filename:"kitchen1.jpg")
 
-product7 = Product.create!(product_name: "Funny Dish Towels", description: "Are you looking for a unique gift for someone special? Our personalized kitchen towels are the gift for you!! ", category: "dinning tables", price: 11.77, seller_id: 7)
+product7 = Product.create!(product_name: "Funny Dish Towels", description: "Are you looking for a unique gift for someone special? Our personalized kitchen towels are the gift for you!! ", category: "dinningtables", price: 11.77, seller_id: 7)
 kitchen2 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/kitchen2.jpg")
 product7.photo.attach(io: kitchen2, filename:"kitchen2.jpg")
 
-product8 = Product.create!(product_name: "Natural linen table runner", description: "STRIPED linen table runner - natural linen table runner - light white beige table runner - handmade linen table runner", category: "dinning tables", price: 22.19, seller_id: 8)
+product8 = Product.create!(product_name: "Natural linen table runner", description: "STRIPED linen table runner - natural linen table runner - light white beige table runner - handmade linen table runner", category: "dinningtables", price: 22.19, seller_id: 8)
 kitchen3 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/kitchen3.jpg")
 product8.photo.attach(io: kitchen3, filename:"kitchen3.jpg")
 
@@ -114,7 +114,7 @@ product9 = Product.create!(product_name: "Kitchen stool Safety", description: "T
 kitchen4 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/kitchen4.jpg")
 product9.photo.attach(io: kitchen4, filename:"kitchen4.jpg")
 
-product10 = Product.create!(product_name: "REGULAR Two Tone Tray ", description: "THE CRAFTY SWIRL is expanding its two tone collection!", category: "dinning tables", price: 80.21, seller_id: 10)
+product10 = Product.create!(product_name: "REGULAR Two Tone Tray ", description: "THE CRAFTY SWIRL is expanding its two tone collection!", category: "dinningtables", price: 80.21, seller_id: 10)
 kitchen5 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/kitchen5.jpg")
 product10.photo.attach(io: kitchen5, filename:"kitchen5.jpg")
 
@@ -138,35 +138,35 @@ product15 = Product.create!(product_name: "Large Hexagon shelf, hexagon shelves"
 walldecor5 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/walldecor5.jpg")
 product15.photo.attach(io: walldecor5, filename:"walldecor5.jpg")
 
-product16 = Product.create!(product_name: "Bridal Shower Gift", description: "This personalized pallet sign makes a beautiful addition to your home. It also makes for a unique wedding or anniversary gift.", category: "vase", price: 25.35, seller_id: 16)
+product16 = Product.create!(product_name: "Bridal Shower Gift", description: "This personalized pallet sign makes a beautiful addition to your home. It also makes for a unique wedding or anniversary gift.", category: "vases", price: 25.35, seller_id: 16)
 vase1 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/vase1.jpg")
 product16.photo.attach(io: vase1, filename:"vase1.jpg")
 
-product17 = Product.create!(product_name: "Flower Girl Gift, Bridesmaid Proposal", description: "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages", category: "vase", price: 22.13, seller_id: 17)
+product17 = Product.create!(product_name: "Flower Girl Gift, Bridesmaid Proposal", description: "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages", category: "vases", price: 22.13, seller_id: 17)
 vase2 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/vase2.jpg")
 product17.photo.attach(io: vase2, filename:"vase2.jpg")
 
-product18 = Product.create!(product_name: "SET of 3 -Knitted Pumpkins, Fall Decor, Thanksgiving Decorations, Autumn Decor", description: "These soft knitted pumpkins are sold in a SET OF 3 and I promise you, they will bring indoors all the warmth and coziness of the season!", category: "vase", price: 37.25, seller_id: 18)
+product18 = Product.create!(product_name: "SET of 3 -Knitted Pumpkins, Fall Decor, Thanksgiving Decorations, Autumn Decor", description: "These soft knitted pumpkins are sold in a SET OF 3 and I promise you, they will bring indoors all the warmth and coziness of the season!", category: "vases", price: 37.25, seller_id: 18)
 vase3 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/vase3.jpg")
 product18.photo.attach(io: vase3, filename:"vase3.jpg")
 
-product19 = Product.create!(product_name: "MOSS GREEN linen table runner", description: "MOSS GREEN linen table runner - heavier linen olive green linen table runner - military green table runner - handmade linen table runner", category: "vase", price: 34.21, seller_id:19)
+product19 = Product.create!(product_name: "MOSS GREEN linen table runner", description: "MOSS GREEN linen table runner - heavier linen olive green linen table runner - military green table runner - handmade linen table runner", category: "vases", price: 34.21, seller_id:19)
 vase4 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/vase4.jpg")
 product19.photo.attach(io: vase4, filename:"vase4.jpg")
 
-product20 = Product.create!(product_name: "Wood Floating Shelves 3-Inches Thick", description: "This beautiful floating wood shelf is the perfect shelving unit designed to work with any theme your décor is going for, making them completely harmonious.", category: "floating shelves", price: 35.21, seller_id: 20)
+product20 = Product.create!(product_name: "Wood Floating Shelves 3-Inches Thick", description: "This beautiful floating wood shelf is the perfect shelving unit designed to work with any theme your décor is going for, making them completely harmonious.", category: "floatingshelves", price: 35.21, seller_id: 20)
 livingroom1 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/livingroom1.jpg")
 product20.photo.attach(io: livingroom1, filename:"livingroom1.jpg")
 
-product21 = Product.create!(product_name: "Floating Shelf Rustic Shelf Ledge Shelf URI.open Shelving", description: "Amazing kids' teepee wood house beds for children.", category: "floating shelves", price: 200, seller_id: 21)
+product21 = Product.create!(product_name: "Floating Shelf Rustic Shelf Ledge Shelf URI.open Shelving", description: "Amazing kids' teepee wood house beds for children.", category: "floatingshelves", price: 200, seller_id: 21)
 livingroom2 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/livingroom2.jpg")
 product21.photo.attach(io: livingroom2, filename:"livingroom2.jpg")
 
-product22 = Product.create!(product_name: "Floating Reclaimed Wood Shelves", description: "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages", category: "floating shelves", price: 22.13, seller_id: 22)
+product22 = Product.create!(product_name: "Floating Reclaimed Wood Shelves", description: "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages", category: "floatingshelves", price: 22.13, seller_id: 22)
 livingroom3 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/livingroom3.jpg")
 product22.photo.attach(io: livingroom3, filename:"livingroom3.jpg")
 
-product23 = Product.create!(product_name: "Rustic Floating Shelves Industrial ", description: "Our floating shelf adds a rustic farmhouse URI.open storage solution to your home or work space.", category: "floating shelves", price: 37.25, seller_id: 23)
+product23 = Product.create!(product_name: "Rustic Floating Shelves Industrial ", description: "Our floating shelf adds a rustic farmhouse URI.open storage solution to your home or work space.", category: "floatingshelves", price: 37.25, seller_id: 23)
 livingroom4 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/livingroom4.jpg")
 product23.photo.attach(io: livingroom4, filename:"livingroom4.jpg")
 
@@ -211,7 +211,7 @@ product33 = Product.create!(product_name: "Geometric Copper Mirror - Small - Lar
 mirror5 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/mirror5.jpg")
 product33.photo.attach(io: mirror5, filename:"mirror5.jpg")
 
-product34 = Product.create!(product_name: "TWhite Oak Floating Shelf - Custom Length, Depth, and Finish Color with Hidden Bracket and Mounting Hardware Included", description: "Finish Color - Natural, Sweet Honey with Glaze, Weathered Oak, Pickled White, Antique Oak, Classic Gray Ebony, Nature", category: "floating shelves", price: 290, seller_id: 34)
+product34 = Product.create!(product_name: "TWhite Oak Floating Shelf - Custom Length, Depth, and Finish Color with Hidden Bracket and Mounting Hardware Included", description: "Finish Color - Natural, Sweet Honey with Glaze, Weathered Oak, Pickled White, Antique Oak, Classic Gray Ebony, Nature", category: "floatingshelves", price: 290, seller_id: 34)
 floatingshelf5 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/floatingshelf5.jpg")
 product34.photo.attach(io: floatingshelf5, filename:"floatingshelf5.jpg")
 

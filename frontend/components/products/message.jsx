@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Messages = [
   {
@@ -31,7 +32,7 @@ const MessageItem = (props) => {
     <div className="message-sub-container">
       <div className="message-block">
         <img className="message-img" src={props.imageUrl} alt="" />
-        <p className="message-title">{props.title}</p>
+        <Link to="/products/categories/sofas" className="message-title">{props.title}</Link>
       </div>
     </div>
   );

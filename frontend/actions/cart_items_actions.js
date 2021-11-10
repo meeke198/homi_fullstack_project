@@ -1,9 +1,8 @@
 import * as cartItemsAPIUtil from "../util/cart_items_api_util"
-import { receiveCart } from "./cart_actions";
-const CREATE_CART_ITEM = "CREATE_CART_ITEM"; 
-const RECEIVE_CART_ITEMS = "RECEIVE_CART_ITEMS" ;
-const UPDATE_CART_ITEM = " UPDATE_CART_ITEM";
-const DELETE_CART_ITEM = "DELETE_CART_ITEM";
+export const CREATE_CART_ITEM = "CREATE_CART_ITEM"; 
+export const RECEIVE_CART_ITEMS = "RECEIVE_CART_ITEMS" ;
+export const UPDATE_CART_ITEM = " UPDATE_CART_ITEM";
+export const DELETE_CART_ITEM = "DELETE_CART_ITEM";
 
 
 export const createCartItem = (cartItem) => ({
@@ -23,7 +22,7 @@ export const updateCartItem = (cartItem) => ({
 })
 
 
-export const delateCartItem = (cartItemId) => ({
+export const deleteCartItem = (cartItemId) => ({
     type: DELETE_CART_ITEM,
     cartItemId
 })
@@ -47,7 +46,7 @@ export const thunkUpdateCartItem = (cartItem) => dispatch => (
 
 export const thunkDelateCartItem = (cartItemId) => (
     cartItemsAPIUtil.apiDeleteCartItem(cartItemId)
-    .then(() => dispatch(delateCartItem(cartItemId)))
+    .then(() => dispatch(deleteCartItem(cartItemId)))
 )
 
 
