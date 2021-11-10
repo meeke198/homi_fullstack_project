@@ -383,7 +383,7 @@ h3 {
   display: flex;
   width: 100%;
   .product-content-show {
-    padding: 100px 80px;
+    padding: 100px 20px 100px 0;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -422,7 +422,7 @@ h3 {
   .product-img-show {
     padding: 60px 40px;
     border-radius: 90px;
-    width: 1000px;
+    width: 65%;
     height: 750px;
   }
 }
