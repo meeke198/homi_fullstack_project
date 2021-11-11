@@ -46,7 +46,7 @@ const Message = (props) => {
       className="message-text"
       style={{ textAlign: "center", marginBottom: 30 }}
     >
-      Welcome back,<span>{currentUser.email}</span>
+      Welcome back, <span>{currentUser.email}!</span>
     </div>
   ) : (
     <div
