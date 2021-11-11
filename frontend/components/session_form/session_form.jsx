@@ -51,11 +51,11 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <div style={{marginTop: 20, lineHeight: 1}}>
         {this.props.errors.map((error, i) => (
-          <li key={`${i}`}>{error}</li>
+          <li style={{width: '100%'}} key={`${i}`}>{error}</li>
         ))}
-      </ul>
+      </div>
     );
   }
 
@@ -79,7 +79,7 @@ class SessionForm extends React.Component {
 
           <form className="form-box">
             <br />
-            {this.renderErrors()}
+
             <div className="login-form">
               <br />
               <div className="form-input-wrapper">
@@ -91,6 +91,7 @@ class SessionForm extends React.Component {
                   className="form-input"
                 />
               </div>
+              {this.renderErrors()}
               <br />
               <div className="form-input-wrapper">
                 <label className="form-label">Password:</label>
@@ -125,12 +126,11 @@ class SessionForm extends React.Component {
           <AiOutlineCloseCircle
             className="close-modal-button"
             onClick={this.props.closeModal}
-            style={{marginRight: 25}}
+            style={{ marginLeft: 330, width: 30, height: 30 }}
           />
           <form onSubmit={this.handleSubmit} className="form-box">
             <br />
-            <p style={{ fontSize: 20, fontWeight: 50 }}>Sign up</p>
-            {this.renderErrors()}
+            <p style={{ fontSize: 28, fontWeight: 80 }}>Sign up</p>
             <div className="login-form">
               <br />
               <div className="form-input-wrapper">
@@ -142,7 +142,7 @@ class SessionForm extends React.Component {
                   className="form-input"
                 />
               </div>
-
+              {this.renderErrors()}
               <br />
               <div className="form-input-wrapper">
                 <label className="form-label">Password:</label>
