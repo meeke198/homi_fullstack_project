@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
 
 const Messages = [
   {
@@ -37,13 +38,30 @@ const MessageItem = (props) => {
     </div>
   );
 };
-const Message = () => {
+
+const Message = (props) => {
+  const { currentUser } = props;
+  const display = currentUser ? (
+     <h3
+       className="message-text"
+       style={{ textAlign: "center", marginBottom: 30 }}
+     >
+       Welcome back, {currentUser.email}
+     </h3>
+ ) : (
+       <h3
+         className="message-text"
+         style={{ textAlign: "center", marginBottom: 30 }}
+       >
+         Bring on the holidays! Discover meaningful finds!
+       </h3>
+ );
   return (
     <div
       style={{ paddingTop: 40, backgroundColor: "#FDEBD2", width: "100wv" }}
     >
       <h3 className="message-text" style={{ textAlign: "center", marginBottom: 30 }}>
-        Bring on the holidays! Discover meaningful finds!
+       {display}
       </h3>
       <div className="message-container">
           {Messages.map((message, idx) => (
@@ -55,7 +73,11 @@ const Message = () => {
           ))}
         </div>
       </div>
-    // </div>
   );
 };
-export default Message;
+
+const mapStateToProps = (state) => ({
+  currentUser: state.entities.users[state.session.id]
+});
+
+export default connect(mapStateToProps, null)(Message);

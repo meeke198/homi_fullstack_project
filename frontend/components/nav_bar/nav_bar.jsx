@@ -7,6 +7,9 @@ import homilogo from "../../../app/assets/images/homilogo.png";
 import { CgProfile, CgLogOut } from "react-icons/cg";
 import { AiOutlineGift, AiOutlineSetting } from "react-icons/ai";
 import { BiDownArrow } from "react-icons/bi";
+import { MdFavoriteBorder } from "react-icons/md";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { BsShop } from "react-icons/bs";
 import { GrNotes } from "react-icons/gr";
 
 class NavBar extends React.Component {
@@ -70,15 +73,20 @@ class NavBar extends React.Component {
     const display = currentUser ? (
       <div className="logged-in">
         <div className="logged-in-profile-icon">
-          <CgProfile style={{ marginLeft: 15, width: 25, height: 25 }} />
-          <BiDownArrow
-            onClick={this.toggleDropdown}
-            style={{ position: "relative" }}
-          />
-          <div>{dropdownMenu}</div>
+          <MdFavoriteBorder style={{ width: 25, height: 25 }} />
+          <IoMdNotificationsOutline style={{ width: 25, height: 25 }} />
+          <BsShop style={{ width: 25, height: 25 }} />
+          <div>
+            <CgProfile style={{ width: 25, height: 25 }} />
+            <BiDownArrow
+              onClick={this.toggleDropdown}
+              style={{ position: "relative", marginLeft: 0 }}
+            />
+            <div>{dropdownMenu}</div>
+          </div>
         </div>
         <Link to="/cart_items">
-          <BsCart4 style={{ marginLeft: 15, width: 25, height: 25 }} />
+          <BsCart4 style={{ marginLeft: 15, width: 30, height: 30, textDecoration: 'none' }} />
         </Link>
       </div>
     ) : (

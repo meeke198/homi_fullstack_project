@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
         <div>
           <p style={{ textAlign: "center", paddingTop: 20 }} id="developer">
-            © 2021 Designed and Developed by Hien Nguyen
+            © 2021 Cloned and Designed by Hien Nguyen
           </p>
         </div>
       </div>
