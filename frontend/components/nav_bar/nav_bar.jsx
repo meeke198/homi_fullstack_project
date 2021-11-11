@@ -43,7 +43,7 @@ class NavBar extends React.Component {
             <div className="drop-down-list">
               <CgProfile style={{ paddingRight: 10 }} />
               <div className="drop-down-item">
-                <p>{currentUser.email}</p>
+                <p> Hello {currentUser.email}</p>
                 <p>View Your Profile</p>
               </div>
             </div>
