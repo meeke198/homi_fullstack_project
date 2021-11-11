@@ -128,7 +128,7 @@ class SessionForm extends React.Component {
           />
           <form onSubmit={this.handleSubmit} className="form-box">
             <br />
-            Sign up
+            <p style={{ fontSize: 20, fontWeight: 50 }}>Sign up</p>
             {this.renderErrors()}
             <div className="login-form">
               <br />

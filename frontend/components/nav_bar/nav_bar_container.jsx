@@ -3,9 +3,12 @@ import { connect } from "react-redux";
 import NavBar from "./nav_bar";
 import { logout } from "../../actions/session_actions";
 import { openModal } from "../../actions/modal_actions"
+// import { thunkCreateCartItem, thunkReceiveCartItems } from '../../actions/cart_items_actions'
 
-const mapStateToProps = (state) => ({
-  currentUser: state.session.id,
+const mapStateToProps = ({ session, entities: { users, cartItems, products},}) => ({
+  products: Object.values(products),
+  currentUser: users[session.id],
+  cartItems: Object.values(cartItems),
 });
 
 const mapDispatchToProps = (dispatch) => ({
