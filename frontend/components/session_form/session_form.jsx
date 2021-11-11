@@ -125,6 +125,7 @@ class SessionForm extends React.Component {
           <AiOutlineCloseCircle
             className="close-modal-button"
             onClick={this.props.closeModal}
+            style={{marginRight: 25}}
           />
           <form onSubmit={this.handleSubmit} className="form-box">
             <br />
