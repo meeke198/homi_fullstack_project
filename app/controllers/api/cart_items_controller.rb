@@ -19,8 +19,7 @@ class Api::CartItemsCOntroller < ApplicationController
     def index
         if !current_user
             @cart_items = {}
-        else
-            @cart_items = CartItem.all.select(|cart_item| cart_item.cart_id == current_user.cart.id)
+            # @cart_items = CartItem.all.select(|cart_item| cart_item.cart_id == current_user.cart.id)
         end
 
         if @cart_items 
@@ -39,7 +38,7 @@ class Api::CartItemsCOntroller < ApplicationController
         if @cart_item && @cart_item.update(cart_item_params)
             render :show
         else
-            render jsonL @cart_item.errors.full_messages, status: 400
+            render json: @cart_item.errors.full_messages, status: 400
         end
     end
     
