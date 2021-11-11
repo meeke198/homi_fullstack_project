@@ -31,8 +31,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch --mode=development",
-    "postinstall": "webpack"
+    "watch": "webpack --watch --mode=development",
+    "postinstall": "webpack",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
