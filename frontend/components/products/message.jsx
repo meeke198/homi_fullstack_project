@@ -42,37 +42,38 @@ const MessageItem = (props) => {
 const Message = (props) => {
   const { currentUser } = props;
   const display = currentUser ? (
-     <h3
-       className="message-text"
-       style={{ textAlign: "center", marginBottom: 30 }}
-     >
-       Welcome back, {currentUser.email}
-     </h3>
- ) : (
-       <h3
-         className="message-text"
-         style={{ textAlign: "center", marginBottom: 30 }}
-       >
-         Bring on the holidays! Discover meaningful finds!
-       </h3>
- );
-  return (
     <div
-      style={{ paddingTop: 40, backgroundColor: "#FDEBD2", width: "100wv" }}
+      className="message-text"
+      style={{ textAlign: "center", marginBottom: 30 }}
     >
-      <h3 className="message-text" style={{ textAlign: "center", marginBottom: 30 }}>
-       {display}
-      </h3>
-      <div className="message-container">
-          {Messages.map((message, idx) => (
-            <MessageItem
-              key={idx}
-              title={message.title}
-              imageUrl={message.imageUrl}
-            />
-          ))}
-        </div>
+      Welcome back,<span>{currentUser.email}</span>
+    </div>
+  ) : (
+    <div
+      className="message-text"
+      style={{ textAlign: "center", marginBottom: 30 }}
+    >
+      Bring on the holidays! Discover meaningful finds!
+    </div>
+  );
+  return (
+    <div style={{ paddingTop: 40, backgroundColor: "#FDEBD2", width: "100wv" }}>
+      <div
+        className="message-text"
+        style={{ textAlign: "center", marginBottom: 30 }}
+      >
+        <div>{display}</div>
       </div>
+      <div className="message-container">
+        {Messages.map((message, idx) => (
+          <MessageItem
+            key={idx}
+            title={message.title}
+            imageUrl={message.imageUrl}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 
