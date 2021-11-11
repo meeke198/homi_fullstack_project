@@ -9,10 +9,10 @@ import NotFound from "./not_found/not_found";
 import { Switch } from "react-router";
 import Modal from './modal/modal'
 import Menu from './nav_bar/menu'
-import ProfilePage from './profile/profile_page'
 import ProductIndexContainer from "./products/product_index_container";
 import ProductShowContainer from "./products/product_show_container";
 import CategoryContainer from "./products/category_container";
+import Footer from './footer'
 
 const App = () => (
   <div>
@@ -34,9 +34,9 @@ const App = () => (
       />
       <Route exact path="/products" component={ProductIndexContainer} />
       <Route exact path="/" component={ProductIndexContainer} />
-      <Route exact path="/profile" component={ProfilePage} />
       <Route component={NotFound} />
     </Switch>
+    <Footer className="footer"/>
   </div>
 );
 

@@ -44,7 +44,7 @@ export const thunkUpdateCartItem = (cartItem) => dispatch => (
 )
 
 
-export const thunkDelateCartItem = (cartItemId) => (
+export const thunkDeleteCartItem = (cartItemId) => (
     cartItemsAPIUtil.apiDeleteCartItem(cartItemId)
     .then(() => dispatch(deleteCartItem(cartItemId)))
 )
