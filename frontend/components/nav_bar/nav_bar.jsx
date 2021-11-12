@@ -2,8 +2,6 @@ import React from "react";
 import { FaSearchDollar } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 import { Link } from "react-router-dom";
-// import Menu from "./menu";
-import homilogo from "../../../app/assets/images/homilogo.png";
 import { CgProfile, CgLogOut } from "react-icons/cg";
 import { AiOutlineGift, AiOutlineSetting } from "react-icons/ai";
 import { BiDownArrow } from "react-icons/bi";
@@ -100,7 +98,11 @@ class NavBar extends React.Component {
     return (
       <header className="nav-bar">
         <Link to="/">
-          <img className="logo-img" src={homilogo} alt="" />
+          <img
+            className="logo-img"
+            src="https://homi-seeds.s3.us-east-2.amazonaws.com/homilogo.png"
+            alt=""
+          />
         </Link>
         <div className="searching-container">
           <input

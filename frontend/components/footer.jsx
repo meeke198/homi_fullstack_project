@@ -1,7 +1,5 @@
 import React from "react";
-import linkedIn from "../../app/assets/images/linkedIn.png";
-import contact from "../../app/assets/images/contact.png";
-import github from "../../app/assets/images/github.png";
+
 
 const Footer = () => {
   return (
@@ -9,66 +7,32 @@ const Footer = () => {
       <div className="web-footer">
         <div className="footer-section">
           <h2>Shop</h2>
-          <a href="">
-            Gift cards
-          </a>
-          <a href="">
-            Sitemap
-          </a>
-          <a href="">
-            Homi blogs
-          </a>
+          <a href="">Gift cards</a>
+          <a href="">Sitemap</a>
+          <a href="">Homi blogs</a>
         </div>
         <div className="footer-section">
           <h2>Sell</h2>
-          <a href="">
-            Sales on Homi
-          </a>
-          <a href="">
-            Team
-          </a>
-          <a href="">
-            Forum
-          </a>
-          <a href="">
-            Forum
-          </a>
-          <a href="">
-            Affiliates
-          </a>
+          <a href="">Sales on Homi</a>
+          <a href="">Team</a>
+          <a href="">Forum</a>
+          <a href="">Forum</a>
+          <a href="">Affiliates</a>
         </div>
         <div className="footer-section">
           <h2>About</h2>
-          <a href="">
-            Homi, Inc
-          </a>
-          <a href="">
-            Policies
-          </a>
-          <a href="">
-            Investors
-          </a>
-          <a href="">
-            Careers
-          </a>
-          <a href="">
-            Press
-          </a>
-          <a href="">
-            Impact
-          </a>
+          <a href="">Homi, Inc</a>
+          <a href="">Policies</a>
+          <a href="">Investors</a>
+          <a href="">Careers</a>
+          <a href="">Press</a>
+          <a href="">Impact</a>
         </div>
         <div className="footer-section">
           <h2>Help</h2>
-          <a href="">
-            Help center
-          </a>
-          <a href="">
-            Trust and Safety
-          </a>
-          <a href="">
-            Privacy Settings
-          </a>
+          <a href="">Help center</a>
+          <a href="">Trust and Safety</a>
+          <a href="">Privacy Settings</a>
         </div>
       </div>
       <div className="social-media-footer">
@@ -79,7 +43,11 @@ const Footer = () => {
               href="https://github.com/meeke198"
               target="_blank"
             >
-              <img className="contact-icon" src={github} alt="github-icon" />
+              <img
+                className="contact-icon"
+                src="https://homi-seeds.s3.us-east-2.amazonaws.com/github.png"
+                alt="github-icon"
+              />
             </a>
           </div>
           <div>
@@ -90,7 +58,7 @@ const Footer = () => {
             >
               <img
                 className="contact-icon"
-                src={linkedIn}
+                src="https://homi-seeds.s3.us-east-2.amazonaws.com/linkedIn.png"
                 alt="linkedin-icon"
               />
             </a>
@@ -101,7 +69,10 @@ const Footer = () => {
               href="mailto:thuhiennguyen@email.com"
               target="_blank"
             >
-              <img className="contact-icon" src={contact} />
+              <img
+                className="contact-icon"
+                src="https://homi-seeds.s3.us-east-2.amazonaws.com/contact.png"
+              />
             </a>
           </div>
         </div>
