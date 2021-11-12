@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const list = [
   {
-    name: "Walldecor",
+    name: "Wall decor",
     child: [
       { name: "Vases", route: "vases" },
       { name: "Floating shelves", route: "floatingshelves" },
@@ -18,7 +18,7 @@ const list = [
     ],
   },
   {
-    name: "Livingroom",
+    name: "Living room",
     child: [
       { name: "Tables", route: "tables" },
       { name: "Sofas", route: "sofas" },
@@ -77,7 +77,7 @@ const list = [
     ],
   },
   {
-    name: "Customized Funiture",
+    name: "Customized Furniture",
     child: [
       { name: "Vases", route: "vases" },
       { name: "Floating shelves", route: "floatingshelves" },

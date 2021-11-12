@@ -16,7 +16,6 @@ const Footer = () => {
           <a href="">Sales on Homi</a>
           <a href="">Team</a>
           <a href="">Forum</a>
-          <a href="">Forum</a>
           <a href="">Affiliates</a>
         </div>
         <div className="footer-section">
