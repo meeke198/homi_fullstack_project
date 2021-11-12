@@ -6,7 +6,7 @@ const Messages = [
   {
     imageUrl:
       "https://i.etsystatic.com/6862623/r/il/ae2960/2094794887/il_1588xN.2094794887_2sdq.jpg",
-    title: "Gifts for her",
+    title: "Home Decorations",
   },
   {
     imageUrl:
@@ -16,11 +16,11 @@ const Messages = [
   {
     imageUrl:
       "https://i.etsystatic.com/24220780/r/il/ac6c72/3328695205/il_1588xN.3328695205_gifr.jpg",
-    title: "Gifts for kids",
+    title: "Kids' Playroom Essentials",
   },
   {
     imageUrl: "https://i.etsystatic.com/31748115/r/il/f7543b/3305096856/il_1588xN.3305096856_g15r.jpg",
-    title: "Seasonal Shopping"
+    title: "Holiday Shopping"
   },
   {
     imageUrl:
