@@ -23,12 +23,15 @@ Homi is a cloned version of Esty.com, an E-commerce platform where independent a
 #### User Authentication: 
 
 1. Login and Logout Users:
+
 ![](https://homi-seeds.s3.us-east-2.amazonaws.com/Login_Logout_SparkVideo.gif)
 
-2. Signup users Authorization.
+2. Signup users Authorization:
+
 ![](https://homi-seeds.s3.us-east-2.amazonaws.com/signup_SparkVideo.gif)
 
-3. Searching by categogy from dropdown menu bar.
+3. Searching by categogy from dropdown menu bar:
+
 ![](https://homi-seeds.s3.us-east-2.amazonaws.com/category_SparkVideo.gif)
 
 
@@ -73,10 +76,9 @@ class SessionForm extends React.Component {
 2. Product listing: 
 
 Users, including guest users, will be able to view products. 
-
 All user can search products by interested categories from dropping menu on the Navigation bar and seasonal suggestions"
 
-![product_category_dropdown_menu]("https://homi-seeds.s3.us-east-2.amazonaws.com/category_SparkVideo.gif)
+![]("https://homi-seeds.s3.us-east-2.amazonaws.com/category_SparkVideo.gif)
 
 ### Future directions for the project
 
