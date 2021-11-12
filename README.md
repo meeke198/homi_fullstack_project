@@ -24,11 +24,10 @@ Homi is a cloned version of Esty.com, an E-commerce platform where independent a
 
 1. New users can sign up for a new account or they can use the demo login to checkout the features of the site.
 
-[](https://homi-seeds.s3.us-east-2.amazonaws.com/Login_Logout_SparkVideo.gif)
+![](https://homi-seeds.s3.us-east-2.amazonaws.com/loginout_SparkVideo.gif)
 
+To have my session form modals close properly, I have to add an "isSubmited: false" in the state, and use shouldComponentUpdate to check the state on every submit. If there is no error, form is processed and modal closes. If there are errors, errors are rendered and users only can login/signup when they pass all user validations.
 
-2. Session modals for user Authentication: 
-To have my session form modals close properly, I have to add an "isSubmited: false" in the state, and use shouldComponentUpdate to check the state on every submit. If there is no error, form is processed and modal closes. If there are errors, errors are rendered and users only can login/signup when they pass all Authorization/ Validations.
 ```...javascript
 class SessionForm extends React.Component {
   constructor(props) {
@@ -63,7 +62,7 @@ class SessionForm extends React.Component {
   }
 }
 ```
-2. Product listing: 
+3. Product listing: 
 
 Users, including guest users, will be able to view products. 
 All user can search products by interested categories from dropping menu on the Navigation bar and seasonal suggestions"
