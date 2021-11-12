@@ -62,7 +62,7 @@ class SessionForm extends React.Component {
   }
 }
 ```
-3. Product listing: 
+2. Product listing: 
 
 Users, including guest users, will be able to view products. 
 All user can search products by interested categories from dropping menu on the Navigation bar and seasonal suggestions"
