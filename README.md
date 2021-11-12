@@ -8,7 +8,19 @@ Homi is a cloned version of Esty.com, an E-commerce platform where independent a
 
 ### **Link to Live Site**
 
-[link_to_live site](https://homi198.herokuapp.com/#/)
+[Here's the link to live site](https://homi198.herokuapp.com/#/)
+
+### Technologies Used:
+
+* Postgresql
+* Ruby on rails
+* React
+* Redux
+* AWS
+
+### Features
+
+#### User Authentication: 
 
 1. Login and Logout Users:
 ![](https://homi-seeds.s3.us-east-2.amazonaws.com/Login_Logout_SparkVideo.gif)
@@ -22,7 +34,7 @@ Homi is a cloned version of Esty.com, an E-commerce platform where independent a
 
 ### Features:
 
-1. Session modals for user Authorization: 
+1. Session modals for user Authentication: 
 To have my session form modals close properly, I have to add an "isSubmited: false" in the state, and use shouldComponentUpdate to check the state on every submit. If there is no error, form is processed and modal closes. If there are errors, errors are rendered and users only can login/signup when they pass all Authorization/ Validations.
 ```...javascript
 class SessionForm extends React.Component {
