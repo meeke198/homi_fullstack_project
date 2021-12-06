@@ -9,13 +9,14 @@ const mapStateToProps = (state, ownProps) => ({
     product: state.entities.products[ownProps.match.params.productId],
     currentUser: state.entities.users[state.session.id]
 })
-
+//[ownProps.match.params.productId] lay id tu url
+//state(redux), ownProps(state tu cha truyen xuong = state cua react);
 const mapDispatchToProps = (dispatch) => ({
   fetchProduct: (productId) => dispatch(fetchProduct(productId)),
-  createCartItem: (productId, quantity) =>
-  dispatch(createCartItem(productId, quantity)),
+  // createCartItem: (productId, quantity) =>
+  // dispatch(createCartItem(productId, quantity)),
   fetchCart: (userId) => dispatch(fetchCart(userId)),
-  thunkCreateCartItem: (productId, quantity) => dispatch(thunkCreateCartItem(productId, quantity)),
+  thunkCreateCartItem: (cartItem) => dispatch(thunkCreateCartItem(cartItem)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductShow);

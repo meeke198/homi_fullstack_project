@@ -10,3 +10,4 @@ export const fetchCart = userId => dispatch => (
     cartAPIUtil.apiReceiveCart(userId)
     .then((cart) => dispatch(receiveCart(cart)))
 )
+//when user click on cart icon

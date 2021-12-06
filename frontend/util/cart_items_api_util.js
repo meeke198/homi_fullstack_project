@@ -1,8 +1,8 @@
-export const apiCreateCartItem = (productId, quantity) => (
+export const apiCreateCartItem = (cartItem) => (
     $.ajax({
-        url: `api/products/${productId}`,
+        url: `api/products/${cartItem.productId}`,
         method: "POST",
-        data: {cartItem: {productId: productId, quantity: quantity}}
+        data: {cartItem}
     })
 )
 

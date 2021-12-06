@@ -8,7 +8,8 @@ class ProductShow extends React.Component {
       quantity: 1,
     };
     this.quantityHandler = this.quantityHandler.bind(this);
-    this.addToCartSubmit = this.addToCartSubmit.bind(this);
+    this.addItemToCartHandler = this.addItemToCartHandler.bind(this);
+    // console.log(props)
   }
   componentDidMount() {
     this.props.fetchProduct(this.props.match.params.productId);
@@ -18,18 +19,22 @@ class ProductShow extends React.Component {
   }
 
   addItemToCartHandler(){
-    this.props.hunkCreateCartItem(this.props.product.id, this.state.quantity);
+    if(this.props.currentUser){
+    const cartItem = { productId: this.props.product.id, quantity: this.state.quantity }
+    this.props.thunkCreateCartItem(cartItem);
+    }
+    // this.props.thunkCreateCartItem(this.props.product.id, this.state.quantity);
   }
 
-  quantityHandler() {
+  quantityHandler(e) {
     this.setState({ quantity: e.target.value });
   }
-  addToCartSubmit(e) {
-    e.preventDefault();
-    if (this.props.currentUser) {
-      this.props.createCartItem(this.props.product?.id, this.state.quantity);
-    }
-  }
+  // addToCartSubmit(e) {
+  //   e.preventDefault();
+  //   if (this.props.currentUser) {
+  //     this.props.createCartItem(this.props.product?.id, this.state.quantity);
+  //   }
+  // }
   render() {
     const { product } = this.props;
     return (
@@ -41,7 +46,7 @@ class ProductShow extends React.Component {
           <p style={{ fontWeight: 700, paddingBottom: 20 }}>Description:</p>
           <p className="product-description">{product?.description}</p>
           <p className="price">Price: $ {product?.price}.00</p>
-          <form className="add_to_cart" onSubmit={this.addToCartSubmit}>
+          <div className="add_to_cart">
             <label style={{ padding: "10px 0" }}>Quantity</label>
             <br />
             <div className="custom-select" style={{ width: "350px" }}>
@@ -58,8 +63,14 @@ class ProductShow extends React.Component {
               </select>
             </div>
 
-            <button className="submit-form-button" onClick={this.addToCartSubmit}>Add to cart</button>
-          </form>
+            <button
+              type="button"
+              className="submit-form-button"
+              onClick={this.addItemToCartHandler}
+            >
+              Add to cart
+            </button>
+          </div>
         </div>
       </div>
     );
