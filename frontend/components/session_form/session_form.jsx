@@ -51,16 +51,18 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <div style={{marginTop: 20, lineHeight: 1}}>
+      <div style={{ marginTop: 20, lineHeight: 1 }}>
         {this.props.errors.map((error, i) => (
-          <li style={{width: '100%'}} key={`${i}`}>{error}</li>
+          <p className="error-text" style={{ width: "100%" }} key={`${i}`}>
+            {error}
+          </p>
         ))}
       </div>
     );
   }
 
   render() {
-    const { openModal } = this.props
+    const { openModal, errors } = this.props
     if (this.props.formType === "login") {
       return (
         <div className="login-form-container">
@@ -91,7 +93,7 @@ class SessionForm extends React.Component {
                   className="form-input"
                 />
               </div>
-              {this.renderErrors()}
+
               <br />
               <div className="form-input-wrapper">
                 <label className="form-label">Password:</label>
@@ -102,7 +104,7 @@ class SessionForm extends React.Component {
                   className="form-input"
                 />
               </div>
-
+              {this.renderErrors()}
               <br />
               <div className="login-form-bottom">
                 <input
@@ -142,7 +144,7 @@ class SessionForm extends React.Component {
                   className="form-input"
                 />
               </div>
-              {this.renderErrors()}
+
               <br />
               <div className="form-input-wrapper">
                 <label className="form-label">Password:</label>
@@ -153,7 +155,8 @@ class SessionForm extends React.Component {
                   className="form-input"
                 />
               </div>
-
+              <br />
+              {this.renderErrors()}
               <br />
               <input
                 className="submit-form-button"
