@@ -1,0 +1,25 @@
+.product-index {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 40px;
+  .product-container {
+    display: flex;
+    flex-direction: column;
+    width: 33.333333%;
+    height: 30%;
+    .product-img {
+      width: 330px;
+      height: 250px;
+    }
+    .product-content {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      width: 80%;
+      padding: 30px 0;
+    }
+  }
+}
+

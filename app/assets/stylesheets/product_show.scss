@@ -1,0 +1,47 @@
+.product-container-show {
+  display: flex;
+  width: 100%;
+  .product-content-show {
+    padding: 100px 20px 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    .product-name-show {
+      margin-top: 15px;
+      margin-bottom: 10px;
+      font-size: xx-large;
+      line-height: 35px;
+    }
+    .product-description {
+      line-height: 35px;
+      padding: 10px 0;
+    }
+    .price {
+      font-size: 25px;
+      font-weight: 900;
+      padding: 10px 0;
+      text-decoration: none;
+    }
+    .custom-select {
+      position: relative;
+    }
+    .select-selected {
+      background-color: aquamarine;
+    }
+
+    .add_to_cart {
+      width: 350px;
+      .quantity-select {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+      }
+    }
+  }
+  .product-img-show {
+    padding: 60px 40px;
+    border-radius: 90px;
+    width: 65%;
+    height: 750px;
+  }
+}

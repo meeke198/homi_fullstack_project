@@ -1,0 +1,15 @@
+.form-input-wrapper,
+.login-form-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.error-text{
+  font-size: 13px;
+  color: red;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.login-form-bottom {
+  align-items: center;
+}

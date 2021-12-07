@@ -1,0 +1,32 @@
+
+.menu-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 50px;
+  background-color: #cee5d0;
+}
+.dropdown-menu {
+  font: 15px;
+  position: absolute;
+  padding: 0 20px;
+  width: 100vw;
+  box-shadow: 4px 6px 15px -1px rgba(0, 0, 0, 0.71);
+  -webkit-box-shadow: 4px 6px 15px -1px rgba(0, 0, 0, 0.71);
+  -moz-box-shadow: 4px 6px 15px -1px rgba(0, 0, 0, 0.71);
+  z-index: 20;
+  background-color: white;
+  .list-menu {
+    display: flex;
+    flex-wrap: wrap;
+    .category-link {
+      cursor: pointer;
+      padding: 7px;
+      width: 30%;
+      color: black;
+    }
+    .category-link:hover {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
