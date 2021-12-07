@@ -2,9 +2,6 @@
 
 ### **Overview**
 
-https://user-images.githubusercontent.com/73726226/145098469-e30823d2-c473-4615-b0cb-9c6bb6a5db15.mov
-
-
 Homi is a cloned version of Esty.com, an E-commerce platform where independent artists and crafters can sell their goods. Homi is primarily associated with minimalist lifestyle and home decor: handmade toys, collectibles, art, vintage furniture, and holiday items, in addition to crafts and craft supplies.
 
 
