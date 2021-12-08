@@ -1,9 +1,6 @@
-
-
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Limelight&display=swap");
 $lime-light: "Limelight", cursive;
 $comfortaa: "Comfortaa", cursive;
-
 
 .nav-bar {
   display: flex;
@@ -41,12 +38,12 @@ $comfortaa: "Comfortaa", cursive;
     justify-content: space-around;
     width: 310px;
     margin: 0 30px;
-    .logged-in-profile-icon{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    padding-left: 20px;
+    .logged-in-profile-icon {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      padding-left: 20px;
     }
     .logout-button {
       width: 100px;
@@ -58,6 +55,23 @@ $comfortaa: "Comfortaa", cursive;
       color: darkgrey;
       padding: 0px 10px;
     }
+    // .counter {
+    //   width: 30px;
+    //   height: 30px;
+    //   background-color: red;
+    //   border-radius: 50%;
+    //   font-weight: 800;
+    //   color: white;
+    //   padding: 5px;
+    //   font-size: 20px;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   position: absolute;
+    //   top: 43px;
+    //   right: 22px;
+    //   filter: drop-shadow(5px 7px 4px rgba(68, 67, 67, 0.67));
+    // }
   }
   .logo-img {
     width: 160px;
@@ -83,30 +97,30 @@ $comfortaa: "Comfortaa", cursive;
   flex-direction: column;
   padding: 30px 15px 10px 15px;
   // justify-content: space-around;
-    transform-origin: right;
-    width: 190px;
-    height: 180px;
-    background: white;
-    position: absolute;
-    right: 0;
-    top: 25px;
-    z-index: 5;
-    border-radius: 20px;
-    // display: none;
-    .drop-down-list{
-      align-items: center;
-      display: flex;
-      margin-bottom: 10px;
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-      .drop-down-item {
-        line-height: 1.5;
-        display: flex;
-        flex-direction: column;
-      }
-       p {
-        font-size: 12px;
-        cursor: pointer;
-      }
-    }
+  transform-origin: right;
+  width: 190px;
+  height: 180px;
+  background: white;
+  position: absolute;
+  right: 0;
+  top: 25px;
+  z-index: 5;
+  border-radius: 20px;
+  // display: none;
+  .drop-down-list {
+    align-items: center;
+    display: flex;
+    margin-bottom: 10px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .drop-down-item {
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+  }
+  p {
+    font-size: 12px;
+    cursor: pointer;
+  }
+}

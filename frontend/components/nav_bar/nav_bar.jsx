@@ -83,16 +83,37 @@ class NavBar extends React.Component {
             <div>{dropdownMenu}</div>
           </div>
         </div>
-        <Link to="/cart_items">
-          <BsCart4 style={{ marginLeft: 15, width: 30, height: 30, textDecoration: 'none' }} />
-        </Link>
+        <div>
+          <Link to="/cart_items">
+            <BsCart4
+              style={{
+                marginLeft: 15,
+                width: 30,
+                height: 30,
+                textDecoration: "none",
+              }}
+            />
+          </Link>
+          {/* <div className="counter">
+            {currentUser.requestsReceived
+              ? currentUser.requestsReceived.length
+              : ""}
+          </div> */}
+        </div>
       </div>
     ) : (
       <div style={{ display: "flex", alignItems: "center" }}>
         <button className="btn" onClick={() => openModal("login")}>
           Log In
         </button>
-        <BsCart4 style={{ marginLeft: 30, width: 35, height: 35 }} />
+        <div>
+          <BsCart4 style={{ marginLeft: 30, width: 35, height: 35 }} />
+          {/* <div className="counter">
+            {currentUser.requestsReceived
+              ? currentUser.requestsReceived.length
+              : ""}
+          </div> */}
+        </div>
       </div>
     );
     return (
