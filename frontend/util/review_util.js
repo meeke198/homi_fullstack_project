@@ -15,6 +15,7 @@ export const apiReceiveAllReviews = () =>
   $.ajax({
     url: `api/reviews`
   });
+  
 export const apiUpdateReview = (review) =>
   $.ajax({
     url: `api/reviews/${review.id}`,
