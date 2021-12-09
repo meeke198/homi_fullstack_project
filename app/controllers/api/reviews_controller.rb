@@ -1,6 +1,7 @@
 class Api::ReviewsController < ApplicationController
     before_action :require_login, only: [:create, :destroy]
     def create
+        @product = Product.find(params[:product_id])
         @review = Review.new(review_params)
 
         if @review.save
@@ -11,19 +12,21 @@ class Api::ReviewsController < ApplicationController
     end
 
     def show 
-        @review = Review.find_by(user_id: current_user.id)
+        @review = Review.find(params[:id])
         render :show
     end
 
     def index
-        @reviews = Review.all
+        @product = Product.find(params[:product_id])
+        @reviews = @product.reviews
         render :index
 
     end
 
 
     def updated
-        @review = Review.find_by(id: params[:id])
+        @product = Product.find(params[:product_id])
+        @review = Review.find(params[:id])
 
         if @review && @review.update(review_params)
             render :show
@@ -35,8 +38,9 @@ class Api::ReviewsController < ApplicationController
 
 
     def destroy
-        @cart_item = Review.find_by(user_id: current_user.id)
-        @cart_item.destroy
+        @product = Product.find(params[:product_id])
+        @review = Review.find(params[:id])
+        @review.destroy
         render json: ['Successfully removed item!']
     end
 

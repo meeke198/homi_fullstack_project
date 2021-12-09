@@ -11,11 +11,11 @@ export const apiReceiveReview = (reviewId) =>
   });
 
 
-export const apiReceiveAllReviews = () =>
+export const apiReceiveAllReviews = (productId) =>
   $.ajax({
-    url: `api/reviews`
+    url: `api/reviews/${productId}/reviews`
   });
-  
+
 export const apiUpdateReview = (review) =>
   $.ajax({
     url: `api/reviews/${review.id}`,
