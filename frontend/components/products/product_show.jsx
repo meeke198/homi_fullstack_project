@@ -18,10 +18,15 @@ class ProductShow extends React.Component {
     }
   }
 
-  addItemToCartHandler(){
+
+  addItemToCartHandler(e){
+    e.preventDefault();
     if(this.props.currentUser){
     const cartItem = { productId: this.props.product.id, quantity: this.state.quantity }
     this.props.thunkCreateCartItem(cartItem);
+    } else {
+      this.setState({errors: "Please log in first!"})
+      this.props.openModal("Login")
     }
     // this.props.thunkCreateCartItem(this.props.product.id, this.state.quantity);
   }
@@ -49,7 +54,11 @@ class ProductShow extends React.Component {
           <div className="add_to_cart">
             <label style={{ padding: "10px 0" }}>Quantity</label>
             <br />
-            <div className="custom-select" style={{ width: "350px" }}>
+            <form
+              className="custom-select"
+              style={{ width: "350px" }}
+              onSubmit={this.addItemToCartHandler}
+            >
               <select
                 className="quantity-select"
                 defaultValue={this.state.quantity}
@@ -61,15 +70,13 @@ class ProductShow extends React.Component {
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
-            </div>
-
-            <button
-              type="button"
-              className="submit-form-button"
-              onClick={this.addItemToCartHandler}
-            >
-              Add to cart
-            </button>
+              <button
+                type="submit"
+                className="submit-form-button"
+              >
+                Add to cart
+              </button>
+            </form>
           </div>
         </div>
       </div>
