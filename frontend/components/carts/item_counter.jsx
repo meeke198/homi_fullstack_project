@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Route } from "react-router";
 
-const ItemCounter = ({ items }) => {
-
+const ItemCounter = ({ items, currentUser, openModal }) => {
+  const allCartItems = Object.values(items)
   let totalItems = 0;
-  items.forEach((item) => totalItems += item.quantity)
+  allCartItems.forEach((item) => (totalItems += item.quantity));
 
   return (
     <div>

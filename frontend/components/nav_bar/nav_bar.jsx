@@ -34,7 +34,9 @@ class NavBar extends React.Component {
   //   }
   // }
   render() {
-    const { currentUser, openModal, logout } = this.props;
+    const { currentUser, openModal, cartItems, items, logout } = this.props;
+    let totalItems = 0;
+    cartItems.forEach((item) => (totalItems += item.quantity));
     const { isDropdown } = this.state;
     let dropdownMenu;
     if (isDropdown && currentUser) {
@@ -94,11 +96,7 @@ class NavBar extends React.Component {
               }}
             />
           </Link>
-          {/* <div className="counter">
-            {currentUser.requestsReceived
-              ? currentUser.requestsReceived.length
-              : ""}
-          </div> */}
+          <div className="counter">{totalItems ? totalItems : ""}</div>
         </div>
       </div>
     ) : (
@@ -108,11 +106,7 @@ class NavBar extends React.Component {
         </button>
         <div>
           <BsCart4 style={{ marginLeft: 30, width: 35, height: 35 }} />
-          {/* <div className="counter">
-            {currentUser.requestsReceived
-              ? currentUser.requestsReceived.length
-              : ""}
-          </div> */}
+            <div className="counter">{totalItems ? totalItems : ""}</div>
         </div>
       </div>
     );
