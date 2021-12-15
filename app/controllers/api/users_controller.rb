@@ -3,8 +3,6 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login!(@user)
-      @cart = Cart.new(cart_params)
-      @cart.save
       render "api/users/show"
     else
       render json: @user.errors.full_messages, status: 401
@@ -16,4 +14,5 @@ class Api::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password)
   end
+ 
 end

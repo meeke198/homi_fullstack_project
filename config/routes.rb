@@ -7,7 +7,8 @@ namespace :api, defaults: { format: :json } do
     resources :products, only: [:show, :index] do
       resources :reviews, only: [:index, :create, :destroy, :update, :show]
     end
-    resources :cart_items, only: [:create, :index, :destroy, :update]
-    resources :carts, only: [:create, :show]
+    resources :carts, only: [:show, :create] do 
+      resources :cart_items, only: [:create, :index, :destroy, :update]
+    end
   end
 end
