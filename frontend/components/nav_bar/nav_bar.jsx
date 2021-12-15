@@ -34,7 +34,7 @@ class NavBar extends React.Component {
   //   }
   // }
   render() {
-    const { currentUser, openModal, cartItems, items, logout } = this.props;
+    const { currentUser, openModal, cartItems } = this.props;
     let totalItems = 0;
     cartItems.forEach((item) => (totalItems += item.quantity));
     const { isDropdown } = this.state;
@@ -86,17 +86,20 @@ class NavBar extends React.Component {
           </div>
         </div>
         <div>
-          <Link to="/cart_items">
-            <BsCart4
-              style={{
-                marginLeft: 15,
-                width: 30,
-                height: 30,
-                textDecoration: "none",
-              }}
-            />
-          </Link>
-          <div className="counter">{totalItems ? totalItems : ""}</div>
+          <div>
+            <Link to="/cart_items">
+              <BsCart4
+                style={{
+                  marginLeft: 15,
+                  width: 30,
+                  height: 30,
+                  textDecoration: "none",
+                  position: "relative",
+                }}
+              />
+            </Link>
+          </div>
+          <div className="counter">{isNaN(totalItems) ? totalItems : 0}</div>
         </div>
       </div>
     ) : (
@@ -105,8 +108,17 @@ class NavBar extends React.Component {
           Log In
         </button>
         <div>
-          <BsCart4 style={{ marginLeft: 30, width: 35, height: 35 }} />
-            <div className="counter">{totalItems ? totalItems : ""}</div>
+          <div>
+            <BsCart4
+              style={{
+                marginLeft: 30,
+                width: 35,
+                height: 35,
+                position: "relative",
+              }}
+            />
+          </div>
+          <div className="counter">{isNaN(totalItems) ? totalItems : 0}</div>
         </div>
       </div>
     );
