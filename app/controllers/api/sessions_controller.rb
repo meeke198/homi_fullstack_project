@@ -7,12 +7,12 @@ class Api::SessionsController < ApplicationController
 
     if @user
       login!(@user)
-      @cart = Cart.new(cart_params)
-      if @cart.save
-          render :show
-      else
-          render json :@cart.errors.full_messages, status: 422
-      end
+      # @cart = Cart.new(cart_params)
+      # if @cart.save
+      #     render :show
+      # else
+      #     render json :@cart.errors.full_messages, status: 422
+      # end
       render "api/users/show"
     else
       render json: ["Invalid username/password combination"], status: 401
