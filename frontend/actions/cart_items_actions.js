@@ -27,10 +27,10 @@ export const deleteCartItem = (cartItemId) => ({
     cartItemId
 })
 
-export const thunkCreateCartItem = (productId, cartItem) => dispatch=> (
-    cartItemsAPIUtil.apiCreateCartItem(productId, cartItem)
+export const thunkCreateCartItem = (cartItem) => dispatch=> {
+   return cartItemsAPIUtil.apiCreateCartItem(cartItem)
     .then(cartItem => dispatch(createCartItem(cartItem)))
-)
+}
 
 export const thunkReceiveCartItems = () => (dispatch) =>
   cartItemsAPIUtil

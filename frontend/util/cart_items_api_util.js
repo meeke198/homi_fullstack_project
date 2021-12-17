@@ -1,8 +1,8 @@
 export const apiCreateCartItem = (cartItem) => (
     $.ajax({
-        url: `api/products/${cartItem.productId}`,
+        url: `api/cart_items`,
         method: "POST",
-        data: {cartItem}
+        data: {"cart_item": cartItem}
     })
 )
 
@@ -23,7 +23,7 @@ export const apiUpdateCartItem = (cartItem) => (
 
 export const apiDeleteCartItem = (cartItemId) => (
     $.ajax({
-        url: `api/products/${cartItemId}`,
-        method: "DETELE",
+        url: `api/cart_items/${cartItemId}`,
+        method: "DELETE",
     })
 )

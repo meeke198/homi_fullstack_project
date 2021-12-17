@@ -9,10 +9,13 @@ require 'open-uri'
 
 User.destroy_all
 Product.destroy_all
+Cart.destroy_all
 
 
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
+ActiveRecord::Base.connection.reset_pk_sequence!('carts')
+demoUser = User.create!(email: "demo@gmail.com", password: "password123")
 user1 = User.create!(email: "susu@gmail.com", password: 'password')
 user2 = User.create!(email: "kmommy@gmail.com", password: 'password')
 user3 = User.create!(email: "woffy@gmail.com", password: 'password')
@@ -75,9 +78,9 @@ user59 = User.create!(email: "ricecake@gmail.com", password: 'password')
 user60 = User.create!(email: "imhungry@gmail.com", password: 'password')
 user61 = User.create!(email: "sashimi@gmail.com", password: 'password')
 user62 = User.create!(email: "tokbokki@gmail.com", password: 'password')
-demoUser = User.create!(email: "demo@gmail.com", password: "password123")
 
 
+demoCart = Cart.create!(user_id: demoUser.id)
 product1 = Product.create!(product_name: "House Bed Frame Twin Full or Queen Made in US", description: "What a great functional piece for your kids room! Now they can have a home inside their home with this adorable house bed frame. Make the transition out of the toddler bed exciting for your little ones!", category: "bedframes", price: 70, seller_id: 1)
 bedframe1 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/bedframe1.jpg")
 product1.photo.attach(io: bedframe1, filename:"bedframe1.jpg")

@@ -20,9 +20,10 @@ class ProductShow extends React.Component {
 
 
   addItemToCartHandler(e){
-    e.preventDefault();
-    if(this.props.currentUser){
-    const cartItem = { productId: this.props.product.id, quantity: this.state.quantity }
+    e.preventDefault(); 
+    debugger
+    if (this.props.currentUser) {
+    const cartItem = { cart_id: this.props.currentUser.id, product_id: this.props.product.id, quantity: this.state.quantity }
     this.props.thunkCreateCartItem(cartItem);
     } else {
       this.setState({errors: "Please log in first!"})

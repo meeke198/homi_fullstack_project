@@ -4,9 +4,7 @@ class Api::CartItemsController < ApplicationController
 
     def create
         @cart_item = CartItem.new(cart_item_params)
-        @cart_item.cart_id = current_user.cart.id #get cartId from current_user(from model assosication => cart)
-    
-
+        # @cart_item.cart_id = params[:cart_id]
         if @cart_item.save
             render :show
         else
@@ -17,22 +15,19 @@ class Api::CartItemsController < ApplicationController
 
 
     def index
-        if !current_user
-            @cart_items = {}
-            # @cart_items = CartItem.all.select(|cart_item| cart_item.cart_id == current_user.cart.id)
-        end
+        cart = Cart.find(params[:cart_id])
+        @cart_items = cart.cart_items
 
         if @cart_items 
-            @cart_Items
             render :index
-        elsif !current_user
+        else
             redirect_to api_session_url
         end
 
     end
 
 
-    def updated_at
+    def update
         @cart_item = CartItem.find_by(id: params[:id])
 
         if @cart_item && @cart_item.update(cart_item_params)
