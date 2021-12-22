@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-class ProductShow extends React.Component {
+class CartShowItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,19 +14,22 @@ class ProductShow extends React.Component {
   componentDidMount() {
     this.props.fetchProduct(this.props.match.params.productId);
     if (this.props.currentUser) {
-     this.props.fetchCart(this.props.currentUser.id);
+      this.props.fetchCart(this.props.currentUser.id);
     }
   }
 
-
-  addItemToCartHandler(e){
-    e.preventDefault(); 
+  addItemToCartHandler(e) {
+    e.preventDefault();
     if (this.props.currentUser) {
-    const cartItem = { cart_id: this.props.currentUser.id, product_id: this.props.product.id, quantity: this.state.quantity }
-    this.props.thunkCreateCartItem(cartItem);
+      const cartItem = {
+        cart_id: this.props.currentUser.id,
+        product_id: this.props.product.id,
+        quantity: this.state.quantity,
+      };
+      this.props.thunkCreateCartItem(cartItem);
     } else {
-      this.setState({errors: "Please log in first!"})
-      this.props.openModal("Login")
+      this.setState({ errors: "Please log in first!" });
+      this.props.openModal("Login");
     }
     // this.props.thunkCreateCartItem(this.props.product.id, this.state.quantity);
   }
@@ -82,4 +85,4 @@ class ProductShow extends React.Component {
   }
 }
 
-export default ProductShow;
+export default CartShowItem;

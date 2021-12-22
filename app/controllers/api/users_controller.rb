@@ -3,7 +3,6 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @cart = Cart.new(user_id: @user.id)
-      debugger
       @cart.save!
       p @cart
       login!(@user) 
