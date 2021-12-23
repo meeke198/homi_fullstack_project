@@ -13,6 +13,7 @@ import ProductIndexContainer from "./products/product_index_container";
 import ProductShowContainer from "./products/product_show_container";
 import CategoryContainer from "./products/category_container";
 import Footer from './footer'
+import CartIndexContainer from './carts/cart_index_container'
 
 const App = () => (
   <div>
@@ -33,7 +34,7 @@ const App = () => (
         component={ProductShowContainer}
       />
       <Route exact path="/products" component={ProductIndexContainer} />
-      <Route exact path="/cartItems" component={CartIndexContainer} />
+      <Route exact path="/cart_items" component={CartIndexContainer} />
       <Route exact path="/" component={ProductIndexContainer} />
       <Route component={NotFound} />
     </Switch>

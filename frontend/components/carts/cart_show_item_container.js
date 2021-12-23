@@ -5,7 +5,7 @@ import { fetchProducts } from "../../actions/product_actions";
 import CartShowItem from "./cart_show_item";
 
 const mSTP = (state) => ({
-  cartItems: state.entities.cartItems,
+  cartItems: Object.values(state.entities.cartItems),
   currentUser: state.entities.user[state.session.id],
   allProducts: state.entities.products
 });

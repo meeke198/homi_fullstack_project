@@ -110,6 +110,7 @@ class NavBar extends React.Component {
         <div>
           <div>
             <BsCart4
+              onClick={() => openModal("login")}
               style={{
                 marginLeft: 30,
                 width: 35,

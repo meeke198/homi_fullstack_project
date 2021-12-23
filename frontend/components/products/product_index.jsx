@@ -12,7 +12,7 @@ class ProductIndex extends React.Component {
     this.props.fetchProducts();
   }
   render() {
-    const { products, currentUser } = this.props;
+    const { products } = this.props;
     const ProductItems = (products || []).map((product) => {
       return <ProductIndexItem key={product.id} product={product} />;
     });
