@@ -5,59 +5,45 @@ class CartShowItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantity: 1,
+      id: this.props.item.id,
+      cart_id: this.props.item.cart_id,
+      product_id: this.props.item.product.product_id,
+      quantity: this.props.item.product.quantity,
+      image_url: this.props.item.cart.image_url
     };
   }
-  componentDidMount() {
-    if (this.props.currentUser) {
-      this.props.fetchCartItems();
-    }
-  }
 
-  
+
   quantityHandler(e) {
     this.setState({ quantity: e.target.value });
   }
   
   render() {
-    const { cartItems } = this.props;
-    let allItems =
-      Object.values(cartItems) === 0 ? [] : Object.values(cartItems);
-    let totalItemsInCart = 0;
-    allItems.forEach((item) => totalItemsInCart += item.quantity)
-    let allProductsArray = [];
-    allItems.forEach((item) => {
-      if (allProductsArray.includes(item.product.product_name)){
-        item.product.product_name
-      }
-    })
-
-    let itemsPrice = 0;
-    allItems.forEach((item) => itemsPrice += (item.product.price * item.quantity));
-    if (cartItems === undefined){
-      return null
-    }
-
-    let tax = itemsPrice * 0.08
-    let total = itemsPrice + tax
-    if (totalItemsInCart === 0) {
+    const { item } = this.props;
+    let totalItemsPrice = 0;
+    totalItemsPrice = (item.product.price * item.quantity);
       return (
         <div>
-          <h1>Your cart is empty</h1>
-          <Link>Discover something unique to fill it up</Link>
-        </div>
-      );
-    } else {
-      return (
-        <div className="cart-show-container">
-          <h1>{totalItemsInCart} items in your cart</h1>
-          <p>Keep shopping</p>
+          <Link to={`/products/${item.product.product_id}`}>
+            <img src={this.state.image_url} alt="product_image" />
+          </Link>
+          <Link to={`/products/${item.product.product_id}`}>
+            <p>{item.product.product_name}</p>
+          </Link>
+          <div>
+            <select className="item-quantity" onChange={this.quantityHandler}>
+              <option value="1" selected>
+                1
+              </option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
         </div>
       );
     }
-
-    
-  }
 }
 
 export default CartShowItem;
