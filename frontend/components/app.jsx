@@ -33,6 +33,7 @@ const App = () => (
         component={ProductShowContainer}
       />
       <Route exact path="/products" component={ProductIndexContainer} />
+      <Route exact path="/cartItems" component={CartIndexContainer} />
       <Route exact path="/" component={ProductIndexContainer} />
       <Route component={NotFound} />
     </Switch>

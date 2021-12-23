@@ -9,7 +9,6 @@ class CartShowItem extends React.Component {
       cart_id: this.props.item.cart_id,
       product_id: this.props.item.product.product_id,
       quantity: this.props.item.product.quantity,
-      image_url: this.props.item.cart.image_url
     };
   }
 

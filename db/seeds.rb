@@ -16,7 +16,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
 ActiveRecord::Base.connection.reset_pk_sequence!('carts')
 demoUser = User.create!(email: "demo@gmail.com", password: "password123")
-`user1 = User.create!(email: "susu@gmail.com", password: 'password')`
+user1 = User.create!(email: "susu@gmail.com", password: 'password')
 user2 = User.create!(email: "kmommy@gmail.com", password: 'password')
 user3 = User.create!(email: "woffy@gmail.com", password: 'password')
 user4 = User.create!(email: "wendy@gmail.com", password: 'password')
