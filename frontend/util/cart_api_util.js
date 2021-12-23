@@ -3,3 +3,10 @@ export const apiReceiveCart = (userId) => (
         url: `/api/carts/${userId}`
     })
 )
+export const apiCreateCart = (cart) => (
+    $.ajax({
+        method: 'POST',
+        url: `/api/carts`,
+        data: {cart}
+    })
+)

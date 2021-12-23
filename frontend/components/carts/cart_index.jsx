@@ -6,7 +6,9 @@ class CartIndex extends React.Component {
     super(props);
   }
   componentDidMount() {
-      this.props.fetchCartItems();
+    if (this.props.currentUser){
+      this.props.fetchCart(this.props.currentUser.id);
+    }
   }
 
   render() {

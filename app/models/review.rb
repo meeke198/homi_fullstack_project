@@ -23,4 +23,8 @@ validates :rating, inclusion: { in: (1..5) }
   foreign_key: :product_id,
   class_name: :Product
 
+  # def self.get_product_reviews(product_id)
+  #    self.where("product_id = ?", product_id)
+  # end
+
 end
