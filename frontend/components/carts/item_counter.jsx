@@ -4,6 +4,7 @@ import { Route } from "react-router";
 import { BsCart4 } from "react-icons/bs";
 
 const ItemCounter = ({ items, currentUser, openModal }) => {
+  console.log("items", items)
   const allCartItems = Object.values(items)
   let totalItems = 0;
   allCartItems.forEach((item) => (totalItems += item.quantity));

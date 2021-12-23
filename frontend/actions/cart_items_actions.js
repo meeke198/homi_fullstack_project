@@ -5,6 +5,7 @@ export const UPDATE_CART_ITEM = " UPDATE_CART_ITEM";
 export const DELETE_CART_ITEM = "DELETE_CART_ITEM";
 
 
+
 export const createCartItem = (cartItem) => ({
     type: CREATE_CART_ITEM,
     cartItem
@@ -32,7 +33,7 @@ export const thunkCreateCartItem = (cartItem) => dispatch=> {
     .then(cartItem => dispatch(createCartItem(cartItem)))
 }
 
-export const thunkReceiveCartItems = () => (dispatch) =>
+export const thunkFetchCartItems = () => (dispatch) =>
   cartItemsAPIUtil
     .apiReceiveCartItems()
     .then((cartItems) => dispatch(receiveCartItems(cartItems)));
@@ -48,6 +49,5 @@ export const thunkDeleteCartItem = (cartItemId) => (
     cartItemsAPIUtil.apiDeleteCartItem(cartItemId)
     .then(() => dispatch(deleteCartItem(cartItemId)))
 )
-
 
 

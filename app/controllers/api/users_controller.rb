@@ -2,7 +2,9 @@ class Api::UsersController < ApplicationController
   def create #signup
     @user = User.new(user_params)
     if @user.save
+      debugger
       @cart = Cart.new(user_id: @user.id)
+      debugger
       @cart.save!
       p @cart
       login!(@user) 
