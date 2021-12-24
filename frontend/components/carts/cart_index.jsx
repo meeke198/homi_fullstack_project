@@ -6,31 +6,25 @@ class CartIndex extends React.Component {
     super(props);
   }
   componentDidMount() {
+    console.log("cart", cart)
     if (this.props.currentUser){
-      this.props.fetchCart(this.props.currentUser.id);
+      this.props.fetchCart(this.props.currentUser.id, this.props.currentUser.id);
     }
+    this.setState({});
   }
 
   render() {
-    const { cartItems } = this.props;
-    // let allItems =
-    //   Object.values(cartItems) === 0 ? [] : Object.values(cartItems);
-    // let totalItemsInCart = 0;
-    // allItems.forEach((item) => (totalItemsInCart += item.quantity));
-    // // let allProductsArray = [];
-    // // allItems.forEach((item) => {
-    // //   if (allProductsArray.includes(item.product.product_name)) {
-    // //     item.product.product_name;
-    // //   }
-    // // });
+    const { cart } = this.props;
+    let itemsPrice = 0;
+    let totalItemsInCart = 0;
+    let allItemsObject = {};
 
-    // let itemsPrice = 0;
-    // allItems.forEach(
-    //   (item) => (itemsPrice += item.product.price * item.quantity)
-    // );
+    if (cart) {
+      totalItemsInCart = cart.length
+    }
 
-    // let tax = itemsPrice * 0.08;
-    // let total = itemsPrice + tax;
+    let tax = itemsPrice * 0.08;
+    let total = itemsPrice + tax;
      const cartItemsList = (cartItems || []).map((item) => {
        return <CartShowItem key={item.id} item={item} />;
      });

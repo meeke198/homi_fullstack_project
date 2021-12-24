@@ -34,7 +34,7 @@ const App = () => (
         component={ProductShowContainer}
       />
       <Route exact path="/products" component={ProductIndexContainer} />
-      <Route exact path="/cart_items" component={CartIndexContainer} />
+      <Route exact path="/carts" component={CartIndexContainer} />
       <Route exact path="/" component={ProductIndexContainer} />
       <Route component={NotFound} />
     </Switch>

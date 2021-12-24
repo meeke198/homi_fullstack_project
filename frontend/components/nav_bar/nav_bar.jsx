@@ -18,6 +18,7 @@ class NavBar extends React.Component {
     };
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.logoutHandler = this.logoutHandler.bind(this);
+    this.goToCart = this.goToCart.bind(this);
   }
   toggleDropdown(e) {
     e.stopPropagation();
@@ -28,11 +29,9 @@ class NavBar extends React.Component {
     this.props.logout();
   }
 
-  // componentDidMount(){
-  //   if (this.props.currenUser){
-  //     this.props.getCartItems();
-  //   }
-  // }
+ goToCart(){
+   this.props.history.push({pathname:'/cart/'})
+ }
   render() {
     const { currentUser, openModal, cartItems } = this.props;
     let totalItems = 0;
@@ -87,8 +86,8 @@ class NavBar extends React.Component {
         </div>
         <div>
           <div>
-            <Link to="/cart_items">
               <BsCart4
+              onClick={() => this.goToCart()}
                 style={{
                   marginLeft: 15,
                   width: 30,
@@ -97,7 +96,6 @@ class NavBar extends React.Component {
                   position: "relative",
                 }}
               />
-            </Link>
           </div>
           <div className="counter">{isNaN(totalItems) ? totalItems : 0}</div>
         </div>

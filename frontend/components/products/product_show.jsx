@@ -63,8 +63,8 @@ class ProductShow extends React.Component {
                 className="quantity-select"
                 onChange={this.quantityHandler}
               >
-                <option value="1" selected>
-                  1
+                <option value="1" defaultValue={this.state.quantity}>
+                  Qty: 1
                 </option>
                 <option value="2">2</option>
                 <option value="3">3</option>

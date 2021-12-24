@@ -39,7 +39,7 @@ class CartShowItem extends React.Component {
           </Link>
           <div>
             <select className="item-quantity" onClick={this.updateQuantity}>
-              <option value="1" selected>
+              <option value="1" defaultValue>
                 Qty: 1
               </option>
               <option value="2">2</option>

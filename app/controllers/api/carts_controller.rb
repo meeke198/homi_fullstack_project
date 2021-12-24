@@ -2,18 +2,20 @@ class Api::CartsController < ApplicationController
     before_action :require_login, only:[:show]
     def show
         if current_user.id == params[:user_id]
-            @cart = Cart.find_by(user_id: current_user.id)
+            debugger
+            @cart = Cart.find_or_create_by(user_id: current_user.id)
             render :show
         else
             render json: {error: "Invalid cart access"}
         end
     end
     def create
-            @cart = Cart.new(user_id: current_user.id)
+            @cart = Cart.new(cart_params)
+            debugger
             if @cart.save
                 render :show
             else
-                render json: @cart, status: :unprocessable_enttity
+                render json: @cart, status: :unprocessable_entity
             end
     end
     private

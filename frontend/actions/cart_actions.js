@@ -7,7 +7,7 @@ export const receiveCart = cart => ({
 })
 
 export const fetchCart = userId => dispatch => (
-    cartAPIUtil.apiReceiveCart(userId)
+    cartAPIUtil.apiFetchCart(userId)
     .then((cart) => dispatch(receiveCart(cart)))
 )
 
