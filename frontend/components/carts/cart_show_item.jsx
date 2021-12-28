@@ -37,7 +37,7 @@ class CartShowItem extends React.Component {
     totalItemsPrice = item.product.price * item.quantity;
     return (
       <div className="cart-item-show-container">
-        <Link to={`/products/${item.product.id}`}>
+        <Link to={`/products/${item.product.id}`} className="link">
           <img
             src={item.image_url}
             alt="product_image"
@@ -45,7 +45,7 @@ class CartShowItem extends React.Component {
           />
         </Link>
         <div className="product-name-container">
-          <Link to={`/products/${item.product_id}`}>
+          <Link to={`/products/${item.product_id}`} className="link">
             <p className="product-title">{item.product.product_name}</p>
           </Link>
           <button className="btn" onClick={() => this.deleteCartItem}>

@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CartShowItem from "./cart_show_item"
+import CartShowItem from "./cart_show_item";
+import { RiVisaFill } from "react-icons/ri";
+import { SiMastercard, SiAmericanexpress, SiKlarna } from "react-icons/si";
+import { BsPaypal } from "react-icons/bs";
+
 
 class CartIndex extends React.Component {
   constructor(props) {
@@ -41,9 +45,11 @@ class CartIndex extends React.Component {
       console.log("allItemsObject", allItemsObject);
     }
 
-    let tax = itemsPrice * 0.08;
-    let total = itemsPrice + tax;
+    let subTotal = 0;
+   
     const cartItemsList = (Object.values(allItemsObject) || []).map((item) => {
+      itemsPrice = item.quantity * item.product.price;
+        subTotal += itemsPrice;
       return (
         <CartShowItem
           key={item.id}
@@ -53,6 +59,7 @@ class CartIndex extends React.Component {
         />
       );
     });
+     let tax = subTotal * 0.08;
     if (cartItems.length === 0) {
       return (
         <div className="empty-cart">
@@ -68,28 +75,77 @@ class CartIndex extends React.Component {
             {isNaN(totalItemsInCart) ? 0 : totalItemsInCart}
           </div>
           <h1>{totalItemsInCart} items in your cart</h1>
-          <p>Keep shopping</p>
-          <div className="cart-index">{cartItemsList}</div>
-          <div className="cart-checkout" onClick={() => this.onSelect()}>
-            <h1>How you'll pay</h1>
-            <div>
-              <input type="radio" name="visa" />
+          <Link to="/" className="link">
+            Keep shopping
+          </Link>
+          <div className="cart-index-container">
+            <div className="cart-index">{cartItemsList}</div>
+            <div className="cart-checkout" onClick={() => this.onSelect()}>
+              <h1>How you'll pay</h1>
+              <div>
+                <input className="input-radio" type="radio" name="payment" />{" "}
+                <span className="payment-icon">
+                  <SiMastercard
+                    style={{ width: 50, height: 40, color: "#F69E1D" }}
+                  />
+                </span>
+                <span className="payment-icon">
+                  <RiVisaFill
+                    style={{ width: 50, height: 40, color: "#1A2072" }}
+                  />
+                </span>
+                <span className="payment-icon">
+                  <SiAmericanexpress
+                    style={{ width: 50, height: 30, color: "#086FCE" }}
+                  />
+                </span>
+              </div>
+              <div>
+                <input className="input-radio" type="radio" name="payment" />
+                <span className="payment-icon">
+                  <BsPaypal
+                    style={{
+                      width: 60,
+                      height: 35,
+                      color: "#1A2072",
+                      border: "black solid 1px",
+                      borderRadius: 5,
+                    }}
+                  />
+                </span>
+              </div>
+              <div>
+                <input className="input-radio" type="radio" name="payment" />
+                <span className="payment-icon">
+                  <SiKlarna
+                    style={{
+                      width: 60,
+                      height: 35,
+                      backgroundColor: "#FEB3C7",
+                      color: "black",
+                      borderRadius: 5,
+                    }}
+                  />
+                </span>
+                <span>Monthly financing</span>
+                <p>
+                  Pay as low as $ {(subTotal + tax) / 12}/mo.
+                  <span className="item-price"> Klarna. </span> See if you're
+                  prequalified
+                </p>
+              </div>
+              <p>
+                Item(s) subtotal:{" "}
+                <span className="item-price">$ {subTotal}.00</span>
+              </p>
+              <p>
+                Tax: <span className="item-price">$ {tax}</span>
+              </p>
+              <p>
+                Item(s) total:{" "}
+                <span className="item-price"> $ {subTotal + tax}</span>
+              </p>
             </div>
-            <div>
-              <input type="radio" name="paypal" />
-            </div>
-            <div>
-              <input type="radio" name="monthly" />
-            </div>
-            <p>
-              Item(s) subtotal <span>{itemsPrice}</span>
-            </p>
-            <p>
-              Tax: <span>{tax}</span>
-            </p>
-            <p>
-              Item(s) total <span>{total}</span>
-            </p>
           </div>
         </div>
       );
