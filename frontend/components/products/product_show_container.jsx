@@ -8,7 +8,8 @@ import { thunkCreateCartItem } from "../../actions/cart_items_actions"
 
 const mapStateToProps = (state, ownProps) => ({
     product: state.entities.products[ownProps.match.params.productId],
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    cart: state.entities.carts[state.session.id]
 })
 //[ownProps.match.params.productId] lay id tu url
 //state(redux), ownProps(state tu cha truyen xuong = state cua react);

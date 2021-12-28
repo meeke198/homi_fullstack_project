@@ -21,7 +21,7 @@ class ProductShow extends React.Component {
 
   addItemToCartHandler(e){
     e.preventDefault(); 
-    const quantity = parseInt(document.querySelector(".quantity-select").value);
+    // const quantity = parseInt(document.querySelector(".quantity-select").value);
     if (this.props.currentUser) {
       const cartItem = {
         cart_id: this.props.currentUser.id,
@@ -29,10 +29,11 @@ class ProductShow extends React.Component {
         quantity: this.state.quantity,
       };
       this.props.thunkCreateCartItem(cartItem);
-      this.props.fetchCart(this.props.currentUser.id);
-      this.props.history.push({ 
-        pathname: '/carts/'
-      });
+      let cart = this.props.cart;
+      console.log("cart", cart);
+      // this.props.history.push({ 
+      //   pathname: '/carts/'
+      // });
     } else {
       this.setState({errors: "Please log in first!"})
       this.props.openModal("Login")

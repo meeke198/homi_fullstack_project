@@ -5,11 +5,20 @@ import CartShowItem from "./cart_show_item"
 class CartIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      select: false,
+    };
   }
   componentDidMount() {
-    if (this.props.currentUser){
+    if (this.props.currentUser) {
       this.props.fetchCartItems();
     }
+  }
+
+  onSelect() {
+    this.setState({
+      selected: !this.state.select,
+    });
   }
 
   render() {
@@ -20,14 +29,34 @@ class CartIndex extends React.Component {
     let allItemsObject = {};
 
     if (cartItems) {
-      cartItems.forEach((item) => totalItemsInCart += item.quantity
-    )}
+      cartItems.forEach((item) => {
+        totalItemsInCart += item.quantity;
+        // console.log(
+        //   "allItemsObject[item.id]['quantity']",
+        //   allItemsObject[item.id]["quantity"]
+        // );
+        // console.log("allItemsObject[item.id]", allItemsObject[item.id]);
+
+        // if (allItemsObject[item.product_id]) {
+        //   allItemsObject[item.id]['quantity'] += item.quantity;
+        // } else {
+        //   allItemsObject[item.id] = item
+        // };
+      });
+    }
 
     let tax = itemsPrice * 0.08;
     let total = itemsPrice + tax;
-     const cartItemsList = (cartItems || []).map((item) => {
-       return <CartShowItem key={item.id} item={item} deleteCartItem = {deleteCartItem} updateCartItem = {updateCartItem} />;
-     });
+    const cartItemsList = (cartItems || []).map((item) => {
+      return (
+        <CartShowItem
+          key={item.id}
+          item={item}
+          deleteCartItem={deleteCartItem}
+          updateCartItem={updateCartItem}
+        />
+      );
+    });
     if (cartItems.length === 0) {
       return (
         <div className="empty-cart">
@@ -41,10 +70,10 @@ class CartIndex extends React.Component {
           <h1>{totalItemsInCart} items in your cart</h1>
           <p>Keep shopping</p>
           <div className="cart-index">{cartItemsList}</div>
-          <div className="cart-checkout">
+          <div className="cart-checkout" onClick={() => this.onSelect()}>
             <h1>How you'll pay</h1>
             <div>
-              <input type="radio" name="visa" checked />
+              <input type="radio" name="visa"/>
             </div>
             <div>
               <input type="radio" name="paypal" />
