@@ -5,7 +5,6 @@ class Api::CartItemsController < ApplicationController
     def create
         @cart_item = CartItem.new(cart_item_params)
         # @cart_item.cart_id = params[:cart_id]
-        debugger
         if @cart_item.save
             render :show
         else
@@ -16,15 +15,8 @@ class Api::CartItemsController < ApplicationController
 
 
     def index
-        cart = Cart.find(params[:cart_id])
-        @cart_items = cart.cart_items
-
-        if @cart_items 
-            render :index
-        else
-            redirect_to api_session_url
-        end
-
+        @cart_items = CartItem.all
+        # render :index
     end
 
 

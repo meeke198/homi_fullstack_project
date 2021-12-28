@@ -30,7 +30,7 @@ class NavBar extends React.Component {
   }
 
  goToCart(){
-   this.props.history.push({pathname:'/cart/'})
+   this.props.history.push({pathname:'/carts'})
  }
   render() {
     const { currentUser, openModal, cartItems } = this.props;

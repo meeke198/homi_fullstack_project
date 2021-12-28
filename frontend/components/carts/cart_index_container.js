@@ -11,16 +11,17 @@ import {
 import CartIndex from "./cart_index";
 
 const mSTP = state => {
-  const newState = getState();
+  console.log("cartItems", Object.values(state.entities.cartItems));
+  // console.log("current user", state.entities.users[state.session.id]);
   return {
-    cart: newState.entities.carts[state.session.id],
+    cartItems: Object.values(state.entities.cartItems),
     currentUser: state.entities.users[state.session.id],
   };
-};
+}   
 const mDTP = (dispatch) => ({
   fetchCartItems: () => dispatch(thunkFetchCartItems()),
-  createCart: (cart) => dispatch(createCart(cart)),
-  fetchCart: (id, userId) => dispatch(fetchCart(id, userId)),
+  // createCart: (cart) => dispatch(createCart(cart)),
+  fetchCart: (userId) => dispatch(fetchCart(userId)),
 });
 
 export default connect(mSTP, mDTP)(CartIndex);

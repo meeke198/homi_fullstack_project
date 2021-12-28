@@ -10,47 +10,53 @@ class CartShowItem extends React.Component {
       product_id: this.props.item.product.product_id,
       quantity: this.props.item.product.quantity,
     };
-    this.updateQuantity = this.updateQuantity.bind(this)
+    this.updateQuantity = this.updateQuantity.bind(this);
   }
-
 
   updateQuantity(e) {
     e.preventDefault();
     this.setState({ quantity: parseInt(e.target.value) });
   }
-  
+
+  // updateQuantity(e) {
+  //   e.preventDefault();
+  //   this.setState({ quantity: parseInt(e.target.value) });
+  // }
+
   render() {
     const { item } = this.props;
-    item.length === undefined ? null : item
+    console.log("item", item);
+    item.length === undefined ? null : item;
 
     let totalItemsPrice = 0;
-    totalItemsPrice = (item.product.price * item.quantity);
-      return (
+    totalItemsPrice = item.product.price * item.quantity;
+    return (
+      <div className="cart-item-show-container">
+        <Link to={`/products/${item.product.id}`}>
+          <img
+            src={item.image_url}
+            alt="product_image"
+            style={{ width: "200px", height: "200px" }}
+          />
+        </Link>
+        <Link to={`/products/${item.product.product_id}`}>
+          <p>{item.product.product_name}</p>
+        </Link>
+        <button>Remove Item</button>
         <div>
-          <Link to={`/products/${item.product.product_id}`}>
-            <img
-              src={item.cart.image_url}
-              alt="product_image"
-              style={{ width: "200px", height: "200px" }}
-            />
-          </Link>
-          <Link to={`/products/${item.product.product_id}`}>
-            <p>{item.product.product_name}</p>
-          </Link>
-          <div>
-            <select className="item-quantity" onClick={this.updateQuantity}>
-              <option value="1" defaultValue>
-                Qty: 1
-              </option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
+          <select className="item-quantity" onClick={this.updateQuantity}>
+            <option value="1" defaultValue>
+              Qty: 1
+            </option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
         </div>
-      );
-    }
+      </div>
+    );
+  }
 }
 
 export default CartShowItem;

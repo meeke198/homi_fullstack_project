@@ -2,6 +2,7 @@ var path = require('path');
 
 module.exports = {
   entry: './frontend/homi.jsx',
+  mode: 'production',
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: './bundle.js',
