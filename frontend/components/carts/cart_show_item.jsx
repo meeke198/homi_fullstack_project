@@ -18,10 +18,11 @@ class CartShowItem extends React.Component {
     this.setState({ quantity: parseInt(e.target.value) });
   }
 
-  // updateQuantity(e) {
-  //   e.preventDefault();
-  //   this.setState({ quantity: parseInt(e.target.value) });
-  // }
+  deleteCartItem(e) {
+    e.preventDefault();
+    this.props.deleteCartItem(this.props.item.id);
+  }
+ 
 
   render() {
     const { item } = this.props;
@@ -36,23 +37,38 @@ class CartShowItem extends React.Component {
           <img
             src={item.image_url}
             alt="product_image"
-            style={{ width: "200px", height: "200px" }}
+            style={{ width: "150px", height: "150px" }}
           />
         </Link>
-        <Link to={`/products/${item.product.product_id}`}>
-          <p>{item.product.product_name}</p>
-        </Link>
-        <button>Remove Item</button>
+        <div className="product-name-container">
+          <Link to={`/products/${item.product.product_id}`}>
+            <p className="product-title">{item.product.product_name}</p>
+          </Link>
+          <button className="btn" onClick={() => this.deleteCartItem}>
+            Remove
+          </button>
+        </div>
         <div>
-          <select className="item-quantity" onClick={this.updateQuantity}>
-            <option value="1" defaultValue>
-              Qty: 1
-            </option>
+          <select
+            className="item-quantity"
+            onClick={this.updateQuantity}
+            defaultValue={this.state.quantity}
+          >
+            <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
+        </div>
+        <div>
+          <p>
+            <span className="item-price">$ {item.product.price}.00</span>
+          </p>
+          <p className="in-stock">
+            Only {Math.floor(Math.random() * 10) + 2} left and it's in 20+
+            people's carts
+          </p>
         </div>
       </div>
     );

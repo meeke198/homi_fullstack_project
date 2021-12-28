@@ -28,13 +28,11 @@ class ProductShow extends React.Component {
         product_id: this.props.product.id,
         quantity: this.state.quantity,
       };
-      for (let i = 0; i < quantity; i++) {
-        this.props.thunkCreateCartItem(cartItem);
-      }
-      this.props.fetchCart(1, this.props.sessionId);
-              this.props.history.push({
-                  pathname: '/carts/'
-              });
+      this.props.thunkCreateCartItem(cartItem);
+      this.props.fetchCart(this.props.currentUser.id);
+      this.props.history.push({ 
+        pathname: '/carts/'
+      });
     } else {
       this.setState({errors: "Please log in first!"})
       this.props.openModal("Login")

@@ -14,7 +14,7 @@ class CartIndex extends React.Component {
 
   render() {
     console.log("cartItems", cartItems);
-    const { cartItems } = this.props;
+    const { cartItems, deleteCartItem, updateCartItem } = this.props;
     let itemsPrice = 0;
     let totalItemsInCart = 0;
     let allItemsObject = {};
@@ -26,7 +26,7 @@ class CartIndex extends React.Component {
     let tax = itemsPrice * 0.08;
     let total = itemsPrice + tax;
      const cartItemsList = (cartItems || []).map((item) => {
-       return <CartShowItem key={item.id} item={item} />;
+       return <CartShowItem key={item.id} item={item} deleteCartItem = {deleteCartItem} updateCartItem = {updateCartItem} />;
      });
     if (cartItems.length === 0) {
       return (
@@ -41,6 +41,27 @@ class CartIndex extends React.Component {
           <h1>{totalItemsInCart} items in your cart</h1>
           <p>Keep shopping</p>
           <div className="cart-index">{cartItemsList}</div>
+          <div className="cart-checkout">
+            <h1>How you'll pay</h1>
+            <div>
+              <input type="radio" name="visa" checked />
+            </div>
+            <div>
+              <input type="radio" name="paypal" />
+            </div>
+            <div>
+              <input type="radio" name="monthly" />
+            </div>
+            <p>
+              Item(s) subtotal <span>{itemsPrice}</span>
+            </p>
+            <p>
+              Tax: <span>{tax}</span>
+            </p>
+            <p>
+              Item(s) total <span>{total}</span>
+            </p>
+          </div>
         </div>
       );
     }
