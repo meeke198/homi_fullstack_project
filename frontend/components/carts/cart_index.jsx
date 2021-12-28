@@ -31,23 +31,19 @@ class CartIndex extends React.Component {
     if (cartItems) {
       cartItems.forEach((item) => {
         totalItemsInCart += item.quantity;
-        // console.log(
-        //   "allItemsObject[item.id]['quantity']",
-        //   allItemsObject[item.id]["quantity"]
-        // );
-        // console.log("allItemsObject[item.id]", allItemsObject[item.id]);
-
-        // if (allItemsObject[item.product_id]) {
-        //   allItemsObject[item.id]['quantity'] += item.quantity;
-        // } else {
-        //   allItemsObject[item.id] = item
-        // };
+        // debugger
+        if (allItemsObject[item.product_id]) {
+          allItemsObject[item.product_id]['quantity'] += item.quantity;
+        } else {
+          allItemsObject[item.product_id] = item
+        };
       });
+      console.log("allItemsObject", allItemsObject);
     }
 
     let tax = itemsPrice * 0.08;
     let total = itemsPrice + tax;
-    const cartItemsList = (cartItems || []).map((item) => {
+    const cartItemsList = (Object.values(allItemsObject) || []).map((item) => {
       return (
         <CartShowItem
           key={item.id}
@@ -60,6 +56,7 @@ class CartIndex extends React.Component {
     if (cartItems.length === 0) {
       return (
         <div className="empty-cart">
+          <div className="counter">0</div>
           <h1>Your cart is empty</h1>
           <Link to="/">Discover something unique to fill it up</Link>
         </div>
@@ -67,13 +64,16 @@ class CartIndex extends React.Component {
     } else {
       return (
         <div className="cart-show-container">
+          <div className="counter">
+            {isNaN(totalItemsInCart) ? 0 : totalItemsInCart}
+          </div>
           <h1>{totalItemsInCart} items in your cart</h1>
           <p>Keep shopping</p>
           <div className="cart-index">{cartItemsList}</div>
           <div className="cart-checkout" onClick={() => this.onSelect()}>
             <h1>How you'll pay</h1>
             <div>
-              <input type="radio" name="visa"/>
+              <input type="radio" name="visa" />
             </div>
             <div>
               <input type="radio" name="paypal" />

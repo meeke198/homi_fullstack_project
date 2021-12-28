@@ -97,7 +97,6 @@ class NavBar extends React.Component {
                 }}
               />
           </div>
-          <div className="counter">{isNaN(totalItems) ? totalItems : 0}</div>
         </div>
       </div>
     ) : (
@@ -117,7 +116,6 @@ class NavBar extends React.Component {
               }}
             />
           </div>
-          <div className="counter">{isNaN(totalItems) ? totalItems : 0}</div>
         </div>
       </div>
     );

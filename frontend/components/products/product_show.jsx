@@ -13,9 +13,9 @@ class ProductShow extends React.Component {
   }
   componentDidMount() {
     this.props.fetchProduct(this.props.match.params.productId);
-    if (this.props.currentUser) {
-     this.props.fetchCart(this.props.currentUser.id);
-    }
+    // if (this.props.currentUser) {
+    //  this.props.fetchCart(this.props.currentUser.id);
+    // }
   }
 
 
@@ -29,8 +29,8 @@ class ProductShow extends React.Component {
         quantity: this.state.quantity,
       };
       this.props.thunkCreateCartItem(cartItem);
-      let cart = this.props.cart;
-      console.log("cart", cart);
+      // let cart = this.props.cart;
+      // console.log("cart", cart);
       // this.props.history.push({ 
       //   pathname: '/carts/'
       // });
