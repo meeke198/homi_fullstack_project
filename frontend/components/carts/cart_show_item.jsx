@@ -11,6 +11,7 @@ class CartShowItem extends React.Component {
       quantity: this.props.item.quantity,
     };
     this.updateQuantity = this.updateQuantity.bind(this);
+    this.deleteCartItem = this.deleteCartItem.bind(this);
   }
 
   updateQuantity(e) {
@@ -18,9 +19,8 @@ class CartShowItem extends React.Component {
     this.setState({ quantity: parseInt(e.target.value) });
   }
 
-  deleteCartItem(e) {
-    e.preventDefault();
-    this.props.deleteCartItem(this.props.item.id);
+  deleteCartItem() {
+    this.props.deleteCartItem(this.state.id);
   }
 
  
@@ -48,7 +48,11 @@ class CartShowItem extends React.Component {
           <Link to={`/products/${item.product_id}`} className="link">
             <p className="product-title">{item.product.product_name}</p>
           </Link>
-          <button className="btn" onClick={() => this.deleteCartItem}>
+          <button
+            type="submit"
+            className="btn"
+            onClick={() => this.deleteCartItem}
+          >
             Remove
           </button>
         </div>
@@ -63,6 +67,8 @@ class CartShowItem extends React.Component {
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
+            <option value="4">6</option>
+            <option value="5">7</option>
           </select>
         </div>
         <div>

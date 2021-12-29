@@ -4,6 +4,7 @@ import CartShowItem from "./cart_show_item";
 import { RiVisaFill } from "react-icons/ri";
 import { SiMastercard, SiAmericanexpress, SiKlarna } from "react-icons/si";
 import { BsPaypal } from "react-icons/bs";
+import { FaShippingFast } from "react-icons/fa";
 
 
 class CartIndex extends React.Component {
@@ -24,6 +25,7 @@ class CartIndex extends React.Component {
       selected: !this.state.select,
     });
   }
+
 
   render() {
     console.log("cartItems", cartItems);
@@ -75,7 +77,7 @@ class CartIndex extends React.Component {
             {isNaN(totalItemsInCart) ? 0 : totalItemsInCart}
           </div>
           <h1>{totalItemsInCart} items in your cart</h1>
-          <Link to="/" className="link">
+          <Link to="/products" className="link">
             Keep shopping
           </Link>
           <div className="cart-index-container">
@@ -129,9 +131,13 @@ class CartIndex extends React.Component {
                 </span>
                 <span>Monthly financing</span>
                 <p>
-                  Pay as low as $ {(subTotal + tax) / 12}/mo.
-                  <span className="item-price"> Klarna. </span> See if you're
-                  prequalified
+                  Pay as low as $ {(subTotal + tax) / 12}/mo.{" "}
+                  <span style={{ fontWeight: "bolder" }}> Klarna. </span>
+                  <span>
+                    <a href="https://www.klarna.com/us/" target="_blank">
+                      See if you're prequalified
+                    </a>
+                  </span>
                 </p>
               </div>
               <p>
@@ -145,6 +151,10 @@ class CartIndex extends React.Component {
                 Item(s) total:{" "}
                 <span className="item-price"> $ {subTotal + tax}</span>
               </p>
+              <p>
+                <FaShippingFast /> <a href="https://apps.goshippo.com/"> Get shipping cost</a>
+              </p>
+              <div className="checkout-btn">Proceed to checkout</div>
             </div>
           </div>
         </div>

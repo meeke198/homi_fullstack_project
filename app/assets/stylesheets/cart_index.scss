@@ -1,6 +1,6 @@
 .cart-index-container {
   display: flex;
-  padding: 25px;
+  padding: 25px 25px;
 }
 h1 {
   font-size: 30px;
@@ -32,8 +32,8 @@ h1 {
 
 .cart-checkout {
   width: 30vw;
-  font: 15px;
-  padding: 0 20px;
+  font-size: 15px;
+  padding: 20px 40px;
   box-shadow: 4px 6px 15px -1px rgba(0, 0, 0, 0.71);
   -webkit-box-shadow: 4px 6px 15px -1px rgba(0, 0, 0, 0.71);
   -moz-box-shadow: 4px 6px 15px -1px rgba(0, 0, 0, 0.71);
@@ -62,5 +62,21 @@ p {
 }
 .item-price{
     font-weight: bolder;
-    margin-left: 60%;
+    margin-right: -10px;
+}
+.checkout-btn{
+    background-color: black;
+    font-size: 20px;
+    color: white;
+    font-weight: bolder;
+    width: 90%;
+    height: 35px;
+    padding: 15px 15px 5px 15px;
+    border-radius: 30px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.checkout-btn:hover{
+
 }
