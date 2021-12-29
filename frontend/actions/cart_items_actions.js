@@ -45,9 +45,10 @@ export const thunkUpdateCartItem = (cartItem) => dispatch => (
 )
 
 
-export const thunkDeleteCartItem = (cartItemId) => (
+export const thunkDeleteCartItem = (cartItemId) => dispatch => {
+    console.log("thu xem no vao day chua");
     cartItemsAPIUtil.apiDeleteCartItem(cartItemId)
     .then(() => dispatch(deleteCartItem(cartItemId)))
-)
+}
 
 

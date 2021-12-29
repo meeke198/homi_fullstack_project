@@ -20,6 +20,7 @@ class CartShowItem extends React.Component {
   }
 
   deleteCartItem() {
+    console.log("cart_show");
     this.props.deleteCartItem(this.state.id);
   }
 
@@ -28,7 +29,7 @@ class CartShowItem extends React.Component {
   render() {
     console.log("props", this.props);
     const { item } = this.props;
-    // console.log("item", item);
+    console.log("item", item);
     // console.log("quantity", item.quantity);
     // console.log("item.product.price", item.product.price);
     item.length === undefined ? null : item;
@@ -51,7 +52,7 @@ class CartShowItem extends React.Component {
           <button
             type="submit"
             className="btn"
-            onClick={() => this.deleteCartItem}
+            onClick={() => this.deleteCartItem()}
           >
             Remove
           </button>
@@ -67,8 +68,8 @@ class CartShowItem extends React.Component {
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
-            <option value="4">6</option>
-            <option value="5">7</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
           </select>
         </div>
         <div>
