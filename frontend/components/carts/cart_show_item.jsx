@@ -1,39 +1,34 @@
 import React from "react";
+import { RiContactsBookUploadLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 class CartShowItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: this.props.item.id,
       cart_id: this.props.item.cart_id,
       product_id: this.props.item.product_id,
       quantity: this.props.item.quantity,
     };
     this.updateQuantity = this.updateQuantity.bind(this);
-    this.deleteCartItem = this.deleteCartItem.bind(this);
+    // this.updateCartItem = this.updateCartItem.bind(this);
   }
 
   updateQuantity(e) {
-    e.preventDefault();
-    this.setState({ quantity: parseInt(e.target.value) });
+    this.props.item.quantity = parseInt(e.target.value);
+    this.props.updateCartItem(this.props.item);
   }
 
-  deleteCartItem() {
-    console.log("cart_show");
-    this.props.deleteCartItem(this.state.id);
+  deleteCartItem() { 
+    this.props.deleteCartItem(this.props.item.id);
   }
 
- 
 
   render() {
-    console.log("props", this.props);
     const { item } = this.props;
-    console.log("item", item);
-    // console.log("quantity", item.quantity);
-    // console.log("item.product.price", item.product.price);
     item.length === undefined ? null : item;
-
+    console.log("quantity", this.state.quantity);
+    console.log("state", this.state);
     let totalItemsPrice = 0;
     totalItemsPrice = item.product.price * item.quantity;
     return (
@@ -60,8 +55,8 @@ class CartShowItem extends React.Component {
         <div>
           <select
             className="item-quantity"
-            onClick={this.updateQuantity}
-            defaultValue={item.quantity}
+            onChange={this.updateQuantity}
+            defaultValue={this.state.quantity}
           >
             <option value="1">1</option>
             <option value="2">2</option>
@@ -71,6 +66,7 @@ class CartShowItem extends React.Component {
             <option value="6">6</option>
             <option value="7">7</option>
           </select>
+          {/* <button onClick={() => this.updateCartItem()}>Update Quantity</button> */}
         </div>
         <div>
           <p>

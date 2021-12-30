@@ -12,8 +12,9 @@ import Menu from './nav_bar/menu'
 import ProductIndexContainer from "./products/product_index_container";
 import ProductShowContainer from "./products/product_show_container";
 import CategoryContainer from "./products/category_container";
-import Footer from './footer'
-import CartIndexContainer from './carts/cart_index_container'
+import Footer from './footer';
+import CartIndexContainer from './carts/cart_index_container';
+import CartShowItemContainer from './carts/cart_show_item_container';
 
 const App = () => (
   <div>
@@ -34,7 +35,8 @@ const App = () => (
         component={ProductShowContainer}
       />
       <Route exact path="/products" component={ProductIndexContainer} />
-      <Route exact path="/carts" component={CartIndexContainer} />
+      <Route exact path="/cart_items" component={CartIndexContainer} />
+      {/* <Route exact path="/cart_items/:cartItemId" component={CartShowItemContainer} /> */}
       <Route exact path="/" component={ProductIndexContainer} />
       <Route component={NotFound} />
     </Switch>

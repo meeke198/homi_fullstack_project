@@ -32,24 +32,26 @@ class CartIndex extends React.Component {
     const { cartItems, deleteCartItem, updateCartItem } = this.props;
     let itemsPrice = 0;
     let totalItemsInCart = 0;
-    let allItemsObject = {};
+    // let allItemsObject = {};
 
-    if (cartItems) {
-      cartItems.forEach((item) => {
-        totalItemsInCart += item.quantity;
-        // debugger
-        if (allItemsObject[item.product_id]) {
-          allItemsObject[item.product_id]['quantity'] += item.quantity;
-        } else {
-          allItemsObject[item.product_id] = item
-        };
-      });
-      console.log("allItemsObject", allItemsObject);
-    }
+    // if (cartItems) {
+    //   cartItems.forEach((item) => {
+    //     // debugger
+    //     totalItemsInCart += item.quantity;
+    //     // debugger
+    //     if (allItemsObject[item.product_id]) {
+    //       allItemsObject[item.product_id]['quantity'] += item.quantity;
+    //     } else {
+    //       allItemsObject[item.product_id] = item
+    //     };
+    //   });
+    //   console.log("allItemsObject", allItemsObject);
+    // }
 
     let subTotal = 0;
    
-    const cartItemsList = (Object.values(allItemsObject) || []).map((item) => {
+    const cartItemsList = (cartItems || []).map((item) => {
+       totalItemsInCart += item.quantity;
       itemsPrice = item.quantity * item.product.price;
         subTotal += itemsPrice;
       return (
@@ -76,7 +78,7 @@ class CartIndex extends React.Component {
           <div className="counter">
             {isNaN(totalItemsInCart) ? 0 : totalItemsInCart}
           </div>
-          <h1>{totalItemsInCart} items in your cart</h1>
+          <h1>{totalItemsInCart} item(s) in your cart</h1>
           <Link to="/products" className="link">
             Keep shopping
           </Link>
@@ -131,7 +133,7 @@ class CartIndex extends React.Component {
                 </span>
                 <span>Monthly financing</span>
                 <p>
-                  Pay as low as $ {(subTotal + tax) / 12}/mo.{" "}
+                  Pay as low as $ {((subTotal + tax) / 12).toFixed(2)}/mo.
                   <span style={{ fontWeight: "bolder" }}> Klarna. </span>
                   <span>
                     <a href="https://www.klarna.com/us/" target="_blank">
@@ -142,17 +144,21 @@ class CartIndex extends React.Component {
               </div>
               <p>
                 Item(s) subtotal:{" "}
-                <span className="item-price">$ {subTotal}.00</span>
+                <span className="item-price">$ {subTotal.toFixed(2)}</span>
               </p>
               <p>
-                Tax: <span className="item-price">$ {tax}</span>
+                Tax: <span className="item-price">$ {tax.toFixed(2)}</span>
               </p>
               <p>
                 Item(s) total:{" "}
-                <span className="item-price"> $ {subTotal + tax}</span>
+                <span className="item-price">
+                  {" "}
+                  $ {(subTotal + tax).toFixed(2)}
+                </span>
               </p>
               <p>
-                <FaShippingFast /> <a href="https://apps.goshippo.com/"> Get shipping cost</a>
+                <FaShippingFast />{" "}
+                <a href="https://apps.goshippo.com/"> Get shipping cost</a>
               </p>
               <div className="checkout-btn">Proceed to checkout</div>
             </div>

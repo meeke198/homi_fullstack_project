@@ -9,6 +9,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { BsShop } from "react-icons/bs";
 import { GrNotes } from "react-icons/gr";
+// import SearchBar from "./search_bar";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -30,12 +31,12 @@ class NavBar extends React.Component {
   }
 
  goToCart(){
-   this.props.history.push({pathname:'/carts'})
+   this.props.history.push({pathname:'/cart_items'})
  }
   render() {
     const { currentUser, openModal, cartItems } = this.props;
     let totalItems = 0;
-    cartItems.forEach((item) => (totalItems += item.quantity));
+    (cartItems || []).map((item) => {totalItems += item.quantity });
     const { isDropdown } = this.state;
     let dropdownMenu;
     if (isDropdown && currentUser) {
@@ -86,16 +87,19 @@ class NavBar extends React.Component {
         </div>
         <div>
           <div>
-              <BsCart4
+            <BsCart4
               onClick={() => this.goToCart()}
-                style={{
-                  marginLeft: 15,
-                  width: 30,
-                  height: 30,
-                  textDecoration: "none",
-                  position: "relative",
-                }}
-              />
+              style={{
+                marginLeft: 15,
+                width: 30,
+                height: 30,
+                textDecoration: "none",
+                position: "relative",
+              }}
+            />
+          </div>
+          <div className="counter">
+            {totalItems}
           </div>
         </div>
       </div>
@@ -134,8 +138,11 @@ class NavBar extends React.Component {
             type="text"
             placeholder="Search for anything"
           />
-          <FaSearchDollar style={{ marginRight: 25, width: 30, height: 25 }} />
+          <FaSearchDollar
+            style={{ marginRight: 25, width: 30, height: 25 }}
+          />
         </div>
+        {/* <SearchBar/> */}
         {display}
       </header>
     );

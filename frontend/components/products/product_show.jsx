@@ -18,51 +18,44 @@ class ProductShow extends React.Component {
     // }
   }
 
-
-  addItemToCartHandler(e){
-    e.preventDefault(); 
+  addItemToCartHandler(e) {
+    e.preventDefault();
+    let { cartItems, currentUser, product } = this.props;
     // const quantity = parseInt(document.querySelector(".quantity-select").value);
-    if (this.props.currentUser) {
+    // debugger
+    if (currentUser) {
+      // debugger
       const cartItem = {
-        cart_id: this.props.currentUser.id,
-        product_id: this.props.product.id,
+        cart_id: currentUser.id,
+        product_id: product.id,
         quantity: this.state.quantity,
       };
-      this.props.thunkCreateCartItem(cartItem);
-      // let cart = this.props.cart;
-      // console.log("cart", cart);
-      // this.props.history.push({ 
-      //   pathname: '/carts/'
-      // });
+      console.log("cartItems", cartItems)
+      if (cartItems.length) {
+        cartItems.forEach((item) => {
+         debugger
+         console.log("items", item);
+          if (item?.product_id === cartItem?.product_id) {
+            //  debugger
+            item.quantity += cartItem.quantity;
+            
+            this.props.updateCartItem(item);
+          }
+        })
+      } else {
+        cartItems[cartItem.product_id] = this.props.createCartItem(cartItem);
+      }
     } else {
-      this.setState({errors: "Please log in first!"})
-      this.props.openModal("Login")
+      this.setState({ errors: "Please log in first!" });
+      this.props.openModal("Login");
     }
-    // this.props.thunkCreateCartItem(this.props.product.id, this.state.quantity);
   }
-//  const quantity = parseInt(document.querySelector('.quantity-select').value);
-//         const cartId = this.props.sessionId;
-//         const cartItem = {
-//             "quantity": 1,
-//             "product_id": product.id,
-//             "cart_id": cartId
-//         }
-//         for(let i = 0; i < quantity; i++){
-//             this.props.createCartItem(cartItem);
-//         }
-//         this.props.fetchCart(1, this.props.sessionId);
-//         this.props.history.push({
-//             pathname: '/cart/'
-//         });
+  // this.props.thunkCreateCartItem(this.props.product.id, this.state.quantity);
+
   quantityHandler(e) {
-    this.setState({ quantity: e.target.value });
+    this.setState({ quantity: parseInt(e.target.value) });
   }
-  // addToCartSubmit(e) {
-  //   e.preventDefault();
-  //   if (this.props.currentUser) {
-  //     this.props.createCartItem(this.props.product?.id, this.state.quantity);
-  //   }
-  // }
+
   render() {
     const { product } = this.props;
     return (

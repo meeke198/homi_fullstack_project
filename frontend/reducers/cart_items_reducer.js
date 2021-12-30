@@ -1,5 +1,5 @@
 import { RECEIVE_CART_ITEMS, CREATE_CART_ITEM, UPDATE_CART_ITEM, DELETE_CART_ITEM } from "../actions/cart_items_actions";
-
+import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
 const cartItemsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState)
@@ -15,6 +15,8 @@ const cartItemsReducer = (oldState = {}, action) => {
         case DELETE_CART_ITEM:
             delete nextState[action.cartItemId]
             return nextState;
+        case LOGOUT_CURRENT_USER:
+            return {}
         default:
             return oldState;
     }

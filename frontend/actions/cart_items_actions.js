@@ -29,25 +29,30 @@ export const deleteCartItem = (cartItemId) => ({
 })
 
 export const thunkCreateCartItem = (cartItem) => dispatch=> {
-   return cartItemsAPIUtil.apiCreateCartItem(cartItem)
+   cartItemsAPIUtil.apiCreateCartItem(cartItem)
     .then(cartItem => dispatch(createCartItem(cartItem)))
 }
 
-export const thunkFetchCartItems = () => (dispatch) =>
-  cartItemsAPIUtil
+export const thunkFetchCartItems = () => (dispatch) => {
+  return cartItemsAPIUtil
     .apiReceiveCartItems()
     .then((cartItems) => dispatch(receiveCartItems(cartItems)));
+}
 //when user click add item to cart
 
-export const thunkUpdateCartItem = (cartItem) => dispatch => (
-    cartItemsAPIUtil.apiUpdateCartItem(cartItem)
-    .then(cartItem => dispatch(updateCartItem(cartItem)))
-)
+export const thunkUpdateCartItem = (cartItem) => dispatch => {
+    //  debugger
+     console.log("cartItemsAPIUtil", cartItemsAPIUtil);
+   return cartItemsAPIUtil.apiUpdateCartItem(cartItem)
+    .then(
+        cartItem => {
+            // debugger
+            dispatch(updateCartItem(cartItem))})
+}
 
 
 export const thunkDeleteCartItem = (cartItemId) => dispatch => {
-    console.log("thu xem no vao day chua");
-    cartItemsAPIUtil.apiDeleteCartItem(cartItemId)
+    return cartItemsAPIUtil.apiDeleteCartItem(cartItemId)
     .then(() => dispatch(deleteCartItem(cartItemId)))
 }
 

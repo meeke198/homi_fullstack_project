@@ -22,7 +22,7 @@ class Api::CartItemsController < ApplicationController
 
     def update
         @cart_item = CartItem.find_by(id: params[:id])
-
+        # debugger
         if @cart_item && @cart_item.update(cart_item_params)
             render :show
         else
@@ -40,6 +40,7 @@ class Api::CartItemsController < ApplicationController
 
     private
     def cart_item_params
+        # debugger
         params.require(:cart_item).permit(:product_id, :cart_id, :quantity)
     end
 
