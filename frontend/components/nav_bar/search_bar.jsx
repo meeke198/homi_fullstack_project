@@ -2,7 +2,7 @@ import { FaSearchDollar } from "react-icons/fa";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import list from "./menu";
-import ProductShow from "../products/product_show";
+import ProductIndex from "../products/product_index";
 // import ProductCard from "../products/product_card";
 // const SearchBar = (props) => {
   
@@ -78,12 +78,13 @@ class SearchBar extends React.Component {
       // isShowDropDown: false,
       searchTerm: "",
       renderProductsList: [],
+      renderCategoryList: [],
       // isShowDropDown: false,
     };
     console.log(" searchTerm", this.state.searchTerm);
     this.onChange = this.onChange.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.searchHandler = this.searchHandler.bind(this);
+    this.productSearchHandler = this.productSearchHandler.bind(this);
     this.onClick = this.onClick.bind(this);
   }
   // handleDropDown(category) {
@@ -96,49 +97,63 @@ onChange(e){
 };
 onClick(e){
   debugger
-   this.searchHandler(e.target.value);
+   this.productSearchHandler(e.target.value);
 };
 handleKeyDown(e){
   debugger
   if (e.key === "Enter") {
-    this.searchHandler(e.target.value);
+    this.productSearchHandler(e.target.value);
   }
 };
 
-searchHandler(searchTermInput){
+// productSearchHandler(searchTermInput){
+//   debugger
+//   this.setState({ searchTerm: searchTermInput });
+//   // console.log("searchTerm", searchTermInput);
+//   if (this.state.searchTerm !== "") {
+//     debugger
+//     // console.log("this.props.products", this.props.products);
+//     let filterResult = this.props.products.filter((product) => 
+//       // console.log("product", product);
+//       (Object.values(product)
+//         .join(" ")
+//         .toLowerCase()
+//         .includes(searchTermInput.toLowerCase())));
+//         debugger
+        
+//    let newState = (this.state.renderProductsList.concat(filterResult));
+//     console.log("newState", newState);
+//     this.setState({ renderProductsList: newState });
+//     console.log("filterResult", filterResult);
+//     console.log("this.state.renderProductsList", this.state.renderProductsList);
+//   }
+// };
+
+categorySearchHandler(searchTermInput){
   debugger
   this.setState({ searchTerm: searchTermInput });
   // console.log("searchTerm", searchTermInput);
   if (this.state.searchTerm !== "") {
     debugger
     // console.log("this.props.products", this.props.products);
-    const filterResult = this.props.products.filter((product) => 
+    let filterCategoryResult = list.filter((product) => 
       // console.log("product", product);
       (Object.values(product)
         .join(" ")
         .toLowerCase()
         .includes(searchTermInput.toLowerCase())));
-    this.setState({ renderProductsList: filterResult });
+        debugger
+        
+   let newState = (this.state.renderProductsList.concat(filterResult));
+    console.log("newState", newState);
+    this.setState({ renderProductsList: newState });
     console.log("filterResult", filterResult);
     console.log("this.state.renderProductsList", this.state.renderProductsList);
-  } else {
-    this.setState({ renderProductsList: null});
   }
 };
 
 
-
   render() {
-    const renderProducts = (this.state.renderProductsList || []).map(
-      (product, idx) => {
-        return (
-          <ProductShow
-            product={product}
-            key={idx}
-          />
-        );
-      }
-    );
     debugger
     return (
       <div className="searching-container">
@@ -154,11 +169,13 @@ searchHandler(searchTermInput){
           style={{ marginRight: 25, width: 30, height: 25 }}
           onClick={this.onClick}
         />
-         <div className="result_list">
-         {renderProducts.length > 0
-          ? renderProducts
-          : "No product available"}
-      </div>
+        {/* <div className="result_list">
+          {this.state.renderProductsList.length > 0 ? (
+            <ProductIndex products={this.state.renderProductsList} />
+          ) : (
+            "No product available"
+          )}
+        </div> */}
         {/* <div
         style={{ position: "relative" }}
         onMouseEnter={() => this.setState({ isShowDropDown: true })}
