@@ -29,7 +29,8 @@ class CartIndex extends React.Component {
 
   render() {
     console.log("cartItems", cartItems);
-    const { cartItems, deleteCartItem, updateCartItem } = this.props;
+    const { cartItems, deleteCartItem, updateCartItem, currentUser } =
+      this.props;
     let itemsPrice = 0;
     let totalItemsInCart = 0;
     // let allItemsObject = {};
@@ -49,8 +50,10 @@ class CartIndex extends React.Component {
     // }
 
     let subTotal = 0;
-   
-    const cartItemsList = (cartItems || []).map((item) => {
+   let cart = (cartItems || []).filter(
+     (item) => item.cart_id === currentUser.id
+   );
+    const cartItemsList = (cart || []).map((item) => {
        totalItemsInCart += item.quantity;
       itemsPrice = item.quantity * item.product.price;
         subTotal += itemsPrice;
@@ -60,6 +63,7 @@ class CartIndex extends React.Component {
           item={item}
           deleteCartItem={deleteCartItem}
           updateCartItem={updateCartItem}
+          currentUser = {currentUser}
         />
       );
     });

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-const list = [
+export const list = [
   {
     name: "Wall decor",
     child: [
@@ -12,7 +12,7 @@ const list = [
       { name: "Mirrors", route: "mirrors" },
       { name: "Key holders", route: "keyholders" },
       { name: "Wall Clocks", route: "wallclocks" },
-      { name: "Wall Stecils", route: "bwallstecils" },
+      { name: "Wall Stecils", route: "wallstecils" },
       { name: "Wall Decals", route: "walldecals" },
       { name: "Macrames", route: "macrames" },
     ],
@@ -86,7 +86,7 @@ const list = [
       { name: "Mirrors", route: "mirrors" },
       { name: "Key holders", route: "keyholders" },
       { name: "Wall Clocks", route: "wallclocks" },
-      { name: "Wall Stecils", route: "bwallstecils" },
+      { name: "Wall Stecils", route: "wallstecils" },
       { name: "Wall Decals", route: "walldecals" },
       { name: "Macrames", route: "macrames" },
     ],

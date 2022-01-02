@@ -40,7 +40,7 @@ const App = () => (
       <Route exact path="/" component={ProductIndexContainer} />
       <Route component={NotFound} />
     </Switch>
-    <Footer className="footer"/>
+    <Footer className="footer" />
   </div>
 );
 

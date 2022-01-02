@@ -9,7 +9,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { BsShop } from "react-icons/bs";
 import { GrNotes } from "react-icons/gr";
-// import SearchBar from "./search_bar";
+import SearchBar from "./search_bar";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -34,9 +34,12 @@ class NavBar extends React.Component {
    this.props.history.push({pathname:'/cart_items'})
  }
   render() {
-    const { currentUser, openModal, cartItems } = this.props;
+    const { currentUser, openModal, cartItems, products } = this.props;
     let totalItems = 0;
-    (cartItems || []).map((item) => {totalItems += item.quantity });
+    let cart = (cartItems || []).filter(
+      (item) => item.cart_id === currentUser.id
+    );
+    (cart || []).map((item) => {totalItems += item.quantity });
     const { isDropdown } = this.state;
     let dropdownMenu;
     if (isDropdown && currentUser) {
@@ -124,6 +127,7 @@ class NavBar extends React.Component {
       </div>
     );
     return (
+      
       <header className="nav-bar">
         <Link to="/">
           <img
@@ -132,7 +136,7 @@ class NavBar extends React.Component {
             alt=""
           />
         </Link>
-        <div className="searching-container">
+        {/* <div className="searching-container">
           <input
             className="searching-input"
             type="text"
@@ -141,8 +145,8 @@ class NavBar extends React.Component {
           <FaSearchDollar
             style={{ marginRight: 25, width: 30, height: 25 }}
           />
-        </div>
-        {/* <SearchBar/> */}
+        </div> */}
+        <SearchBar products = {products}/>
         {display}
       </header>
     );
