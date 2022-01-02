@@ -136,9 +136,9 @@ categorySearchHandler(searchTermInput){
   if (this.state.searchTerm !== "") {
     debugger
     // console.log("this.props.products", this.props.products);
-    let filterCategoryResult = list.filter((product) => 
+    let filterCategoryResult = list.filter((category) => 
       // console.log("product", product);
-      (Object.values(product)
+      (Object.values(category.child)
         .join(" ")
         .toLowerCase()
         .includes(searchTermInput.toLowerCase())));
