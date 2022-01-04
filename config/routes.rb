@@ -4,9 +4,11 @@ root "static_pages#root"
 namespace :api, defaults: { format: :json } do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy, :show]
-    resources :products, only: [:show, :index]
+    resources :products, only: [:show, :index] do
+      resources :reviews, only: [:index, :create]
+    end
     resources :carts, only: [:show, :create]
-    resources :reviews, only: [:index, :create, :destroy, :update, :show]
+    resources :reviews, only: [:update, :show]
     resources :cart_items, only: [:create, :index, :destroy, :update]
 end
 end

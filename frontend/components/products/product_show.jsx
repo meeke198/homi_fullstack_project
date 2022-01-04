@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {RiUserStarLine} from "react-icons/ri"
 import { FaShippingFast } from "react-icons/fa";
+import CreateReviewForm from "../reviews/review_form";
 
 class ProductShow extends React.Component {
   // debugger
@@ -142,6 +143,7 @@ class ProductShow extends React.Component {
             </div>
           </div>
         </div>
+        <CreateReviewForm product= {product} currentUser={currentUser}/>
       </div>
     );
   }

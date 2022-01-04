@@ -1,9 +1,12 @@
 class Api::ReviewsController < ApplicationController
     before_action :require_login, only: [:create, :destroy]
     def create
-        # @product = Product.find(params[:product_id])
+        product = Product.find(params[:product_id])
+        product_id = product.id
+        reviewer_id = current_user.id
         @review = Review.new(review_params)
-
+        @review.product_id = product_id
+        @review.reviewer_id = current_user.id
         if @review.save
             render :show
         else
@@ -37,16 +40,16 @@ class Api::ReviewsController < ApplicationController
     
 
 
-    def destroy
-        # @product = Product.find(params[:product_id])
-        @review = Review.find(params[:id])
-        @review.destroy
-        render json: ['Successfully removed item!']
-    end
+    # def destroy
+    #     # @product = Product.find(params[:product_id])
+    #     @review = Review.find(params[:id])
+    #     @review.destroy
+    #     render json: ['Successfully removed item!']
+    # end
 
     private
     def review_params
-        params.require(:review).permit(:reviewer_id, :product_id, :content, :rating)
+        params.require(:review).permit(:id, :content, :rating)
     end
 
 end
