@@ -1,12 +1,10 @@
 class Api::ReviewsController < ApplicationController
     before_action :require_login, only: [:create, :destroy]
     def create
-        debugger
         # @product = Product.find(params[:product_id])
         @review = Review.new(review_params)
 
         if @review.save
-            debugger
             render :show
         else
             render json: @review.errors.full_messages, status: 422

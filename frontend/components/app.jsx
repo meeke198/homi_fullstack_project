@@ -36,6 +36,14 @@ const App = () => (
       />
       <Route exact path="/products" component={ProductIndexContainer} />
       <Route exact path="/cart_items" component={CartIndexContainer} />
+      {/* <ProtectedRoute
+        path="/products/:productId/review/new"
+        component={CreateReviewFormContainer}
+      />
+      <ProtectedRoute
+        path="/products/:productId/review/:reviewId/edit"
+        component={EditReviewFormContainer}
+      /> */}
       {/* <Route exact path="/cart_items/:cartItemId" component={CartShowItemContainer} /> */}
       <Route exact path="/" component={ProductIndexContainer} />
       <Route component={NotFound} />

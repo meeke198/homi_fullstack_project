@@ -1,17 +1,19 @@
-export const apiCreateCartItem = (cart_item) => (
-    $.ajax({
+export const apiCreateCartItem = (cart_item) => {
+    // debugger
+   return $.ajax({
         url: `api/cart_items`,
         method: "POST",
         data: {cart_item}
     })
-)
+}
 
 
-export const apiReceiveCartItems = () => (
-    $.ajax({
+export const apiReceiveCartItems = () => {
+    // debugger
+    return $.ajax({
         url: `api/cart_items`
     })
-)
+}
 
 export const apiUpdateCartItem = (cart_item) => {
     console.log("cart_item api");
@@ -25,11 +27,12 @@ export const apiUpdateCartItem = (cart_item) => {
     })
 }
 
-export const apiDeleteCartItem = (cartItemId) => (
-    $.ajax({
+export const apiDeleteCartItem = (cartItemId) => {
+    // debugger
+    return $.ajax({
         url: `api/cart_items/${cartItemId}`,
         method: "DELETE",
     })
-)
+}
 
 

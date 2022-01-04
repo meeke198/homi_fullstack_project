@@ -6,7 +6,7 @@ import { openModal } from "../../actions/modal_actions"
 // import { thunkCreateCartItem, thunkReceiveCartItems } from '../../actions/cart_items_actions'
 
 const mapStateToProps = (state) => ({
-  products: Object.values(state.entities.products),
+  products: state.entities.products,
   currentUser: state.entities.users[state.session.id],
   cartItems: Object.values(state.entities.cartItems),
 });

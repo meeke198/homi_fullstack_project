@@ -1,10 +1,13 @@
 import { RECEIVE_CART_ITEMS, CREATE_CART_ITEM, UPDATE_CART_ITEM, DELETE_CART_ITEM } from "../actions/cart_items_actions";
 import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
 const cartItemsReducer = (oldState = {}, action) => {
+    // debugger
+    console.log("cartItemsReducer, oldState", oldState);
+    console.log("cartItemsReducer, action", action);
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState)
     switch (action.type) {
-        case CREATE_CART_ITEM:
+      case CREATE_CART_ITEM:
             nextState[action.cartItem.id] = action.cartItem
             return nextState;
         case RECEIVE_CART_ITEMS:

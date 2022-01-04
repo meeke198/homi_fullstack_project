@@ -41,7 +41,26 @@
   .product-img-show {
     padding: 60px 40px;
     border-radius: 90px;
-    width: 65%;
+    width: 75%;
     height: 750px;
+  }
+  .star-seller{
+    display: flex;
+    align-items: center;
+  }
+  .product-show-icon{
+    width: 40px;
+    height: auto;
+    display: block;
+    margin-right: 20px;
+  }
+  .term {
+    color: gray;
+  }
+  a{
+    color: black
+  }
+  p{
+    font-size: small;
   }
 }

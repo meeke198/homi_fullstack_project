@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
     product: state.entities.products[ownProps.match.params.productId],
     currentUser: state.entities.users[state.session.id],
     cartItems: Object.values(state.entities.cartItems),
+
 })
 //[ownProps.match.params.productId] lay id tu url
 //state(redux), ownProps(state tu cha truyen xuong = state cua react);

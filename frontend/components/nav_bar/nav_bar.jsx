@@ -31,7 +31,7 @@ class NavBar extends React.Component {
   }
 
  goToCart(){
-   this.props.history.push({pathname:'/cart_items'})
+   this.props.history.push({ pathname:'/cart_items' })
  }
   render() {
     const { currentUser, openModal, cartItems, products } = this.props;
@@ -146,7 +146,7 @@ class NavBar extends React.Component {
             style={{ marginRight: 25, width: 30, height: 25 }}
           />
         </div> */}
-        <SearchBar products = {products}/>
+        <SearchBar />
         {display}
       </header>
     );

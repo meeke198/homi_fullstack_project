@@ -3,9 +3,10 @@ import { createReview, deleteReview, updateReview } from "../../actions/review_a
 import CreateReviewForm from "./create_review_form";
 
 
-const mapStateToProps = state => ({ 
-  currentUserId: state.session.id,
-});
+const mapStateToProps = (state, ownProps) => ({
+  product: state.entities.products[ownProps.match.params.productId],
+  currentUser: state.entities.users[state.session.id],
+})
 
 const mapDispatchToProps = dispatch => ({
   createReview: (review, productId) => dispatch(createReview(review, productId)),

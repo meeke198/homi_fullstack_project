@@ -3,9 +3,11 @@ class Api::CartItemsController < ApplicationController
     before_action :require_login, only: [:destroy]
 
     def create
+        # debugger
         @cart_item = CartItem.new(cart_item_params)
         # @cart_item.cart_id = params[:cart_id]
         if @cart_item.save
+            # debugger
             render :show
         else
             flash[:errors] = ["You need to login!"]

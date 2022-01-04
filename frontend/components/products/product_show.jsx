@@ -1,17 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {RiUserStarLine} from "react-icons/ri"
+import { FaShippingFast } from "react-icons/fa";
 
 class ProductShow extends React.Component {
+  // debugger
   constructor(props) {
     super(props);
     this.state = {
       quantity: 1,
     };
+    // debugger
     this.quantityHandler = this.quantityHandler.bind(this);
     this.addItemToCartHandler = this.addItemToCartHandler.bind(this);
     // console.log(props)
   }
   componentDidMount() {
+    // debugger
     this.props.fetchProduct(this.props.match.params.productId);
     // if (this.props.currentUser) {
     //  this.props.fetchCart(this.props.currentUser.id);
@@ -19,6 +24,7 @@ class ProductShow extends React.Component {
   }
 
   addItemToCartHandler(e) {
+    // debugger
     e.preventDefault();
     let { cartItems, currentUser, product } = this.props;
     // const quantity = parseInt(document.querySelector(".quantity-select").value);
@@ -33,7 +39,7 @@ class ProductShow extends React.Component {
       console.log("cartItems", cartItems)
       if (cartItems.length) {
         cartItems.forEach((item) => {
-         debugger
+        //  debugger
          console.log("items", item);
           if (item?.product_id === cartItem?.product_id) {
             //  debugger
@@ -57,6 +63,7 @@ class ProductShow extends React.Component {
   }
 
   render() {
+    // debugger
     const { product } = this.props;
     return (
       <div className="product-container-show">
@@ -91,6 +98,48 @@ class ProductShow extends React.Component {
                 Add to cart
               </button>
             </form>
+            <p className="term">
+              By making a purchase, you agree to Homi's{" "}
+              <a
+                href="https://www.formfindr.com/terms-of-service-headline/"
+                target="_blank"
+              >
+                Terms of Use{" "}
+              </a>
+              and{" "}
+              <a
+                href="https://www.privacypolicies.com/blog/privacy-policy-template/"
+                target="_blank"
+              >
+                Privacy Policy
+              </a>
+              .
+            </p>
+            <div className="star-seller">
+              <div>
+                <RiUserStarLine
+                  style={{ color: "#8C66B2" }}
+                  className="product-show-icon"
+                />
+              </div>
+              <p>
+                <span style={{ fontWeight: "bold" }}>Star Seller.</span> This
+                seller has a history of 5-star reviews, shipping on time, and
+                replying quickly when they got any messages.
+              </p>
+            </div>
+            <div className="star-seller">
+              <div>
+                <FaShippingFast
+                  style={{ color: "#1C72E8" }}
+                  className="product-show-icon"
+                />
+              </div>
+              <p>
+                <span style={{ fontWeight: "bold" }}>Hooray!</span>
+                This item ships free to the US.
+              </p>
+            </div>
           </div>
         </div>
       </div>
