@@ -1,9 +1,11 @@
-export const apiCreateReview = (review, productId) =>
-  $.ajax({
-    url: `api/products/${productId}/reviews`,
+export const apiCreateReview = (review) => {
+  debugger
+  return $.ajax({
+    url: `api/reviews`,
     method: "POST",
     data: { review }
   });
+}
 
 // export const apiReceiveReview = (reviewId, productId) =>
 //   $.ajax({
@@ -11,9 +13,9 @@ export const apiCreateReview = (review, productId) =>
 //   });
 
 
-export const apiReceiveAllReviews = (productId) =>
+export const apiReceiveAllReviews = () =>
   $.ajax({
-    url: `api/products/${productId}/reviews`
+    url: `api/reviews`
   });
 
 export const apiUpdateReview = (review) =>

@@ -7,7 +7,6 @@ const productsReducer = (state = [], action) => {
     switch (action.type) {
         case RECEIVE_ALL_PRODUCTS:
             // debugger
-            console.log(action.products)
             return Object.values(action.products).map ((product) => {
                 product.isShown = true
                 return product;

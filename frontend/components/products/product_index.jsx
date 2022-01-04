@@ -16,7 +16,6 @@ class ProductIndex extends React.Component {
   }
   render() {
     const { products } = this.props;
-    console.log("products", products)
     const ProductItems = (products || []).map((product) => {
       return product?.isShown ? <ProductIndexItem key={product.id} product={product} /> : null;
     });

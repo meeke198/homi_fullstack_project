@@ -16,9 +16,7 @@ export const apiReceiveCartItems = () => {
 }
 
 export const apiUpdateCartItem = (cart_item) => {
-    console.log("cart_item api");
     // debugger
-    
     return $.ajax({
         
         url: `api/cart_items/${cart_item.id}`,

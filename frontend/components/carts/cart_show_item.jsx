@@ -27,8 +27,6 @@ class CartShowItem extends React.Component {
   render() {
     const { item } = this.props;
     item.length === undefined ? null : item;
-    console.log("quantity", this.state.quantity);
-    console.log("state", this.state);
     let totalItemsPrice = 0;
     totalItemsPrice = item.product.price * item.quantity;
     return (

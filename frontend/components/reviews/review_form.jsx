@@ -1,28 +1,23 @@
 import React from 'react'
-import { AiOutlineStar } from "react-icons/ai";
-
+import StarRatings from "react-star-ratings";
 
 class CreateReviewForm extends React.Component {
     constructor(props){
       debugger
         super(props)
-        this.state = {
-            content: "",
-            rating: 0,
-        }
+        this.state = this.props.review;
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.updateRating = this.updateRating.bind(this);
+        this.changeRating = this.changeRating.bind(this);
         this.updateContent = this.updateContent.bind(this);
         
     }
     handleSubmit(e){
+      debugger
         e.preventDefault();
-        this.props.createReview(this.state, this.props.product.id);
-        this.setState({content: "", rating: 0})
-        
+        this.props.createReview(this.state);  
     }
-    updateRating(updatedRating){
-        this.setState({rating: updatedRating})
+    changeRating(newRating){
+        this.setState({rating: newRating})
     }
     updateContent(e){
       e.preventDefault();
@@ -30,13 +25,17 @@ class CreateReviewForm extends React.Component {
     }
 
     render() {
+      debugger
+      if(this.state === null){
+        return null
+      }
       return (
-        <form className="review-form" onsubmit={this.handleSubmit}>
+        <form className="review-form" onSubmit={this.handleSubmit}>
           <label htmlFor="rating">Rating</label>
-          <AiOutlineStar rating={this.state.rating} 
-          starRateColor="#222222"
+          <StarRatings rating={this.state.rating} 
+          starRatedColor="#222222"
           starHoverColor="#222222"
-          updateRating={this.updateRating}
+          changeRating={this.changeRating}
           numberOfStars={5}
           name="rating"
           starDimension="20px"

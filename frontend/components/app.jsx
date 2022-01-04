@@ -15,6 +15,8 @@ import CategoryContainer from "./products/category_container";
 import Footer from './footer';
 import CartIndexContainer from './carts/cart_index_container';
 import CartShowItemContainer from './carts/cart_show_item_container';
+import ReviewFormContainer from './reviews/review_form_container';
+
 
 const App = () => (
   <div>
@@ -46,6 +48,11 @@ const App = () => (
       /> */}
       {/* <Route exact path="/cart_items/:cartItemId" component={CartShowItemContainer} /> */}
       <Route exact path="/" component={ProductIndexContainer} />
+      <ProtectedRoute
+        exact
+        path="/products/:productId/reviews/new"
+        component={ReviewFormContainer}
+      />
       <Route component={NotFound} />
     </Switch>
     <Footer className="footer" />

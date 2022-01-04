@@ -2,8 +2,6 @@ import { RECEIVE_CART_ITEMS, CREATE_CART_ITEM, UPDATE_CART_ITEM, DELETE_CART_ITE
 import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
 const cartItemsReducer = (oldState = {}, action) => {
     // debugger
-    console.log("cartItemsReducer, oldState", oldState);
-    console.log("cartItemsReducer, action", action);
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState)
     switch (action.type) {

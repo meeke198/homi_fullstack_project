@@ -11,8 +11,6 @@ import {fetchCart} from "../../actions/cart_actions";
 import CartIndex from "./cart_index";
 
 const mSTP = state => {
-  console.log("cartItems", Object.values(state.entities.cartItems));
-  // console.log("current user", state.entities.users[state.session.id]);
   return {
     cartItems: Object.values(state.entities.cartItems),
     currentUser: state.entities.users[state.session.id],

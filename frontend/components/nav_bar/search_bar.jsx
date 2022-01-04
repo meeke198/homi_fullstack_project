@@ -13,7 +13,6 @@ class SearchBar extends React.Component {
       renderProductsList: [],
       renderCategoryList: [],
     };
-    console.log(" searchTerm", this.state.searchTerm);
     this.onChange = this.onChange.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.productSearchHandler = this.productSearchHandler.bind(this);

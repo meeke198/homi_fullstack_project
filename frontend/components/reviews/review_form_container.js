@@ -1,15 +1,20 @@
 import { connect } from "react-redux";
-import { createReview, deleteReview, updateReview } from "../../actions/review_actions";
+import { withRouter } from "react-router-dom";
+import { thunkCreateReview } from "../../actions/review_actions";
 import CreateReviewForm from "./review_form";
 
 
 const mapStateToProps = (state, ownProps) => ({
-  product: state.entities.products[ownProps.match.params.productId],
-  currentUser: state.entities.users[state.session.id],
-})
-
-const mapDispatchToProps = dispatch => ({
-  createReview: (review, productId) => dispatch(createReview(review, productId)),
+  review: {
+    content: "",
+    rating: 0,
+    product_id: ownProps.match.params.productId,
+    reviewer_id: state.session.id,
+  },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateReviewForm);
+const mapDispatchToProps = (dispatch) => ({
+  createReview: (review) => dispatch(thunkCreateReview(review)),
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateReviewForm));

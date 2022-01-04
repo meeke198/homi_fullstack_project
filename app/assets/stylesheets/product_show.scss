@@ -1,6 +1,11 @@
 .product-container-show {
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  width: 100vw;
+  .product-inner-container{
+  display: flex;
+  width: 100vw;
+  justify-content: center;
   .product-content-show {
     padding: 100px 20px 100px 0;
     display: flex;
@@ -38,10 +43,11 @@
       }
     }
   }
+}
   .product-img-show {
     padding: 60px 40px;
     border-radius: 90px;
-    width: 75%;
+    width: 65%;
     height: 750px;
   }
   .star-seller{

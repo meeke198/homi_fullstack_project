@@ -44,8 +44,6 @@ export const thunkFetchCartItems = () => (dispatch) => {
 //when user click add item to cart
 
 export const thunkUpdateCartItem = (cartItem) => dispatch => {
-    //  debugger
-     console.log("cartItemsAPIUtil", cartItemsAPIUtil);
    return cartItemsAPIUtil.apiUpdateCartItem(cartItem)
     .then(
         cartItem => {

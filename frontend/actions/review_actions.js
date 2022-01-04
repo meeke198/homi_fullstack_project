@@ -11,8 +11,7 @@ export const receiveReviews = reviews => ({
 export const createReview = (review) => ({
   type: CREATE_REVIEW, 
   review
-});
-
+})
 export const updateReview = (review) => ({
   type: UPDATE_REVIEW, 
   review
@@ -20,18 +19,18 @@ export const updateReview = (review) => ({
 
 
 
-export const thunkFetchReviews = (productId) => dispatch => (
-  reviewAPIUtil.apiReceiveAllReviews(productId)
+export const thunkFetchReviews = () => dispatch => (
+  reviewAPIUtil.apiReceiveAllReviews()
   .then(reviews => dispatch(receiveReviews(reviews)))
 );
 
 
-export const thunkCreateReview = (review, productId) => (dispatch) =>
+export const thunkCreateReview = (review) => (dispatch) => (
   reviewAPIUtil
-    .apiCreateReview(review, productId)
-    .then((review) => dispatch(receiveReview(review)));
+    .apiCreateReview(review)
+    .then((review) => dispatch(createReview(review)))
 
-
+);
 export const thunkUpdateReview = (review) => (dispatch) =>
   reviewAPIUtil.apiUpdateReview(review).then(
     (review) => dispatch(updateReview(review)));
