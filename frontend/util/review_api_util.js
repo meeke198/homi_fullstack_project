@@ -7,12 +7,6 @@ export const apiCreateReview = (review) => {
   });
 }
 
-// export const apiReceiveReview = (reviewId, productId) =>
-//   $.ajax({
-//     url: `api/products/${productId}/reviews/${reviewId}`,
-//   });
-
-
 export const apiReceiveAllReviews = () =>
   $.ajax({
     url: `api/reviews`
@@ -23,5 +17,11 @@ export const apiUpdateReview = (review) =>
     url: `api/reviews/${review.id}`,
     method: "PATCH",
     data: { review },
+  });
+
+export const apiDeleteReview = (reviewId) =>
+  $.ajax({
+    url: `api/reviews/${reviewId}`,
+    method: "DELETE",
   });
 

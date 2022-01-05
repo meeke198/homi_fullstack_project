@@ -15,6 +15,7 @@ class CreateReviewForm extends React.Component {
       debugger
         e.preventDefault();
         this.props.createReview(this.state);  
+        this.setState({rating: 0, content: ""})
     }
     changeRating(newRating){
         this.setState({rating: newRating})

@@ -6,7 +6,7 @@ namespace :api, defaults: { format: :json } do
     resource :session, only: [:create, :destroy, :show]
     resources :products, only: [:show, :index]
     resources :carts, only: [:show, :create]
-    resources :reviews, only: [:index, :create, :update, :show]
+    resources :reviews, only: [:index, :create, :update, :show, :destroy]
     resources :cart_items, only: [:create, :index, :destroy, :update]
 end
 end
