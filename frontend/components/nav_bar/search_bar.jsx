@@ -74,7 +74,7 @@ class SearchBar extends React.Component {
 }
 
 const mSTP = (state) => ({
-  products: state.entities.products,
+  products: Object.values(state.entities.products),
 });
 const mDTP = (dispatch) => ({
   updateAllProducts: (products) => dispatch(updateAllProducts(products)),

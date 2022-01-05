@@ -5,7 +5,7 @@ export const RECEIVE_PRODUCT = "RECEIVE_PRODUCT";
 export const UPDATE_ALL_PRODUCTS = "UPDATE_ALL_PRODUCTS";
 
 export const receiveAllProducts = products => {
-    debugger
+    // debugger
    return { type: RECEIVE_ALL_PRODUCTS,
     products
    }
@@ -22,7 +22,7 @@ export const actionUpdateAllProducts = products => ({
 
 
 export const fetchProducts = () => dispatch => {
-    debugger
+    // debugger
     return ProductApiUtil.fetchProducts()
     .then(products => dispatch(receiveAllProducts(products)));
 };

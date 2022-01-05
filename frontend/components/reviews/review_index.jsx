@@ -9,6 +9,7 @@ class ReviewIndex extends React.Component {
   }
 
   componentDidMount() {
+    // debugger;
     this.props.fetchReviews();
   }
 
@@ -18,23 +19,30 @@ class ReviewIndex extends React.Component {
   }
 
   render() {
-    debugger
+    // debugger;
     const { reviews, product, currentUserId, deleteReview, updateReview } =
       this.props;
-      console.log("review", reviews)
-    if (!this.props.reviews) return null;
+      console.log("reviews", reviews)
+    // if (!this.props.reviews) return null;
     // console.log(this.props.reviews);
+
     const productReviews = (reviews || []).filter(
-      (review) => review.product_id === product.id
+      (review) => {
+        debugger
+       return review.product_id === product.id
+      }
     );
+    console.log("productReviews", productReviews);
     let totalRating = 0;
+    debugger;
     (productReviews || []).map(
       (review) => (totalRating += review.rating)
     );
+    console.log("totalRating", totalRating);
     let avgRating;
     avgRating = Math.round(totalRating / productReviews.length);
     const renderReviews = productReviews.length ? (
-      (productReviews || []).map((review) => {
+      (productReviews || []).map((review, i) => {
         // debugger;
         return (
           <ReviewIndexItem
@@ -51,37 +59,25 @@ class ReviewIndex extends React.Component {
       <div>Write the first review for this item</div>
     );
        
-    // let ratings = [];
-    // for (let i = 0; i < 5; i++) {
-    //   if (i < avgRating) {
-    //     ratings.push(
-    //       <AiTwotoneStar
-    //         style={{ color: "#222222" }}
-    //         fontSize="small"
-    //         key={i}
-    //       />
-    //     );
-    //   } else {
-    //     ratings.push(<AiOutlineStar fontSize="small" key={i} />);
-    //   }
-    // }
+    let ratings = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < avgRating) {
+        ratings.push(
+          <AiTwotoneStar
+            style={{ color: "#222222" }}
+            fontSize="small"
+            key={i}
+          />
+        );
+      } else {
+        ratings.push(<AiOutlineStar fontSize="small" key={i} />);
+      }
+    }
     return (
       <div className="reviews-container">
         <h1 className="total-reviews">
           {productReviews.length} reviews{" "}
-          <span>
-            <StarRatings
-              rating={this.state.rating}
-              starRatedColor="#222222"
-              starHoverColor="#222222"
-              changeRating={avgRating}
-              numberOfStars={5}
-              name="rating"
-              starDimension="20px"
-              starSpacing="3px"
-            />
-            ;
-          </span>
+          <span>{ratings}</span>
         </h1>
         <div className="reviews-list">{renderReviews}</div>
       </div>

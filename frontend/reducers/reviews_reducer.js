@@ -6,6 +6,7 @@ DELETE_REVIEW,
 } from "../actions/review_actions";
 
 const reviewsReducer = (oldState = {}, action) => {
+  // debugger
   Object.freeze(oldState);
   let nextState = Object.assign({}, oldState);
   switch (action.type) {

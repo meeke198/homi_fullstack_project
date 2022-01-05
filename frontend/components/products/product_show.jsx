@@ -144,7 +144,7 @@ class ProductShow extends React.Component {
             </div>
           </div>
         </div>
-        <ReviewIndex product={product} currentUser={currentUser} />
+        <ReviewIndex currentUser={currentUser} />
         <CreateReviewForm product={product} currentUser={currentUser} />
       </div>
     );

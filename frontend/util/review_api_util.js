@@ -1,5 +1,5 @@
 export const apiCreateReview = (review) => {
-  debugger
+  // debugger
   return $.ajax({
     url: `api/reviews`,
     method: "POST",
@@ -7,11 +7,12 @@ export const apiCreateReview = (review) => {
   });
 }
 
-export const apiReceiveAllReviews = () =>
-  $.ajax({
+export const apiReceiveAllReviews = () => {
+  // debugger
+  return $.ajax({
     url: `api/reviews`
   });
-
+}
 export const apiUpdateReview = (review) =>
   $.ajax({
     url: `api/reviews/${review.id}`,

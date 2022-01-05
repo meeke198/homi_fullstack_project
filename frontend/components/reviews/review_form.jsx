@@ -3,7 +3,7 @@ import StarRatings from "react-star-ratings";
 
 class CreateReviewForm extends React.Component {
     constructor(props){
-      debugger
+      // debugger
         super(props)
         this.state = this.props.review;
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -12,7 +12,7 @@ class CreateReviewForm extends React.Component {
         
     }
     handleSubmit(e){
-      debugger
+      // debugger
         e.preventDefault();
         this.props.createReview(this.state);  
         this.setState({rating: 0, content: ""})
@@ -26,7 +26,7 @@ class CreateReviewForm extends React.Component {
     }
 
     render() {
-      debugger
+      // debugger
       if(this.state === null){
         return null
       }

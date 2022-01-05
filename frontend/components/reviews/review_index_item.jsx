@@ -22,7 +22,7 @@ class ReviewIndexItem extends React.Component {
 
   render() {
     const { review, productId } = this.props;
-    // console.log(this.props);
+    console.log("review index item-props", this.props);
     let ratings = [];
     for (let i = 0; i < 5; i++) {
       if (i < review.rating) {
@@ -40,7 +40,7 @@ class ReviewIndexItem extends React.Component {
 
     return (
       <div className="reviewers">
-        <h1>{review.email}</h1>
+        <p>{review.reviewer.email}</p>
         <div className="review">
           <div className="review-rating-container">
             <div className="review-rating">{ratings}</div>
