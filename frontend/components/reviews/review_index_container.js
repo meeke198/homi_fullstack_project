@@ -14,7 +14,7 @@ const mSTP = (state, ownProps) => ({
 });
 
 const mDTP = (dispatch) => ({
-  fetchReviews: (reivewId) => dispatch(thunkFetchReviews(reivewId)),
+  fetchReviews: () => dispatch(thunkFetchReviews()),
   updateReview: (review) => dispatch(thunkUpdateReview(review)),
   deleteReview: (reviewId) => dispatch(thunkDeleteReview(reviewId)),
 });

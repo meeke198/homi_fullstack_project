@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { RiUserStarLine } from "react-icons/ri"
 import { FaShippingFast } from "react-icons/fa";
 import CreateReviewForm from "../reviews/review_form_container";
+import ReviewIndex from "../reviews/review_index_container";
 
 class ProductShow extends React.Component {
   // debugger
@@ -143,6 +144,7 @@ class ProductShow extends React.Component {
             </div>
           </div>
         </div>
+        <ReviewIndex product={product} currentUser={currentUser} />
         <CreateReviewForm product={product} currentUser={currentUser} />
       </div>
     );
