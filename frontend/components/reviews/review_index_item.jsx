@@ -1,23 +1,18 @@
 import React from "react";
 import { AiTwotoneStar, AiOutlineStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import EditReviewFormContainer from "../Review/edit_review_form_container";
+// import EditReviewFormContainer from "../Review/edit_review_form_container";
 
 class ReviewIndexItem extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      editingReview: false,
-    };
-
     this.handleEdit = this.handleEdit.bind(this);
     this.removeReview = this.removeReview.bind(this);
   }
 
   handleEdit(e) {
     e.preventDefault();
-    this.props.updateReview({ editingReview: !this.state.editingReview });
+    this.props.updateReview(this.props.review);
   }
 
   removeReview() {
@@ -53,14 +48,14 @@ class ReviewIndexItem extends React.Component {
           <div className="review-content">
             <p>{review.content}</p>
           </div>
-          <div className="edit-delete-buttons">
+          {/* <div className="edit-delete-buttons">
             <Link
               to={`/reviews/${review.id}`}
               className="edit-review"
             >
               <button className="edit-review-btn">Edit</button>
             </Link>
-          </div>
+          </div> */}
           <button type="submit" onClick={() => this.removeReview()}>Remove</button>
         </div>
       </div>
