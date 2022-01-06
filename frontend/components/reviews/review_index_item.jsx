@@ -41,7 +41,6 @@ class ReviewIndexItem extends React.Component {
     }
 
     return (
-    
       <div className="reviewers">
         <p>{review.reviewer.email}</p>
         <div className="review">
@@ -51,20 +50,17 @@ class ReviewIndexItem extends React.Component {
           <div className="review-content">
             <p>{review.content}</p>
           </div>
-          {/* <div className="edit-delete-buttons">
-            <Link
-              to={`/reviews/${review.id}`}
-              className="edit-review"
-            >
+          <div className="edit-delete-buttons">
+            <Link to={`/reviews/${review.id}/edit`} className="edit-review">
               <button className="edit-review-btn">Edit</button>
             </Link>
-          </div> */}
+          </div>
           <button type="submit" onClick={() => this.handleDelete()}>
             Remove
           </button>
         </div>
       </div>
-        );
+    );
   }
 }
 

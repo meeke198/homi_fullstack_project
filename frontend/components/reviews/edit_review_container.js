@@ -1,21 +1,25 @@
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { thunkUpdateReview } from "../../actions/review_actions";
-import ReviewForm from "./review_form";
-import { clearEventErrors } from "../../actions/event_actions";
+import { thunkUpdateReview, thunkFetchReview } from "../../actions/review_actions";
+import CreateReviewForm from "./review_form";
+
 
 const mapStateToProps = (state, ownProps) => ({
-  review: Object.values(state.entities.reviews).filter(
-    (review) => review.id === ownProps.match.params.reviewId
-  )[0],
+  review: {
+    id: ownProps.match.params.reviewId,
+    content: state.entities.reviews[ownProps.match.params.reviewId].content,
+    rating: state.entities.reviews[ownProps.match.params.reviewId].rating,
+    product_id: ownProps.match.params.productId,
+    reviewer_id: state.session.id,
+  },
   formType: "edit",
 });
 
 const mapDispatchToProps = () => (dispatch) => ({
-  updatereview: (review) => dispatch(thunkUpdateReview(review)),
-  fetchEvent: (eventId) => dispatch(fetchEvent(eventId)),
+  updateReview: (review) => dispatch(thunkUpdateReview(review)),
+  fetchReview: (reviewId) => dispatch(thunkFetchReview(reviewId)),
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(ReviewForm)
+  connect(mapStateToProps, mapDispatchToProps)(CreateReviewForm)
 );

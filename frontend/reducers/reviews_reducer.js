@@ -3,6 +3,7 @@ RECEIVE_ALL_REVIEWS,
 CREATE_REVIEW,
 UPDATE_REVIEW,
 DELETE_REVIEW,
+RECEIVE_REVIEW,
 } from "../actions/review_actions";
 
 const reviewsReducer = (oldState = {}, action) => {
