@@ -15,6 +15,9 @@ const reviewsReducer = (oldState = {}, action) => {
       return nextState;
     case RECEIVE_ALL_REVIEWS:
       return action.reviews;
+    case RECEIVE_REVIEW:
+      nextState[action.review.id] = action.review;
+      return nextState;
     case UPDATE_REVIEW:
       nextState[action.review.id] = action.review;
       return nextState;

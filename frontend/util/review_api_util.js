@@ -13,6 +13,12 @@ export const apiReceiveAllReviews = () => {
     url: `api/reviews`
   });
 }
+export const apiReceiveReview = (reviewId) => {
+  // debugger
+  return $.ajax({
+    url: `api/reviews/${reviewId}`
+  });
+}
 export const apiUpdateReview = (review) =>
   $.ajax({
     url: `api/reviews/${review.id}`,

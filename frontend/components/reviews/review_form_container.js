@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
     product_id: ownProps.match.params.productId,
     reviewer_id: state.session.id,
   },
+  formType: "create"
 });
 
 const mapDispatchToProps = (dispatch) => ({

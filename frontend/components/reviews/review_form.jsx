@@ -11,6 +11,11 @@ class CreateReviewForm extends React.Component {
         this.updateContent = this.updateContent.bind(this);
         
     }
+    componentDidMount(){
+      if(this.props.formType === "edit"){
+        this.props.fectchReview(this.props.match.params.reviewId);
+      }
+    }
     handleSubmit(e){
       // debugger
         e.preventDefault();

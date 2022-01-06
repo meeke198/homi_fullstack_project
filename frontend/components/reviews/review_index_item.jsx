@@ -7,7 +7,7 @@ class ReviewIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleEdit = this.handleEdit.bind(this);
-    this.removeReview = this.removeReview.bind(this);
+    // this.removeReview = this.removeReview.bind(this);
   }
 
   handleEdit(e) {
@@ -15,13 +15,15 @@ class ReviewIndexItem extends React.Component {
     this.props.updateReview(this.props.review);
   }
 
-  removeReview() {
+  handleDelete() {
+    debugger
     // e.preventDefault();
-    this.props.handleDelete(this.props.review.id);
+    this.props.deleteReview(this.props.review.id);
   }
 
   render() {
-    const { review, productId } = this.props;
+    debugger
+    const { review } = this.props;
     console.log("review index item-props", this.props);
     let ratings = [];
     for (let i = 0; i < 5; i++) {
@@ -39,6 +41,7 @@ class ReviewIndexItem extends React.Component {
     }
 
     return (
+    
       <div className="reviewers">
         <p>{review.reviewer.email}</p>
         <div className="review">
@@ -56,10 +59,12 @@ class ReviewIndexItem extends React.Component {
               <button className="edit-review-btn">Edit</button>
             </Link>
           </div> */}
-          <button type="submit" onClick={() => this.removeReview()}>Remove</button>
+          <button type="submit" onClick={() => this.handleDelete()}>
+            Remove
+          </button>
         </div>
       </div>
-    );
+        );
   }
 }
 

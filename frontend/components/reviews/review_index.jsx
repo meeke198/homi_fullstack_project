@@ -12,15 +12,9 @@ class ReviewIndex extends React.Component {
     // debugger;
     this.props.fetchReviews();
   }
-
-  handleDelete(reviewId) {
-    // e.preventDefault();
-    this.props.deleteReview(reviewId);
-  }
-
   render() {
     // debugger;
-    const { reviews, product, currentUserId, deleteReview, updateReview } =
+    const { reviews, product, currentUserId, updateReview, deleteReview } =
       this.props;
       console.log("reviews", reviews)
     // if (!this.props.reviews) return null;
@@ -50,8 +44,8 @@ class ReviewIndex extends React.Component {
             review={review}
             productId={product.id}
             currentUserId={currentUserId}
-            deleteReview={deleteReview}
             updateReview={updateReview}
+            deleteReview={deleteReview}
           />
         );
       })
