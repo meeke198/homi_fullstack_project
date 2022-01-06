@@ -33,7 +33,6 @@ class CreateReviewForm extends React.Component {
   handleUpdate(e) {
     debugger
     e.preventDefault();
-    // const alert = this.props.alert();
     this.props
       .updateReview(this.state)
       .then(() => this.props.history.push("/"));

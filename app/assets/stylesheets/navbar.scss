@@ -99,7 +99,7 @@ $comfortaa: "Comfortaa", cursive;
   // justify-content: space-around;
   transform-origin: right;
   width: 190px;
-  height: 180px;
+  height: 230px;
   background: white;
   position: absolute;
   right: 0;
@@ -110,8 +110,6 @@ $comfortaa: "Comfortaa", cursive;
   .drop-down-list {
     align-items: center;
     display: flex;
-    margin-bottom: 10px;
-    margin-bottom: 10px;
     line-height: 1.5;
   }
   .drop-down-item {
@@ -122,5 +120,6 @@ $comfortaa: "Comfortaa", cursive;
   p {
     font-size: 12px;
     cursor: pointer;
+    padding-top: 10px;
   }
 }
