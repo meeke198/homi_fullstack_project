@@ -16,7 +16,7 @@ class ReviewIndexItem extends React.Component {
   }
 
   handleDelete() {
-    debugger
+    // debugger
     // e.preventDefault();
     this.props.deleteReview(this.props.review.id);
   }
@@ -24,25 +24,42 @@ class ReviewIndexItem extends React.Component {
   render() {
     debugger
     const { review } = this.props;
-    console.log("review index item-props", this.props);
+    console.log("review", review);
+    console.log("date", review.reviewer.update_at);
     let ratings = [];
     for (let i = 0; i < 5; i++) {
       if (i < review.rating) {
         ratings.push(
           <AiTwotoneStar
-            style={{ color: "#222222" }}
-            fontSize="small"
+            style={{
+              color: "#222222",
+              width: "22px",
+              height: "22px",
+              marginRight: "10px",
+            }}
             key={i}
           />
         );
       } else {
-        ratings.push(<AiOutlineStar fontSize="small" key={i} />);
+        ratings.push(
+          <AiOutlineStar
+            style={{
+              color: "#222222",
+              width: "25px",
+              height: "22px",
+              marginRight: "10px",
+            }}
+            key={i}
+          />
+        );
       }
     }
 
     return (
-      <div className="reviewers">
-        <p>{review.reviewer.email}</p>
+      <div className="review">
+        <p className="email">
+          {review.reviewer.email} <span>{review.reviewer.update_at}</span>
+        </p>
         <div className="review">
           <div className="review-rating-container">
             <div className="review-rating">{ratings}</div>
@@ -52,12 +69,12 @@ class ReviewIndexItem extends React.Component {
           </div>
           <div className="edit-delete-buttons">
             <Link to={`/reviews/${review.id}/edit`} className="edit-review">
-              <button className="edit-review-btn">Edit</button>
+              <button className="review-btn btn">Edit</button>
             </Link>
+            <button className="review-btn btn" type="submit" onClick={() => this.handleDelete()}>
+              Remove
+            </button>
           </div>
-          <button type="submit" onClick={() => this.handleDelete()}>
-            Remove
-          </button>
         </div>
       </div>
     );

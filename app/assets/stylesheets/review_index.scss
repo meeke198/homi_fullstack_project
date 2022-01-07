@@ -1,0 +1,19 @@
+.review-border{
+    display: flex;
+    align-items: center;
+     margin-bottom: 0 !important;
+     text-align: left;
+     border-bottom: 2px solid gray;
+}
+.total-reviews{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+p{
+    font-size: 15px;
+}
+.review-title{
+    margin-left: 30px;
+    margin-top: 30px;
+}

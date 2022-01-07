@@ -1,0 +1,28 @@
+.review-form{
+    width: 40vw;
+    margin-left: 20px;
+    margin-top: 30px;
+    h1{
+        text-align: left;
+    }
+    p{
+    font-size: 30px;
+    border-bottom: solid 1px gray ;
+    }
+    .rating-text{
+        margin-right: 20px;
+        font-weight: bolder;
+    }
+}
+.total-reviews{
+    text-align: left;
+}
+
+.review{
+    margin-top: 20px;
+    
+}
+.review-submit{
+    width: 140px;
+}
+

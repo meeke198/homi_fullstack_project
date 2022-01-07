@@ -11,7 +11,7 @@ class CreateReviewForm extends React.Component {
     this.updateContent = this.updateContent.bind(this);
   }
   componentDidMount() {
-    debugger
+    // debugger
     if (this.props.formType === 'edit') {
       debugger
       this.props.fetchReview(this.props.match.params.reviewId);
@@ -31,7 +31,7 @@ class CreateReviewForm extends React.Component {
     this.setState({ content: e.target.value });
   }
   handleUpdate(e) {
-    debugger
+    // debugger
     e.preventDefault();
     this.props
       .updateReview(this.state)
@@ -41,7 +41,7 @@ class CreateReviewForm extends React.Component {
 
   render() {
 
-    debugger
+    // debugger
     if (this.state === null) {
       return null;
     }
@@ -53,28 +53,33 @@ class CreateReviewForm extends React.Component {
     
     return (
       <form className="review-form" onSubmit={submit}>
-        <label htmlFor="rating">Rating</label>
+        <label className="rating-text" htmlFor="rating">
+          Rating
+        </label>
         <StarRatings
+          style={{ marginLeft: "5px" }}
           rating={this.state.rating}
           starRatedColor="#222222"
           starHoverColor="#222222"
           changeRating={this.changeRating}
           numberOfStars={5}
           name="rating"
-          starDimension="20px"
-          starSpacing="3px"
+          starDimension="28px"
+          starSpacing="5px"
         />
         <h1>{submitButton}</h1>
         <div>
           <textarea
-            cols="30"
-            rows="10"
+            cols="50"
+            rows="5"
             value={this.state.content}
             onChange={this.updateContent}
           ></textarea>
         </div>
         <div className="review-button">
-          <button type="submit">{submitButton}</button>
+          <button className="review-submit btn" type="submit">
+            {submitButton}
+          </button>
         </div>
       </form>
     );
