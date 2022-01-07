@@ -10,11 +10,13 @@ require 'open-uri'
 User.destroy_all
 Product.destroy_all
 Cart.destroy_all
+Review.destroy_all
 
 
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
 ActiveRecord::Base.connection.reset_pk_sequence!('carts')
+ActiveRecord::Base.connection.reset_pk_sequence!('reviews')
 demoUser = User.create!(email: "demo@gmail.com", password: "password123")
 user1 = User.create!(email: "susu@gmail.com", password: 'password')
 user2 = User.create!(email: "kmommy@gmail.com", password: 'password')
@@ -397,3 +399,24 @@ product62 = Product.create!(product_name: "Alocasia Baginda Dragon Scale", descr
 plant4 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/plant4.jpg")
 product62.photo.attach(io: plant4, filename:"plant4.jpg")
 
+review1 = Review.create!(reviewer_id: 2, product_id: 2, content: "Absolutely gorgeous bed, a perfect fit for our new home. The customer service has been fantastic and I cant wait to make more purchases in the future. Thank you so much!", rating: 5)
+review2 = Review.create!(reviewer_id: 3, product_id: 2, content: "These bookends are amazing! They are high quality, well made, and have wonderful little details like text engraved on the pages. They're very solid and don't slide around on surfaces, ensuring they can hold large, hard cover books. Mine are currently allowing me to display two dozen hard cover books.", rating: 5)
+review3 = Review.create!(reviewer_id: 4, product_id: 2, content: "Item looks nice, but not heavy enough. I think only the cat is iron, but hollow. The books are made of wood/resin. Item description should be clearer and also include the weight of each bookend. Shipping was fine, and seller was friendly and we communicated about ETA of the delivery.", rating: 4)
+review4 = Review.create!(reviewer_id: 5, product_id: 2, content: "Item arrived on time, as described, in good condition. Each metal bookend was constructed in two halves, welded together. That process is a bit rough in terms of the flatness of the base for attaching the foot padding. But the cats are what I was looking for, and they look great.", rating: 5)
+review5 = Review.create!(reviewer_id: 6, product_id: 2, content: "Found far cheaper somewhere else. Oh well, live and learn..", rating: 1)
+review6 = Review.create!(reviewer_id: 7, product_id: 2, content: "While I didn't technically need customer service, the seller did send me a very kind message thanking me for my business, and I thought it was sweet. The lanterns came far quicker than I thought they would, packaged very well to prevent damage, and they look beautiful! I cant wait to gift them to my friend!", rating: 5)
+review7 = Review.create!(reviewer_id: 8, product_id: 2, content: "I received these wonderful dog bookends in a very timely manner. They arrived in perfect condition. I will be gifting them soon. They are the perfect gift.", rating: 5)
+review8 = Review.create!(reviewer_id: 2, product_id: 3, content: "Absolutely gorgeous bed, a perfect fit for our new home. The customer service has been fantastic and I cant wait to make more purchases in the future. Thank you so much!", rating: 5)
+review9 = Review.create!(reviewer_id: 3, product_id: 3, content: "These bookends are amazing! They are high quality, well made, and have wonderful little details like text engraved on the pages. They're very solid and don't slide around on surfaces, ensuring they can hold large, hard cover books. Mine are currently allowing me to display two dozen hard cover books.", rating: 5)
+review10 = Review.create!(reviewer_id: 4, product_id: 3, content: "Item looks nice, but not heavy enough. I think only the cat is iron, but hollow. The books are made of wood/resin. Item description should be clearer and also include the weight of each bookend. Shipping was fine, and seller was friendly and we communicated about ETA of the delivery.", rating: 4)
+review11 = Review.create!(reviewer_id: 5, product_id: 3, content: "Item arrived on time, as described, in good condition. Each metal bookend was constructed in two halves, welded together. That process is a bit rough in terms of the flatness of the base for attaching the foot padding. But the cats are what I was looking for, and they look great.", rating: 5)
+review12 = Review.create!(reviewer_id: 6, product_id: 3, content: "Found far cheaper somewhere else. Oh well, live and learn..", rating: 1)
+review13 = Review.create!(reviewer_id: 7, product_id: 3, content: "While I didn't technically need customer service, the seller did send me a very kind message thanking me for my business, and I thought it was sweet. The lanterns came far quicker than I thought they would, packaged very well to prevent damage, and they look beautiful! I cant wait to gift them to my friend!", rating: 5)
+review14 = Review.create!(reviewer_id: 8, product_id: 3, content: "I received these wonderful dog bookends in a very timely manner. They arrived in perfect condition. I will be gifting them soon. They are the perfect gift.", rating: 5)
+review15 = Review.create!(reviewer_id: 8, product_id: 4, content: "I received these wonderful dog bookends in a very timely manner. They arrived in perfect condition. I will be gifting them soon. They are the perfect gift.", rating: 5)
+review16 = Review.create!(reviewer_id: 2, product_id: 4, content: "Absolutely gorgeous bed, a perfect fit for our new home. The customer service has been fantastic and I cant wait to make more purchases in the future. Thank you so much!", rating: 5)
+review17 = Review.create!(reviewer_id: 3, product_id: 4, content: "These bookends are amazing! They are high quality, well made, and have wonderful little details like text engraved on the pages. They're very solid and don't slide around on surfaces, ensuring they can hold large, hard cover books. Mine are currently allowing me to display two dozen hard cover books.", rating: 5)
+review18 = Review.create!(reviewer_id: 4, product_id: 4, content: "Item looks nice, but not heavy enough. I think only the cat is iron, but hollow. The books are made of wood/resin. Item description should be clearer and also include the weight of each bookend. Shipping was fine, and seller was friendly and we communicated about ETA of the delivery.", rating: 4)
+review19 = Review.create!(reviewer_id: 5, product_id: 4, content: "Item arrived on time, as described, in good condition. Each metal bookend was constructed in two halves, welded together. That process is a bit rough in terms of the flatness of the base for attaching the foot padding. But the cats are what I was looking for, and they look great.", rating: 5)
+review20 = Review.create!(reviewer_id: 6, product_id: 4, content: "Found far cheaper somewhere else. Oh well, live and learn..", rating: 1)
+review21 = Review.create!(reviewer_id: 7, product_id: 4, content: "While I didn't technically need customer service, the seller did send me a very kind message thanking me for my business, and I thought it was sweet. The lanterns came far quicker than I thought they would, packaged very well to prevent damage, and they look beautiful! I cant wait to gift them to my friend!", rating: 5)

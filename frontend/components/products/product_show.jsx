@@ -65,6 +65,7 @@ class ProductShow extends React.Component {
   render() {
     // debugger
     const { product, currentUser } = this.props;
+
     return (
       <div className="product-container-show">
         <div className="product-inner-container">

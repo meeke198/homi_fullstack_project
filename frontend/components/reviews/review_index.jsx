@@ -41,21 +41,6 @@ class ReviewIndex extends React.Component {
         // debugger;
         return (
           <div>
-            <div className="review-border">
-              <MdStars
-                style={{
-                  marginLeft: 30,
-                  marginRight: "10px",
-                  width: 30,
-                  height: 30,
-                }}
-              />
-              <p>
-                Buyers are raving! Multiple people gave 5-star reviews to this
-                shop in the past 7 days.
-              </p>
-            </div>
-
             <ReviewIndexItem
               key={i}
               review={review}
@@ -101,9 +86,23 @@ class ReviewIndex extends React.Component {
     return (
       <div className="reviews-container">
         <div className="total-reviews">
-            <h1>{productReviews.length} reviews</h1>
-            <div>{ratings}</div>
-          </div>
+          <h1>{productReviews.length} reviews</h1>
+          <div>{ratings}</div>
+        </div>
+        <div className="review-border">
+          <MdStars
+            style={{
+              marginLeft: 30,
+              marginRight: "10px",
+              width: 30,
+              height: 30,
+            }}
+          />
+          <p>
+            Buyers are raving! Multiple people gave 5-star reviews to this shop
+            in the past 7 days.
+          </p>
+        </div>
         <div className="reviews-list">{renderReviews}</div>
       </div>
     );}

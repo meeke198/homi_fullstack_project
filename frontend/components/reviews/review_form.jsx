@@ -53,9 +53,9 @@ class CreateReviewForm extends React.Component {
     
     return (
       <form className="review-form" onSubmit={submit}>
-        <label className="rating-text" htmlFor="rating">
-          Rating
-        </label>
+        <h1 className="rating-text">
+          Write a review
+        </h1>
         <StarRatings
           style={{ marginLeft: "5px" }}
           rating={this.state.rating}
@@ -67,7 +67,6 @@ class CreateReviewForm extends React.Component {
           starDimension="28px"
           starSpacing="5px"
         />
-        <h1>{submitButton}</h1>
         <div>
           <textarea
             cols="50"
