@@ -21,7 +21,7 @@ class ProductIndex extends React.Component {
     });
     if (!products.filter((item) => item.isShown).length){
       return (
-        <img style={{width: "50vw"}} src="https://cdn.searchenginejournal.com/wp-content/uploads/2021/05/dbe72790-3923-41c4-aa05-44c1e229e7c4-60ac27781f931.jpeg"></img>
+        <img style={{width: "50vw", marginLeft: "300px"}} src="https://cdn.searchenginejournal.com/wp-content/uploads/2021/05/dbe72790-3923-41c4-aa05-44c1e229e7c4-60ac27781f931.jpeg"></img>
       );
     }
     return (

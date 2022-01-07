@@ -1,6 +1,7 @@
 import { FaSearchDollar } from "react-icons/fa";
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import list from "./menu";
 import ProductIndex from "../products/product_index";
 import { updateAllProducts } from "../../actions/product_actions";
@@ -11,7 +12,6 @@ class SearchBar extends React.Component {
     this.state = {
       searchTerm: "",
       renderProductsList: [],
-      renderCategoryList: [],
     };
     this.onChange = this.onChange.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -67,7 +67,6 @@ class SearchBar extends React.Component {
           style={{ marginRight: 25, width: 30, height: 25 }}
           onClick={this.onClick}
         />
-     
       </div>
     );
   }
