@@ -5,6 +5,7 @@ import { RiVisaFill } from "react-icons/ri";
 import { SiMastercard, SiAmericanexpress, SiKlarna } from "react-icons/si";
 import { BsPaypal } from "react-icons/bs";
 import { FaShippingFast } from "react-icons/fa";
+import { IoMdPricetags } from "react-icons/io";
 
 
 class CartIndex extends React.Component {
@@ -161,10 +162,25 @@ class CartIndex extends React.Component {
                 </span>
               </p>
               <p>
-                <FaShippingFast />{" "}
+                <FaShippingFast className="checkout-icon" />{" "}
                 <a href="https://apps.goshippo.com/"> Get shipping cost</a>
               </p>
               <div className="checkout-btn">Proceed to checkout</div>
+              <div className="coupon">
+                <IoMdPricetags
+                  className="checkout-icon"
+                />{" "}
+                Apply Homi's coupon code
+              </div>
+              <p className="addition-tax">
+                * Additional duties and taxes{" "}
+                <a
+                  href="https://www.cbp.gov/travel/international-visitors/kbyg/customs-duty-info"
+                  target="_blank"
+                >
+                  may apply
+                </a>
+              </p>
             </div>
           </div>
         </div>
