@@ -2,7 +2,6 @@ import React from 'react'
 import StarRatings from "react-star-ratings";
 class CreateReviewForm extends React.Component {
   constructor(props) {
-    // debugger
     super(props);
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -11,14 +10,11 @@ class CreateReviewForm extends React.Component {
     this.updateContent = this.updateContent.bind(this);
   }
   componentDidMount() {
-    // debugger
     if (this.props.formType === 'edit') {
-      debugger
       this.props.fetchReview(this.props.match.params.reviewId);
     }
   }
   handleSubmit(e) {
-    // debugger
     e.preventDefault();
     this.props.createReview(this.state);
     this.setState({ rating: 0, content: "" });
@@ -31,7 +27,6 @@ class CreateReviewForm extends React.Component {
     this.setState({ content: e.target.value });
   }
   handleUpdate(e) {
-    // debugger
     e.preventDefault();
     this.props
       .updateReview(this.state)
@@ -41,7 +36,6 @@ class CreateReviewForm extends React.Component {
 
   render() {
 
-    // debugger
     if (this.state === null) {
       return null;
     }

@@ -20,15 +20,12 @@ class SearchBar extends React.Component {
   }
 
   onChange(e) {
-    // debugger
     this.setState({ searchTerm: e.target.value });
   }
   onClick(e) {
-    // debugger
     this.productSearchHandler(this.state.searchTerm);
   }
   handleKeyDown(e) {
-    // debugger
     if (e.key === "Enter") {
       this.productSearchHandler(e.target.value);
     }

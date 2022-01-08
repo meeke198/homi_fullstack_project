@@ -1,7 +1,6 @@
 class Api::ReviewsController < ApplicationController
     before_action :require_login, only: [:create, :destroy]
     def create
-        # debugger
         @review = Review.new(review_params)
         if @review.save
             render :show
@@ -42,7 +41,6 @@ class Api::ReviewsController < ApplicationController
 
     private
     def review_params
-        # debugger
         params.require(:review).permit(:reviewer_id, :product_id, :content, :rating)
     end
 

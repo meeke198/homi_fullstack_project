@@ -10,7 +10,6 @@ class Api::CartsController < ApplicationController
     end
     # def create
     #         @cart = Cart.new(cart_params)
-    #         debugger
     #         if @cart.save
     #             render :show
     #         else

@@ -6,33 +6,28 @@ import CreateReviewForm from "../reviews/review_form_container";
 import ReviewIndex from "../reviews/review_index_container";
 
 class ProductShow extends React.Component {
-  // debugger
   constructor(props) {
     super(props);
     this.state = {
       quantity: 1,
-    };
-    // debugger
+    };{}
     this.quantityHandler = this.quantityHandler.bind(this);
     this.addItemToCartHandler = this.addItemToCartHandler.bind(this);
     // console.log(props)
   }
-  componentDidMount() {
-    // debugger
+  componentDidMount() {{}
     this.props.fetchProduct(this.props.match.params.productId);
     // if (this.props.currentUser) {
     //  this.props.fetchCart(this.props.currentUser.id);
     // }
   }
 
-  addItemToCartHandler(e) {
-    // debugger
+  addItemToCartHandler(e) {{}
     e.preventDefault();
     let { cartItems, currentUser, product } = this.props;
-    // const quantity = parseInt(document.querySelector(".quantity-select").value);
-    // debugger
+    // const quantity = parseInt(document.querySelector(".quantity-select").value);{}
     if (currentUser) {
-      // debugger
+{}
       const cartItem = {
         cart_id: currentUser.id,
         product_id: product.id,
@@ -40,9 +35,8 @@ class ProductShow extends React.Component {
       };
       if (cartItems.length) {
         cartItems.forEach((item) => {
-          //  debugger
           if (item?.product_id === cartItem?.product_id) {
-            //  debugger
+
             item.quantity += cartItem.quantity;
 
             this.props.updateCartItem(item);
@@ -62,8 +56,7 @@ class ProductShow extends React.Component {
     this.setState({ quantity: parseInt(e.target.value) });
   }
 
-  render() {
-    // debugger
+  render() {{}
     const { product, currentUser } = this.props;
 
     return (

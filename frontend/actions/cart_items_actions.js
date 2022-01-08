@@ -7,7 +7,7 @@ export const DELETE_CART_ITEM = "DELETE_CART_ITEM";
 
 
 export const createCartItem = (cartItem) => {
-    // debugger
+
    return {
     type: CREATE_CART_ITEM,
     cartItem
@@ -47,7 +47,7 @@ export const thunkUpdateCartItem = (cartItem) => dispatch => {
    return cartItemsAPIUtil.apiUpdateCartItem(cartItem)
     .then(
         cartItem => {
-            // debugger
+        
             dispatch(updateCartItem(cartItem))})
 }
 

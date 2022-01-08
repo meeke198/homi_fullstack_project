@@ -13,10 +13,6 @@ class Profile extends React.Component {
     return s[0].toUpperCase() + s.slice(1);
   }
   render() {
-    // debugger
-    // if (this.state === null) {
-    //   return null;
-    // }
     const { currentUser } = this.props;
 
     return (

@@ -38,9 +38,7 @@ class CartIndex extends React.Component {
 
     // if (cartItems) {
     //   cartItems.forEach((item) => {
-    //     // debugger
     //     totalItemsInCart += item.quantity;
-    //     // debugger
     //     if (allItemsObject[item.product_id]) {
     //       allItemsObject[item.product_id]['quantity'] += item.quantity;
     //     } else {
@@ -166,7 +164,7 @@ class CartIndex extends React.Component {
                 <a href="https://apps.goshippo.com/"> Get shipping cost</a>
               </p>
               <div className="checkout-btn">
-                <Link to="/order_confirmation" className="link">
+                <Link to="/order_confirmation" className="link" id="checkout">
                   Proceed to checkout
                 </Link>
               </div>

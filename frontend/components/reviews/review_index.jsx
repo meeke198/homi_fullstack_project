@@ -10,11 +10,9 @@ class ReviewIndex extends React.Component {
   }
 
   componentDidMount() {
-    // debugger;
     this.props.fetchReviews();
   }
   render() {
-    // debugger;
     const { reviews, product, currentUserId, updateReview, deleteReview } =
       this.props;
       console.log("reviews", reviews)
@@ -23,13 +21,11 @@ class ReviewIndex extends React.Component {
 
     const productReviews = (reviews || []).filter(
       (review) => {
-        // debugger
        return review.product_id === product.id
       }
     );
     console.log("productReviews", productReviews);
     let totalRating = 0;
-    // debugger;
     (productReviews || []).map(
       (review) => (totalRating += review.rating)
     );
@@ -38,7 +34,7 @@ class ReviewIndex extends React.Component {
     avgRating = (totalRating / productReviews.length).toFixed(2);
     const renderReviews = productReviews.length ? (
       (productReviews || []).map((review, i) => {
-        // debugger;
+  
         return (
           <div>
             <ReviewIndexItem
