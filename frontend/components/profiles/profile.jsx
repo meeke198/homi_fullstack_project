@@ -68,7 +68,7 @@ class Profile extends React.Component {
             src="https://homi-seeds.s3.us-east-2.amazonaws.com/cart-modified.png"
             alt="shopping-cart"
           />
-          <h2>Nothing here... yet.</h2>
+          <h2 id="nothing">Nothing here... yet.</h2>
           <p>
             These are a few of your favorite things... or they will be, once you
             favorite something.
