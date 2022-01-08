@@ -22,7 +22,7 @@ class NavBar extends React.Component {
     this.goToCart = this.goToCart.bind(this);
   }
   toggleDropdown(e) {
-    e.stopPropagation();
+    // e.stopPropagation();
     this.setState({ isDropdown: !this.state.isDropdown });
   }
 

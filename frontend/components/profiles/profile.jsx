@@ -18,8 +18,7 @@ class Profile extends React.Component {
     //   return null;
     // }
     const { currentUser } = this.props;
-    let userEmail = currentUser.email;
-    userCap = userEmail.capitalize();
+
     return (
       <div className="profile">
         <div className="user-name">
@@ -29,8 +28,9 @@ class Profile extends React.Component {
               src="https://homi-seeds.s3.us-east-2.amazonaws.com/vector61-1574-01-modified.png"
               alt="profile"
             />
+
             <div className="camera">
-              <BsCameraFill />
+              <BsCameraFill style={{ width: 25, height: 25 }} />
             </div>
           </div>
           <div className="user-follower">
@@ -40,25 +40,32 @@ class Profile extends React.Component {
             </p>
           </div>
         </div>
-        <div className="profile-icon">
-          <div className="icon-container">
-            <GrFavorite />
-            <p>Favorite Items</p>
+        <div className="profile-icons">
+          <div className="icon-outer">
+            <div className="icon-container">
+              <GrFavorite className="icon" />
+            </div>
+            <p className="title">Favorite Items</p>
             <p>0 Items</p>
           </div>
-          <div className="icon-container">
-            <BsShop />
-            <p>Favorite Shop</p>
+          <div className="icon-outer">
+            <div className="icon-container">
+              <BsShop className="icon" />
+            </div>
+            <p className="title">Favorite Shop</p>
             <p>0 Shops</p>
           </div>
-          <div className="icon-container cross">
-            <h1>+</h1>
-            <p>Create Collection</p>
+          <div className="icon-outer">
+            <div className="icon-container cross">
+              <h1>+</h1>
+            </div>
+            <p className="title">Create Collection</p>
           </div>
         </div>
         <div className="shopping-cart">
           <img
-            src="https://homi-seeds.s3.us-east-2.amazonaws.com/shopping-cart-icon-modified.png"
+            className="cart-image"
+            src="https://homi-seeds.s3.us-east-2.amazonaws.com/cart-modified.png"
             alt="shopping-cart"
           />
           <h2>Nothing here... yet.</h2>
