@@ -6,55 +6,66 @@ import { GrFavorite } from "react-icons/gr";
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+    this.capitalize = this.capitalize.bind(this);
+  }
+  capitalize(s)
+  {
+    return s[0].toUpperCase() + s.slice(1);
   }
   render() {
     // debugger
-    if (this.state === null) {
-      return null;
-    }
-    const { currentUser } = this.props
+    // if (this.state === null) {
+    //   return null;
+    // }
+    const { currentUser } = this.props;
+    let userEmail = currentUser.email;
+    userCap = userEmail.capitalize();
     return (
       <div className="profile">
-       
-        <div className="shopping-cart">
-          <img className="image" src="https://homi-seeds.s3.us-east-2.amazonaws.com/vector61-1574-01.jpg" alt="profile" />
-          <BsCameraFill className="camera"/>
-        </div>
         <div className="user-name">
-            <h1>{currentUser.email}</h1>
-            <div><MdOutlineEdit/></div>
-        </div>
-        <div className="user-follower">
-            <p>4 followers</p>
-            <p>5 following</p>
+          <div className="user-profile">
+            <img
+              className="image"
+              src="https://homi-seeds.s3.us-east-2.amazonaws.com/vector61-1574-01-modified.png"
+              alt="profile"
+            />
+            <div className="camera">
+              <BsCameraFill />
+            </div>
+          </div>
+          <div className="user-follower">
+            <h3>{this.capitalize(currentUser.email)}</h3>
+            <p>
+              4 followers <span>5 following</span>
+            </p>
+          </div>
         </div>
         <div className="profile-icon">
-            <div className="icon-container">
-                <GrFavorite/>
-                 <p>Favorite Items</p>
-                <p>0 Items</p>
-            </div>
-            <div className="icon-container">
-                <BsShop/>
-                <p>Favorite Shop</p>
-                <p>0 Shops</p>
-            </div>
-            <div className="icon-container cross">
-                <h1>+</h1>
-                <p>Create Collection</p>
-            </div>
+          <div className="icon-container">
+            <GrFavorite />
+            <p>Favorite Items</p>
+            <p>0 Items</p>
+          </div>
+          <div className="icon-container">
+            <BsShop />
+            <p>Favorite Shop</p>
+            <p>0 Shops</p>
+          </div>
+          <div className="icon-container cross">
+            <h1>+</h1>
+            <p>Create Collection</p>
+          </div>
         </div>
         <div className="shopping-cart">
-          <img src="https://homi-seeds.s3.us-east-2.amazonaws.com/shopping-cart-icon.png" alt="shopping-cart" />
+          <img
+            src="https://homi-seeds.s3.us-east-2.amazonaws.com/shopping-cart-icon-modified.png"
+            alt="shopping-cart"
+          />
           <h2>Nothing here... yet.</h2>
-          <p>These are a few of your favorite things... or they will be, once you favorite something.
-
-
-
-
-
-Footer
-</p>
+          <p>
+            These are a few of your favorite things... or they will be, once you
+            favorite something.
+          </p>
         </div>
       </div>
     );
@@ -62,12 +73,3 @@ Footer
 }
 
 export default Profile;
-
-
-const mSTP = (state) => {
-  return {
-    currentUser: state.entities.users[state.session.id],
-  };
-};
-
-export default connect(mSTP, null)(Profile);

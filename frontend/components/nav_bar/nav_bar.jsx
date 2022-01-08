@@ -50,7 +50,9 @@ class NavBar extends React.Component {
               <CgProfile style={{ paddingRight: 10 }} />
               <div className="drop-down-item">
                 <p> Hello {currentUser.email}</p>
-                <p>View Your Profile</p>
+                <p>
+                  <Link className="link" to="/users/profile">View Your Profile</Link>
+                </p>
               </div>
             </div>
             <div className="drop-down-list">

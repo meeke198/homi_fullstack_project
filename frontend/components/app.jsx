@@ -17,6 +17,7 @@ import CartIndexContainer from './carts/cart_index_container';
 import CartShowItemContainer from './carts/cart_show_item_container';
 import ReviewFormContainer from './reviews/review_form_container';
 import EditReviewContainer from "./reviews/edit_review_container";
+import ProfileContainer from "../components/profiles/profile_container";
 
 
 const App = () => (
@@ -39,19 +40,14 @@ const App = () => (
       />
       <Route exact path="/products" component={ProductIndexContainer} />
       <Route exact path="/cart_items" component={CartIndexContainer} />
-      <Route exact
-        path="/reviews/new"
-        component={ReviewFormContainer}
-      />
-      {/* <Route
+      <Route exact path="/reviews/new" component={ReviewFormContainer} />
+      <Route exact path="/users/profile" component={ProfileContainer} />
+      <Route
         exact
-        path="/products/:productId"
-        component={ProductShowContainer}
-      /> */}
-      <Route exact
         path="/reviews/:reviewId/edit"
         component={EditReviewContainer}
       />
+
       {/* <Route exact path="/cart_items/:cartItemId" component={CartShowItemContainer} /> */}
       <Route exact path="/" component={ProductIndexContainer} />
       {/* <ProtectedRoute

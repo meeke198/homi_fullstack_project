@@ -1,8 +1,6 @@
 import { connect } from "react-redux";
 import { fetchProduct } from "../../actions/product_actions";
-import { fetchCart } from "../../actions/cart_actions"
-import { openModal } from "../../actions/modal_actions"
-import { createCartItem } from "../../actions/cart_items_actions"
+import { openModal } from "../../actions/modal_actions";
 import ProductShow from "./product_show";
 import { thunkCreateCartItem, thunkFetchCartItems, thunkUpdateCartItem } from "../../actions/cart_items_actions"
 
