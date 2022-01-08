@@ -57,7 +57,7 @@ class Profile extends React.Component {
           </div>
           <div className="icon-outer">
             <div className="icon-container cross">
-              <h1>+</h1>
+              <h1 id="cross-symbol">+</h1>
             </div>
             <p className="title">Create Collection</p>
           </div>

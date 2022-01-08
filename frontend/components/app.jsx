@@ -18,6 +18,7 @@ import CartShowItemContainer from './carts/cart_show_item_container';
 import ReviewFormContainer from './reviews/review_form_container';
 import EditReviewContainer from "./reviews/edit_review_container";
 import ProfileContainer from "../components/profiles/profile_container";
+import OrderConfirm from "../components/order_confirmation/order_confirm";
 
 
 const App = () => (
@@ -50,11 +51,13 @@ const App = () => (
 
       {/* <Route exact path="/cart_items/:cartItemId" component={CartShowItemContainer} /> */}
       <Route exact path="/" component={ProductIndexContainer} />
+      <Route exact path="/order_confirmation" component={OrderConfirm} />
       {/* <ProtectedRoute
         exact
         path="/products/:productId/reviews/new"
         component={ReviewFormContainer}
       /> */}
+
       <Route component={NotFound} />
     </Switch>
     <Footer className="footer" />

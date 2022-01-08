@@ -83,14 +83,14 @@ class CartIndex extends React.Component {
           <div className="counter">
             {isNaN(totalItemsInCart) ? 0 : totalItemsInCart}
           </div>
-          <h1>{totalItemsInCart} item(s) in your cart</h1>
+          <h2>{totalItemsInCart} item(s) in your cart</h2>
           <Link to="/products" className="link">
             Keep shopping
           </Link>
           <div className="cart-index-container">
             <div className="cart-index">{cartItemsList}</div>
             <div className="cart-checkout" onClick={() => this.onSelect()}>
-              <h1>How you'll pay</h1>
+              <h2>How you'll pay</h2>
               <div>
                 <input className="input-radio" type="radio" name="payment" />{" "}
                 <span className="payment-icon">
@@ -165,12 +165,14 @@ class CartIndex extends React.Component {
                 <FaShippingFast className="checkout-icon" />{" "}
                 <a href="https://apps.goshippo.com/"> Get shipping cost</a>
               </p>
-              <div className="checkout-btn">Proceed to checkout</div>
+              <div className="checkout-btn">
+                <Link to="/order_confirmation" className="link">
+                  Proceed to checkout
+                </Link>
+              </div>
               <div className="coupon">
-                <IoMdPricetags
-                  className="checkout-icon"
-                />{" "}
-                Apply Homi's coupon code
+                <IoMdPricetags className="checkout-icon" /> Apply Homi's coupon
+                code
               </div>
               <p className="addition-tax">
                 * Additional duties and taxes{" "}
