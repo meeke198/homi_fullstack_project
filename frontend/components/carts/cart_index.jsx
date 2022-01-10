@@ -6,6 +6,7 @@ import { SiMastercard, SiAmericanexpress, SiKlarna } from "react-icons/si";
 import { BsPaypal } from "react-icons/bs";
 import { FaShippingFast } from "react-icons/fa";
 import { IoMdPricetags } from "react-icons/io";
+import { GiThreeLeaves } from "react-icons/gi";
 
 
 class CartIndex extends React.Component {
@@ -65,8 +66,13 @@ class CartIndex extends React.Component {
       return (
         <div className="empty-cart">
           <div className="counter">0</div>
-          <h1>Your cart is empty</h1>
-          <Link to="/">Discover something unique to fill it up</Link>
+          <h1 className="empty-message">Your cart is empty</h1>
+          <Link to="/" className="empty-message discover">
+            Discover something unique to fill it up
+          </Link>
+          <div className="leave">
+            <GiThreeLeaves /><p>Homi offsets carbon emissions from every delivery</p>
+          </div>
         </div>
       );
     } else {

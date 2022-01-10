@@ -4,8 +4,21 @@
 }
 
 .empty-cart {
+  width: 100vw;
+  font-size: 25px;
+  margin-top: 30px;
+  text-align: center;
+  height: 40vh;
   margin-left: auto;
   margin-right: auto;
+  .discover{
+    font-size: 15px;
+    color: black;
+    margin-bottom: 30px;
+  }
+  .leave{
+    margin-top: 100px;
+  }
 }
 .counter {
   width: 15px;
