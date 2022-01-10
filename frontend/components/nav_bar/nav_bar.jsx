@@ -138,16 +138,6 @@ class NavBar extends React.Component {
             alt=""
           />
         </Link>
-        {/* <div className="searching-container">
-          <input
-            className="searching-input"
-            type="text"
-            placeholder="Search for anything"
-          />
-          <FaSearchDollar
-            style={{ marginRight: 25, width: 30, height: 25 }}
-          />
-        </div> */}
         <SearchBar />
         {display}
       </header>
