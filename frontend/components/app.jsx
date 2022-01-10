@@ -40,23 +40,18 @@ const App = () => (
         component={ProductShowContainer}
       />
       <Route exact path="/products" component={ProductIndexContainer} />
-      <Route exact path="/cart_items" component={CartIndexContainer} />
-      <Route exact path="/reviews/new" component={ReviewFormContainer} />
-      <Route exact path="/users/profile" component={ProfileContainer} />
-      <Route
+      <ProtectedRoute exact path="/cart_items" component={CartIndexContainer} />
+      <ProtectedRoute exact path="/reviews/new" component={ReviewFormContainer} />
+      <ProtectedRoute exact path="/users/profile" component={ProfileContainer} />
+      <ProtectedRoute
         exact
         path="/reviews/:reviewId/edit"
         component={EditReviewContainer}
       />
 
-      {/* <Route exact path="/cart_items/:cartItemId" component={CartShowItemContainer} /> */}
       <Route exact path="/" component={ProductIndexContainer} />
       <Route exact path="/order_confirmation" component={OrderConfirm} />
-      {/* <ProtectedRoute
-        exact
-        path="/products/:productId/reviews/new"
-        component={ReviewFormContainer}
-      /> */}
+     
 
       <Route component={NotFound} />
     </Switch>

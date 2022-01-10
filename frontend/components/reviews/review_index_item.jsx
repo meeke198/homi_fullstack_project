@@ -19,6 +19,7 @@ class ReviewIndexItem extends React.Component {
 
   render() {
     const { review } = this.props;
+    let ratings = [];
     for (let i = 0; i < 5; i++) {
       if (i < review.rating) {
         ratings.push(

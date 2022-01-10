@@ -10,10 +10,6 @@ class EditReviewForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchProduct(this.props.product.id);
-  // }
-
   handleSubmit(e) {
     e.preventDefault();
     const productId = this.props.review.product_id;
@@ -23,7 +19,6 @@ class EditReviewForm extends React.Component {
     });
 
     this.props.updateReview(review, productId);
-    // .then(this.props.handleEdit());
     this.navigateToProductShow();
   }
 
