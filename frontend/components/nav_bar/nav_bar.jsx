@@ -19,15 +19,20 @@ class NavBar extends React.Component {
     };
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.logoutHandler = this.logoutHandler.bind(this);
+    this.loginHandler = this.loginHandler.bind(this);
     this.goToCart = this.goToCart.bind(this);
   }
   toggleDropdown(e) {
-    // e.stopPropagation();
+    e.stopPropagation();
     this.setState({ isDropdown: !this.state.isDropdown });
   }
 
   logoutHandler() {
     this.props.logout();
+  }
+  loginHandler() {
+    this.props.openModal("login");
+    this.setState({isDropdown: false})
   }
 
  goToCart(){
@@ -110,7 +115,7 @@ class NavBar extends React.Component {
       </div>
     ) : (
       <div style={{ display: "flex", alignItems: "center" }}>
-        <button className="btn" onClick={() => openModal("login")}>
+        <button className="btn" onClick={this.loginHandler}>
           Log In
         </button>
         <div>
