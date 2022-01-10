@@ -33,7 +33,6 @@ class SearchBar extends React.Component {
 
   productSearchHandler(searchTermInput) {
     this.setState({ searchTerm: searchTermInput });
-    // console.log("searchTerm", searchTermInput);
       let filterResult = this.props.products.map((product) =>
       {
       if (Object.values(product)

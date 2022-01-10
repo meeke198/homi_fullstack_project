@@ -1,13 +1,11 @@
 import React from "react";
 import { AiTwotoneStar, AiOutlineStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
-// import EditReviewFormContainer from "../Review/edit_review_form_container";
-
 class ReviewIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleEdit = this.handleEdit.bind(this);
-    // this.removeReview = this.removeReview.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleEdit(e) {
@@ -16,15 +14,11 @@ class ReviewIndexItem extends React.Component {
   }
 
   handleDelete() {
-    // e.preventDefault();
     this.props.deleteReview(this.props.review.id);
   }
 
   render() {
     const { review } = this.props;
-    console.log("review", review);
-    console.log("date", review.reviewer.update_at);
-    let ratings = [];
     for (let i = 0; i < 5; i++) {
       if (i < review.rating) {
         ratings.push(

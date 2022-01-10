@@ -13,19 +13,15 @@ class ProductShow extends React.Component {
     };{}
     this.quantityHandler = this.quantityHandler.bind(this);
     this.addItemToCartHandler = this.addItemToCartHandler.bind(this);
-    // console.log(props)
+
   }
   componentDidMount() {
     this.props.fetchProduct(this.props.match.params.productId);
-    // if (this.props.currentUser) {
-    //  this.props.fetchCart(this.props.currentUser.id);
-    // }
   }
 
   addItemToCartHandler(e) {
     e.preventDefault();
     let { cartItems, currentUser, product } = this.props;
-    // const quantity = parseInt(document.querySelector(".quantity-select").value);{}
     if (currentUser) {
       const cartItem = {
         cart_id: currentUser.id,
@@ -49,8 +45,6 @@ class ProductShow extends React.Component {
       this.props.openModal("Login");
     }
   }
-  // this.props.thunkCreateCartItem(this.props.product.id, this.state.quantity);
-
   quantityHandler(e) {
     this.setState({ quantity: parseInt(e.target.value) });
   }

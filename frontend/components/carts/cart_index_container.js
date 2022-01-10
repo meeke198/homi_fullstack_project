@@ -19,7 +19,6 @@ const mSTP = state => {
 }   
 const mDTP = (dispatch) => ({
   fetchCartItems: () => dispatch(thunkFetchCartItems()),
-  // createCart: (cart) => dispatch(createCart(cart)),
   fetchCart: (userId) => dispatch(fetchCart(userId)),
   deleteCartItem: (cartItemId) => dispatch(thunkDeleteCartItem(cartItemId)),
   updateCartItem: (cartItem) => dispatch(thunkUpdateCartItem(cartItem)),

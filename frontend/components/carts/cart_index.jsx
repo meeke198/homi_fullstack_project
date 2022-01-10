@@ -36,24 +36,11 @@ class CartIndex extends React.Component {
   }
 
   render() {
-    console.log("cartItems", cartItems);
     const { cartItems, deleteCartItem, updateCartItem, currentUser } =
       this.props;
     let itemsPrice = 0;
     let totalItemsInCart = 0;
-    // let allItemsObject = {};
-
-    // if (cartItems) {
-    //   cartItems.forEach((item) => {
-    //     totalItemsInCart += item.quantity;
-    //     if (allItemsObject[item.product_id]) {
-    //       allItemsObject[item.product_id]['quantity'] += item.quantity;
-    //     } else {
-    //       allItemsObject[item.product_id] = item
-    //     };
-    //   });
-    //   console.log("allItemsObject", allItemsObject);
-    // }
+   
 
     let subTotal = 0;
    let cart = (cartItems || []).filter(

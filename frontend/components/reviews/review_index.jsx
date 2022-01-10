@@ -15,21 +15,15 @@ class ReviewIndex extends React.Component {
   render() {
     const { reviews, product, currentUserId, updateReview, deleteReview } =
       this.props;
-      console.log("reviews", reviews)
-    // if (!this.props.reviews) return null;
-    // console.log(this.props.reviews);
-
     const productReviews = (reviews || []).filter(
       (review) => {
        return review.product_id === product?.id
       }
     );
-    console.log("productReviews", productReviews);
     let totalRating = 0;
     (productReviews || []).map(
       (review) => (totalRating += review.rating)
     );
-    console.log("totalRating", totalRating);
     let avgRating;
     avgRating = (totalRating / productReviews.length).toFixed(2);
     const renderReviews = productReviews.length ? (
