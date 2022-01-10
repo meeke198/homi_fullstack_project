@@ -21,7 +21,7 @@ class ReviewIndex extends React.Component {
 
     const productReviews = (reviews || []).filter(
       (review) => {
-       return review.product_id === product.id
+       return review.product_id === product?.id
       }
     );
     console.log("productReviews", productReviews);
@@ -36,9 +36,8 @@ class ReviewIndex extends React.Component {
       (productReviews || []).map((review, i) => {
   
         return (
-          <div>
+          <div key={`${review.id}-${i}`}>
             <ReviewIndexItem
-              key={i}
               review={review}
               productId={product.id}
               currentUserId={currentUserId}

@@ -11,7 +11,7 @@ class CartShowItem extends React.Component {
       quantity: this.props.item.quantity,
     };
     this.updateQuantity = this.updateQuantity.bind(this);
-    // this.updateCartItem = this.updateCartItem.bind(this);
+    // this.deleteCartItem = this.deleteCartItem.bind(this);
   }
 
   updateQuantity(e) {

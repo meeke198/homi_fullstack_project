@@ -22,7 +22,6 @@ class Api::ReviewsController < ApplicationController
 
 
     def update
-        # @product = Product.find(params[:product_id])
         @review = Review.find(params[:id])
 
         if @review && @review.update(review_params)

@@ -15,19 +15,18 @@ class ProductShow extends React.Component {
     this.addItemToCartHandler = this.addItemToCartHandler.bind(this);
     // console.log(props)
   }
-  componentDidMount() {{}
+  componentDidMount() {
     this.props.fetchProduct(this.props.match.params.productId);
     // if (this.props.currentUser) {
     //  this.props.fetchCart(this.props.currentUser.id);
     // }
   }
 
-  addItemToCartHandler(e) {{}
+  addItemToCartHandler(e) {
     e.preventDefault();
     let { cartItems, currentUser, product } = this.props;
     // const quantity = parseInt(document.querySelector(".quantity-select").value);{}
     if (currentUser) {
-{}
       const cartItem = {
         cart_id: currentUser.id,
         product_id: product.id,
@@ -56,7 +55,7 @@ class ProductShow extends React.Component {
     this.setState({ quantity: parseInt(e.target.value) });
   }
 
-  render() {{}
+  render() {
     const { product, currentUser } = this.props;
 
     return (

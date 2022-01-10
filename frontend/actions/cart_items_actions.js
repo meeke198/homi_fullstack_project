@@ -6,8 +6,8 @@ export const DELETE_CART_ITEM = "DELETE_CART_ITEM";
 
 
 
-export const createCartItem = (cartItem) => {
 
+export const createCartItem = (cartItem) => {
    return {
     type: CREATE_CART_ITEM,
     cartItem
@@ -30,6 +30,11 @@ export const deleteCartItem = (cartItemId) => ({
     type: DELETE_CART_ITEM,
     cartItemId
 })
+
+// export const deleteCartItems = (cartItems) => ({
+//   type: DELETE_CART_ITEMS,
+//   cartItems,
+// });
 
 export const thunkCreateCartItem = (cartItem) => dispatch=> {
    cartItemsAPIUtil.apiCreateCartItem(cartItem)
@@ -56,5 +61,11 @@ export const thunkDeleteCartItem = (cartItemId) => dispatch => {
     return cartItemsAPIUtil.apiDeleteCartItem(cartItemId)
     .then(() => dispatch(deleteCartItem(cartItemId)))
 }
+
+// export const thunkDeleteCartItems = (cartItems) => dispatch => {
+//     return cartItemsAPIUtil
+//       .apiDeleteCartItems(cartItems)
+//       .then(() => dispatch(deleteCartItems(cartItems)));
+// }
 
 

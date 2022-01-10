@@ -27,5 +27,14 @@ export const apiDeleteCartItem = (cartItemId) => {
         method: "DELETE",
     })
 }
+// export const apiDeleteCartItems = (cart_items) => {
+//     return $.ajax({
+//         url: `api/cart_items`,
+//         method: "DELETE",
+//         data: {cart_items}
+//     })
+// }
+
+
 
 

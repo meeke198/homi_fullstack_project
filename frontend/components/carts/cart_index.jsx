@@ -14,6 +14,8 @@ class CartIndex extends React.Component {
     this.state = {
       select: false,
     };
+    this.onSelect = this.onSelect.bind(this);
+    this.handleCheckout = this.handleCheckout.bind(this);
   }
   componentDidMount() {
     if (this.props.currentUser) {
@@ -27,6 +29,11 @@ class CartIndex extends React.Component {
     });
   }
 
+  handleCheckout(cartItems){
+    Object.values(cartItems).forEach((cartItem) => {
+      this.props.deleteCartItem(cartItem.id)
+    })
+  }
 
   render() {
     console.log("cartItems", cartItems);
@@ -164,7 +171,12 @@ class CartIndex extends React.Component {
                 <a href="https://apps.goshippo.com/"> Get shipping cost</a>
               </p>
               <div className="checkout-btn">
-                <Link to="/order_confirmation" className="link" id="checkout">
+                <Link
+                  to="/order_confirmation"
+                  className="link"
+                  id="checkout"
+                  onClick={() => this.handleCheckout(cartItems)}
+                >
                   Proceed to checkout
                 </Link>
               </div>
