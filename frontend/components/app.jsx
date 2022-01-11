@@ -1,10 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import SignUpFormContainer from "./session_form/signup_form_container";
-import LogInFormContainer from "./session_form/login_form_container";
 import NavBarContainer from "./nav_bar/nav_bar_container";
-import Home from "./home/home";
 import NotFound from "./not_found/not_found";
 import { Switch } from "react-router";
 import Modal from './modal/modal'
@@ -14,7 +11,6 @@ import ProductShowContainer from "./products/product_show_container";
 import CategoryContainer from "./products/category_container";
 import Footer from './footer';
 import CartIndexContainer from './carts/cart_index_container';
-import CartShowItemContainer from './carts/cart_show_item_container';
 import ReviewFormContainer from './reviews/review_form_container';
 import EditReviewContainer from "./reviews/edit_review_container";
 import ProfileContainer from "../components/profiles/profile_container";

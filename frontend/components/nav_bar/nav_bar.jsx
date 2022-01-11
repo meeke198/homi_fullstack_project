@@ -40,7 +40,7 @@ class NavBar extends React.Component {
    this.props.history.push({ pathname:'/cart_items' })
  }
   render() {
-    const { currentUser, openModal, cartItems, products } = this.props;
+    const { currentUser, cartItems } = this.props;
     let totalItems = 0;
     let cart = (cartItems || []).filter(
       (item) => item.cart_id === currentUser.id
