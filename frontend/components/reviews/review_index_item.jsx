@@ -48,23 +48,6 @@ class ReviewIndexItem extends React.Component {
       }
     }
 
-    // const display = (currentUser?.id === review?.reviewer_id) ? (
-    //   <div className="edit-delete-buttons">
-    //     <Link to={`/reviews/${review.id}/edit`} className="edit-review">
-    //       <button className="review-btn btn">Edit</button>
-    //     </Link>
-    //     <button
-    //       className="review-btn btn"
-    //       type="submit"
-    //       onClick={() => this.handleDelete()}
-    //     >
-    //       Remove
-    //     </button>
-    //   </div>
-    // ) : (
-    //   <div></div>
-    // );
-    debugger
     return (
       <div className="review">
         <p className="email">{review.reviewer.email}</p>

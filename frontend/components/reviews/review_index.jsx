@@ -7,17 +7,12 @@ import StarRatings from "react-star-ratings";
 class ReviewIndex extends React.Component {
   constructor(props) {
     super(props);
-    // this.clearErrors = this.clearErrors.bind(this)
   }
 
   componentDidMount() {
     this.props.fetchReviews();
   }
-  // clearErrors() {
-  //   if (this.props.errors.length){
-  //     this.props.clearReviewErrors();
-  //   }
-  // }
+ 
   render() {
     const {
       reviews,

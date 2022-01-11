@@ -18,10 +18,9 @@ class CartShowItem extends React.Component {
     this.props.updateCartItem(this.props.item);
   }
 
-  deleteCartItem() { 
+  deleteCartItem() {
     this.props.deleteCartItem(this.props.item.id);
   }
-
 
   render() {
     const { item } = this.props;
@@ -63,7 +62,6 @@ class CartShowItem extends React.Component {
             <option value="6">6</option>
             <option value="7">7</option>
           </select>
-          {/* <button onClick={() => this.updateCartItem()}>Update Quantity</button> */}
         </div>
         <div>
           <p>

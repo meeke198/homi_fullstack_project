@@ -6,12 +6,10 @@ class EditReviewForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.review;
-    // this.navigateToProductShow = this.navigateToProductShow.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
-    debugger;
     e.preventDefault();
     const productId = this.props.review.product_id;
     const review = Object.assign({}, this.state, {

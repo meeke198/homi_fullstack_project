@@ -1,19 +1,16 @@
 class Api::ReviewsController < ApplicationController
     before_action :require_login, only: [:create, :destroy, :update]
     def create
-        # debugger
         @reviews = current_user.reviews
         currentReview = false;
         @reviews.each do |review|
            currentReview = true if review.product_id == review_params[:product_id].to_i
         end
-        # debugger
         if !currentReview
             @review = Review.new(review_params)
             @review.save 
             render :show  
         else
-            # flash.now[:errors] = ["You already left a review for this product!"]
             render json: ["You already left a review for this product!"], status: 401
         end
     end
@@ -24,7 +21,6 @@ class Api::ReviewsController < ApplicationController
     end
 
     def index
-        # debugger
         @reviews = Review.all
         render :index
 
@@ -41,7 +37,6 @@ class Api::ReviewsController < ApplicationController
     end
 
      def destroy
-        # debugger
         @review = Review.find(params[:id])
         @review.destroy   
     end
