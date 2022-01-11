@@ -87,6 +87,7 @@ class CreateReviewForm extends React.Component {
         {errors?.length ? this.renderErrors() : null}
         <div>
           <textarea
+          className="textare-field"
             cols="50"
             rows="5"
             value={this.state.content}
