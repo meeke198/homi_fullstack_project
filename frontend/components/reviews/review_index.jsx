@@ -7,28 +7,35 @@ import StarRatings from "react-star-ratings";
 class ReviewIndex extends React.Component {
   constructor(props) {
     super(props);
+    // this.clearErrors = this.clearErrors.bind(this)
   }
 
   componentDidMount() {
     this.props.fetchReviews();
   }
+  // clearErrors() {
+  //   if (this.props.errors.length){
+  //     this.props.clearReviewErrors();
+  //   }
+  // }
   render() {
-    const { reviews, product, updateReview, deleteReview, errors } =
-      this.props;
-    const productReviews = (reviews || []).filter(
-      (review) => {
-       return review.product_id === product?.id
-      }
-    );
+    const {
+      reviews,
+      product,
+      updateReview,
+      deleteReview,
+      errors,
+      currentUserId,
+    } = this.props;
+    const productReviews = (reviews || []).filter((review) => {
+      return review.product_id === product?.id;
+    });
     let totalRating = 0;
-    (productReviews || []).map(
-      (review) => (totalRating += review.rating)
-    );
+    (productReviews || []).map((review) => (totalRating += review.rating));
     let avgRating;
     avgRating = (totalRating / productReviews.length).toFixed(2);
     const renderReviews = productReviews.length ? (
       (productReviews || []).map((review, i) => {
-  
         return (
           <div key={`${review.id}-${i}`}>
             <ReviewIndexItem
@@ -37,6 +44,7 @@ class ReviewIndex extends React.Component {
               productId={product.id}
               updateReview={updateReview}
               deleteReview={deleteReview}
+              currentUserId={currentUserId}
               errors={errors}
             />
           </div>
@@ -45,19 +53,20 @@ class ReviewIndex extends React.Component {
     ) : (
       <div className="review-title">Write the first review for this item</div>
     );
-       
+
     let ratings = [];
     for (let i = 0; i < 5; i++) {
       if (i < avgRating) {
         ratings.push(
           <AiTwotoneStar
-            style={{ color: "#222222", width: "30px",
-            height: "30px",
-            marginLeft: "20px"
+            style={{
+              color: "#222222",
+              width: "30px",
+              height: "30px",
+              marginLeft: "20px",
             }}
             key={i}
           />
-           
         );
       } else {
         ratings.push(
@@ -95,7 +104,8 @@ class ReviewIndex extends React.Component {
         </div>
         <div className="reviews-list">{renderReviews}</div>
       </div>
-    );}
+    );
+  }
 }
 
 export default ReviewIndex;

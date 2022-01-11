@@ -2,11 +2,19 @@ class Api::ReviewsController < ApplicationController
     before_action :require_login, only: [:create, :destroy, :update]
     def create
         # debugger
-        @review = Review.new(review_params)
-        if @review.save 
+        @reviews = current_user.reviews
+        currentReview = false;
+        @reviews.each do |review|
+           currentReview = true if review.product_id == review_params[:product_id].to_i
+        end
+        # debugger
+        if !currentReview
+            @review = Review.new(review_params)
+            @review.save 
             render :show  
         else
-            flash.now[:errors] = ["You already left a review for this product!"]
+            # flash.now[:errors] = ["You already left a review for this product!"]
+            render json: ["You already left a review for this product!"], status: 401
         end
     end
 
@@ -25,11 +33,10 @@ class Api::ReviewsController < ApplicationController
 
     def update
         @review = Review.find(params[:id])
-
-        if @review.reviewer_id == current_user.id && @review.update(review_params)
+        if @review && @review.update(review_params)
             render :show
         else
-            flash.now[:errors] = ["Can't update others' reviews!"]
+            render json: ["Please don't leave any field blank! :)"], status: 401
         end
     end
 

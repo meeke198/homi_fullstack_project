@@ -18,7 +18,7 @@ class ReviewIndexItem extends React.Component {
   }
 
   render() {
-    const { review, currentUser } = this.props;
+    const { review, currentUserId } = this.props;
     let ratings = [];
     for (let i = 0; i < 5; i++) {
       if (i < review.rating) {
@@ -64,6 +64,7 @@ class ReviewIndexItem extends React.Component {
     // ) : (
     //   <div></div>
     // );
+    debugger
     return (
       <div className="review">
         <p className="email">{review.reviewer.email}</p>
@@ -75,7 +76,7 @@ class ReviewIndexItem extends React.Component {
             <p>{review.content}</p>
           </div>
         
-            {currentUser?.id === review?.reviewer_id ? (
+            {currentUserId === review?.reviewer_id ? (
               <div className="edit-delete-buttons">
                 <Link to={`/reviews/${review.id}/edit`} className="edit-review">
                   <button className="review-btn btn">Edit</button>

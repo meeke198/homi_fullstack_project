@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { thunkCreateReview } from "../../actions/review_actions";
+import { thunkCreateReview, clearReviewErrors } from "../../actions/review_actions";
 import CreateReviewForm from "./review_form";
 import { openModal } from "../../actions/modal_actions";
 
@@ -20,6 +20,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => ({
   createReview: (review) => dispatch(thunkCreateReview(review)),
   openModal: (modal) => dispatch(openModal(modal)),
+  clearErrors: () => dispatch(clearReviewErrors()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateReviewForm));

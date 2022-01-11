@@ -3,6 +3,7 @@ export const CREATE_CART_ITEM = "CREATE_CART_ITEM";
 export const RECEIVE_CART_ITEMS = "RECEIVE_CART_ITEMS" ;
 export const UPDATE_CART_ITEM = " UPDATE_CART_ITEM";
 export const DELETE_CART_ITEM = "DELETE_CART_ITEM";
+export const DELETE_CART_ITEMS = "DELETE_CART_ITEMS";
 
 
 
@@ -31,10 +32,10 @@ export const deleteCartItem = (cartItemId) => ({
     cartItemId
 })
 
-// export const deleteCartItems = (cartItems) => ({
-//   type: DELETE_CART_ITEMS,
-//   cartItems,
-// });
+export const deleteCartItems = (cartItems) => ({
+  type: DELETE_CART_ITEMS,
+  cartItems,
+});
 
 export const thunkCreateCartItem = (cartItem) => dispatch=> {
    cartItemsAPIUtil.apiCreateCartItem(cartItem)

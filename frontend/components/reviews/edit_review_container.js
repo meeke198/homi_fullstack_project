@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => ({
     reviewer_id: state.session.id,
   },
   formType: "edit",
+  currentUserId: state.session.id,
 });
 
 const mapDispatchToProps = () => (dispatch) => ({

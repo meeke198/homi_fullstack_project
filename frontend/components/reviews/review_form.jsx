@@ -1,5 +1,6 @@
 import React from 'react'
 import { BiCurrentLocation } from 'react-icons/bi';
+import { MdTrendingUp } from 'react-icons/md';
 import StarRatings from "react-star-ratings";
 class CreateReviewForm extends React.Component {
   constructor(props) {
@@ -10,48 +11,57 @@ class CreateReviewForm extends React.Component {
     this.changeRating = this.changeRating.bind(this);
     this.updateContent = this.updateContent.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    // this.clearErrors = this.clearErrors.bind(this);
   }
   componentDidMount() {
     if (this.props.formType === "edit") {
       this.props.fetchReview(this.props.match.params.reviewId);
+    }
+    if(this.props.errors?.length){
+      this.props.clearErrors()
     }
   }
   renderErrors() {
     return (
       <ul style={{ width: "100vw", height:"40px" }}>
         {this.props.errors.map((error, i) => (
-          <li style={{ marginBottom: 10 }} key={`error-${i}`}>
+          <li style={{ marginBottom: 10, color: "red", fontSize: "12px" }} key={`error-${i}`}>
             {error}
           </li>
         ))}
       </ul>
     );
   }
-  handleSubmit() {
-    debugger
+
+  handleSubmit(e) {
+    // debugger
+     e.preventDefault();
     const { currentUser, reviews, product } = this.props
     console.log("reviews", reviews)
-    const productReviews = (reviews || []).filter((review) => {
-      return review.product_id === product.id;
-    });
-    if (currentUser && productReviews.length) {
-      if (
-        (productReviews || []).map(
-          (review) => review.reviewer_id === currentUser.id
-        )
-      ) {
-        this.renderErrors();
-      } else {
-        debugger;
-        this.props.createReview(this.state);
-        this.setState({ rating: 0, content: "" });
-      }
-    } else if (currentUser && !productReviews.length) {
-      debugger;
+    // const productReviews = (reviews || []).filter((review) => {
+    //   return review.product_id === product.id;
+    // });
+    // if (currentUser && productReviews.length) {
+    //   let currentUsersReview = false;
+    //    (productReviews || []).forEach((review) => {
+    //      if (review.reviewer_id === currentUser.id){
+    //        currentUsersReview = true;
+    //      }
+    //    })
+    //   if (currentUsersReview) {
+    //     this.renderErrors();
+    //   } else {
+    //     // debugger;
+    //     this.props.createReview(this.state);
+    //     this.setState({ rating: 0, content: "" });
+    //   }
+    // } else if (currentUser && !productReviews.length) {
+      // debugger;
+      if (currentUser){
       this.props.createReview(this.state);
       this.setState({ rating: 0, content: "" });
     } else {
-      debugger;
+      // debugger;
       this.props.openModal("login");
     }
   }
@@ -93,7 +103,7 @@ class CreateReviewForm extends React.Component {
           starDimension="28px"
           starSpacing="5px"
         />
-        {errors.length ? this.renderErrors() : null}
+        {errors?.length ? this.renderErrors() : null}
         <div>
           <textarea
             cols="50"

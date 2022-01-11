@@ -3,6 +3,7 @@ import {
   thunkFetchReviews,
   thunkUpdateReview,
   thunkDeleteReview,
+  // clearReviewErrors,
 } from "../../actions/review_actions";
 import ReviewIndex from "./review_index";
 import { withRouter } from "react-router";
@@ -17,6 +18,7 @@ const mDTP = (dispatch) => ({
   fetchReviews: () => dispatch(thunkFetchReviews()),
   updateReview: (review) => dispatch(thunkUpdateReview(review)),
   deleteReview: (reviewId) => dispatch(thunkDeleteReview(reviewId)),
+  // clearReviewErrors: () => dispatch(clearReviewErrors()),
 });
 
 export default withRouter(connect(mSTP, mDTP)(ReviewIndex));

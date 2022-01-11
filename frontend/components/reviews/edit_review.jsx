@@ -6,30 +6,29 @@ class EditReviewForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.review;
-    this.navigateToProductShow = this.navigateToProductShow.bind(this);
+    // this.navigateToProductShow = this.navigateToProductShow.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     const productId = this.props.review.product_id;
     const review = Object.assign({}, this.state, {
       product_id: productId,
-      author_id: this.props.user,
+      reviewer_id: this.props.currentUserId,
     });
-
-    this.props.updateReview(review, productId);
-    this.navigateToProductShow();
+    this.props.updateReview(review);
+     this.props.history.push({
+       pathname: `/products/${this.props.review.product_id}`,
+     });
   }
 
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
-  navigateToProductShow() {
-    const url = `/products/${this.props.review.product_id}`;
-    this.props.history.push(url);
-  }
+ 
 
   render() {
     const { product } = this.props;
