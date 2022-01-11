@@ -7,7 +7,7 @@ export const apiCreateReview = (review) => {
 }
 
 export const apiReceiveAllReviews = () => {
-  debugger
+  // debugger
   return $.ajax({
     url: `api/reviews`
   });

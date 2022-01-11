@@ -1,8 +1,7 @@
 class Api::ReviewsController < ApplicationController
     before_action :require_login, only: [:create, :destroy, :update]
     def create
-        debugger
-        # @reviews = Review.all
+        # debugger
         @review = Review.new(review_params)
         if @review.save 
             render :show  
@@ -35,13 +34,9 @@ class Api::ReviewsController < ApplicationController
     end
 
      def destroy
-        debugger
+        # debugger
         @review = Review.find(params[:id])
-        if current_user.id == @review.reviewer_id
-            @review.destroy
-        else
-            flash.now[:errors] = ["Can't delete others' reviews!"]
-        end
+        @review.destroy   
     end
 
     private

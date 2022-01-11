@@ -43,7 +43,7 @@ export const clearReviewErrors = () => ({
 });
 
 export const thunkFetchReviews = () => dispatch => {
-  debugger
+  // debugger
   return reviewAPIUtil.apiReceiveAllReviews()
   .then(reviews => dispatch(receiveReviews(reviews)))
 };

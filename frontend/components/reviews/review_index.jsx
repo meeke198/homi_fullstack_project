@@ -32,6 +32,7 @@ class ReviewIndex extends React.Component {
         return (
           <div key={`${review.id}-${i}`}>
             <ReviewIndexItem
+              key={i}
               review={review}
               productId={product.id}
               updateReview={updateReview}
