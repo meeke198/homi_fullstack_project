@@ -29,6 +29,7 @@ class NavBar extends React.Component {
 
   logoutHandler() {
     this.props.logout();
+    this.props.history.push({ pathname: "/" });
   }
   loginHandler() {
     this.props.openModal("login");
@@ -98,7 +99,7 @@ class NavBar extends React.Component {
         <div>
           <div>
             <BsCart4
-              onClick={() => this.goToCart()}
+            onClick={this.goToCart}
               style={{
                 marginLeft: 15,
                 width: 30,
@@ -108,9 +109,7 @@ class NavBar extends React.Component {
               }}
             />
           </div>
-          <div className="counter">
-            {totalItems}
-          </div>
+          <div className="counter">{totalItems}</div>
         </div>
       </div>
     ) : (
@@ -121,7 +120,7 @@ class NavBar extends React.Component {
         <div>
           <div>
             <BsCart4
-              onClick={() => openModal("login")}
+              onClick={this.loginHandler}
               style={{
                 marginLeft: 30,
                 width: 35,
