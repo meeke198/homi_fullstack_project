@@ -10,7 +10,7 @@ class ProductShow extends React.Component {
     super(props);
     this.state = {
       quantity: 1,
-    };{}
+    };
     this.quantityHandler = this.quantityHandler.bind(this);
     this.addItemToCartHandler = this.addItemToCartHandler.bind(this);
 
@@ -38,6 +38,7 @@ class ProductShow extends React.Component {
           }
         });
       } else {
+        debugger
         cartItems[cartItem.product_id] = this.props.createCartItem(cartItem);
       }
     } else {
