@@ -11,6 +11,7 @@ const mSTP = (state, ownProps) => ({
   reviews: Object.values(state.entities.reviews),
   product: state.entities.products[ownProps.match.params.productId],
   currentUserId: state.session.id,
+  errors: state.errors.reviews,
 });
 
 const mDTP = (dispatch) => ({

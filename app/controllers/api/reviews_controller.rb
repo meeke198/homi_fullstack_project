@@ -1,11 +1,13 @@
 class Api::ReviewsController < ApplicationController
-    before_action :require_login, only: [:create, :destroy]
+    before_action :require_login, only: [:create, :destroy, :update]
     def create
+        debugger
+        # @reviews = Review.all
         @review = Review.new(review_params)
-        if @review.save
-            render :show
+        if @review.save 
+            render :show  
         else
-            render json: @review.errors.full_messages, status: 422
+            flash.now[:errors] = ["You already left a review for this product!"]
         end
     end
 
@@ -15,6 +17,7 @@ class Api::ReviewsController < ApplicationController
     end
 
     def index
+        # debugger
         @reviews = Review.all
         render :index
 
@@ -24,18 +27,21 @@ class Api::ReviewsController < ApplicationController
     def update
         @review = Review.find(params[:id])
 
-        if @review && @review.update(review_params)
+        if @review.reviewer_id == current_user.id && @review.update(review_params)
             render :show
         else
-            render json: @review.errors.full_messages, status: 400
+            flash.now[:errors] = ["Can't update others' reviews!"]
         end
     end
 
      def destroy
+        debugger
         @review = Review.find(params[:id])
-
-        @review.destroy
-        render json: ['Successfully removed review!']
+        if current_user.id == @review.reviewer_id
+            @review.destroy
+        else
+            flash.now[:errors] = ["Can't delete others' reviews!"]
+        end
     end
 
     private

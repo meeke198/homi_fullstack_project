@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { thunkCreateReview } from "../../actions/review_actions";
 import CreateReviewForm from "./review_form";
+import { openModal } from "../../actions/modal_actions";
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -11,11 +12,14 @@ const mapStateToProps = (state, ownProps) => ({
     product_id: ownProps.match.params.productId,
     reviewer_id: state.session.id,
   },
-  formType: "create"
+  formType: "create",
+  errors: state.errors.reviews,
+  reviews: Object.values(state.entities.reviews),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   createReview: (review) => dispatch(thunkCreateReview(review)),
+  openModal: (modal) => dispatch(openModal(modal)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateReviewForm));

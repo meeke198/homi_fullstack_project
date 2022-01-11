@@ -13,7 +13,7 @@ class ReviewIndex extends React.Component {
     this.props.fetchReviews();
   }
   render() {
-    const { reviews, product, currentUserId, updateReview, deleteReview } =
+    const { reviews, product, updateReview, deleteReview, errors } =
       this.props;
     const productReviews = (reviews || []).filter(
       (review) => {
@@ -34,9 +34,9 @@ class ReviewIndex extends React.Component {
             <ReviewIndexItem
               review={review}
               productId={product.id}
-              currentUserId={currentUserId}
               updateReview={updateReview}
               deleteReview={deleteReview}
+              errors={errors}
             />
           </div>
         );

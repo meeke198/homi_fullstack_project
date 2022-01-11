@@ -6,6 +6,7 @@ class ReviewIndexItem extends React.Component {
     super(props);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   handleEdit(e) {
@@ -17,8 +18,20 @@ class ReviewIndexItem extends React.Component {
     this.props.deleteReview(this.props.review.id);
   }
 
+  renderErrors() {
+    return (
+      <ul style={{ width: "100vw", height: "40px" }}>
+        {this.props.errors.map((error, i) => (
+          <li style={{ marginBottom: 10 }} key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
-    const { review } = this.props;
+    const { review, errors } = this.props;
     let ratings = [];
     for (let i = 0; i < 5; i++) {
       if (i < review.rating) {
@@ -64,10 +77,16 @@ class ReviewIndexItem extends React.Component {
             <Link to={`/reviews/${review.id}/edit`} className="edit-review">
               <button className="review-btn btn">Edit</button>
             </Link>
-            <button className="review-btn btn" type="submit" onClick={() => this.handleDelete()}>
+            <button
+              className="review-btn btn"
+              type="submit"
+              onClick={() => this.handleDelete()}
+            >
               Remove
             </button>
+            
           </div>
+          {errors.length ? () => this.renderErrors() : null}
         </div>
       </div>
     );
@@ -75,3 +94,4 @@ class ReviewIndexItem extends React.Component {
 }
 
 export default ReviewIndexItem;
+
