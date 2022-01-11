@@ -39,9 +39,23 @@ const MessageItem = (props) => {
   );
 };
 
-const Message = (props) => {
-  const { currentUser } = props;
-  const display = currentUser ? (
+
+
+class Message extends React.Component {
+  constructor(props){
+      super(props)
+      this.state = {
+        displayWelcome: true
+      };
+      this.handleWelcome = this.handleWelcome.bind(this)
+    }
+
+handleWelcome(){
+  this.setState({displayWelcome: false})
+}
+render (){
+  const {currentUser} = this.props
+  const display = currentUser && this.state.displayWelcome ? (
     <div
       className="message-text"
       style={{ textAlign: "center", marginBottom: 30 }}
@@ -57,7 +71,7 @@ const Message = (props) => {
     </div>
   );
   return (
-    <div style={{ paddingTop: 40, backgroundColor: "#FDEBD2", width: "100wv" }}>
+    <div onClick={() => this.handleWelcome()} style={{ paddingTop: 40, backgroundColor: "#FDEBD2", width: "100wv" }}>
       <div
         className="message-text"
         style={{ textAlign: "center", marginBottom: 30 }}
@@ -75,6 +89,7 @@ const Message = (props) => {
       </div>
     </div>
   );
+}
 };
 
 const mapStateToProps = (state) => ({
