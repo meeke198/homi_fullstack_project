@@ -22,4 +22,21 @@
     }
   }
 }
+.not-found{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  .not-found-message{
+    font-size: 25px;
+    margin-top: 30px;
+  }
+  .enter{
+  width: 30%;
+  background-color: black !important; 
+  color: white; 
+  text-align: center;
+}
+}
+
 

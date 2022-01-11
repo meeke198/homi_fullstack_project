@@ -17,6 +17,7 @@ class SearchBar extends React.Component {
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.productSearchHandler = this.productSearchHandler.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.clearInput = this.clearInput.bind(this);
   }
 
   onChange(e) {
@@ -24,14 +25,22 @@ class SearchBar extends React.Component {
   }
   onClick(e) {
     this.productSearchHandler(this.state.searchTerm);
+    this.clearInput();
   }
   handleKeyDown(e) {
     if (e.key === "Enter") {
       this.productSearchHandler(e.target.value);
+      this.clearInput();
     }
+    
+  }
+  clearInput(){
+    this.setState({
+      searchTerm: ''
+    });
   }
 
-  productSearchHandler(searchTermInput) {
+  productSearchHandler(searchTermInput){
     this.setState({ searchTerm: searchTermInput });
       let filterResult = this.props.products.map((product) =>
       {
