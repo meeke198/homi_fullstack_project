@@ -71,12 +71,9 @@ All user can search products by interested categories from dropping menu on the 
 ![](https://homi-seeds.s3.us-east-2.amazonaws.com/category_SparkVideo.gif)
 
 ### Future directions for the project
-
-* Logged in users will be able to create, update and delete their product listings.
-* All users will be able to look up items by category.
-* All users will be able to add items to their shopping cart.
-* Users will be able to check out items in the shopping cart by login or checkout as guests.
-* Users will be able to add/ remove cart items in their cart.
-* All users will be able to look up items by product name
-* Logged in users will be able to write reviews for products.
-* Users will be able to edit their own reviews.
+* Each user will have their profile page.
+* All users will be able to see all products listing.
+* All users will be able to look up items by name and category.
+* All users will be able to add/edit/remove items to their shopping cart by login.
+* Users will be able to check out items in the shopping cart by login.
+* Logged in users will be able to write/edit/remove their own review for products.
