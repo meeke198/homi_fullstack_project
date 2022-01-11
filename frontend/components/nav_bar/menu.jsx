@@ -6,7 +6,7 @@ export const list = [
     name: "Wall decor",
     child: [
       { name: "Vases", route: "vases" },
-      { name: "custom Sleepers", route: "floatingshelves" },
+      { name: "Floating Shelves", route: "floatingshelves" },
       { name: "Wallarts", route: "wallarts" },
       { name: "Paintings", route: "paintings" },
       { name: "Mirrors", route: "mirrors" },
