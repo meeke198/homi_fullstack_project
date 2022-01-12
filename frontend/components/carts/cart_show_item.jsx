@@ -24,7 +24,7 @@ class CartShowItem extends React.Component {
 
   render() {
     const { item } = this.props;
-    item.length === undefined ? null : item;
+    !item.length ? null : item;
     let totalItemsPrice = 0;
     totalItemsPrice = item.product.price * item.quantity;
     return (
@@ -61,6 +61,11 @@ class CartShowItem extends React.Component {
             <option value="5">5</option>
             <option value="6">6</option>
             <option value="7">7</option>
+            <option value="3">8</option>
+            <option value="4">9</option>
+            <option value="5">10</option>
+            <option value="6">11</option>
+            <option value="7">12</option>
           </select>
         </div>
         <div>

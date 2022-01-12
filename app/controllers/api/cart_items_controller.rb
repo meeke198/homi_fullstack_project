@@ -17,7 +17,7 @@ class Api::CartItemsController < ApplicationController
 
     def index
         @cart_items = CartItem.all
-        # render :index
+        render :index
     end
 
 

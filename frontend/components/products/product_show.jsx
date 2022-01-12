@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { RiUserStarLine } from "react-icons/ri"
+import { RiUserStarLine } from "react-icons/ri";
 import { FaShippingFast } from "react-icons/fa";
 import CreateReviewForm from "../reviews/review_form_container";
 import ReviewIndex from "../reviews/review_index_container";
@@ -13,39 +13,92 @@ class ProductShow extends React.Component {
     };
     this.quantityHandler = this.quantityHandler.bind(this);
     this.addItemToCartHandler = this.addItemToCartHandler.bind(this);
-
   }
   componentDidMount() {
     this.props.fetchProduct(this.props.match.params.productId);
   }
 
+  // addItemToCartHandler(e) {
+  //   debugger;
+  //   e.preventDefault();
+  //   let { cartItems, currentUser, product } = this.props;
+  //   if (currentUser) {
+  //     const cartItem = {
+  //       cart_id: currentUser.id,
+  //       product_id: product.id,
+  //       quantity: this.state.quantity,
+  //     };
+
+  //         (cartItems || []).map((item) => {
+  //         if (item?.product_id === cartItem?.product_id) {
+  //           item.quantity += cartItem.quantity
+  //           this.props.updateCartItem(item);
+  //           // existProduct = true;
+  //         }
+  //      else {
+  //       this.props.createCartItem(cartItem);
+  //     }})
+
+  // if (existProduct) {
+  //   this.props.updateCartItem(item);
+
+  //       item.quantity += cartItem.quantity;
+  //   debugger;
+  //   cartItems.forEach((item) => {
+  //     debugger
+  //     if (item?.product_id === cartItem?.product_id) {
+  //       item.quantity += cartItem.quantity;
+  //       return this.props.updateCartItem(item);
+  //     } else {
+  //       debugger
+  //       return this.props.createCartItem(cartItem);
+  //     }
+  //   });
+  // } else {
+  //   debugger
+  //   return this.props.createCartItem(cartItem);
+  // }
+
+  //   } else {
+  //     this.props.openModal("Login");
+  //   }
+  // }
+
   addItemToCartHandler(e) {
     e.preventDefault();
     let { cartItems, currentUser, product } = this.props;
     if (currentUser) {
-      const cartItem = {
-        cart_id: currentUser.id,
-        product_id: product.id,
-        quantity: this.state.quantity,
-      };
+       const cartItem = {
+         cart_id: currentUser.id,
+         product_id: product.id,
+         quantity: this.state.quantity,
+       };
       if (cartItems.length) {
-        cartItems.forEach((item) => {
+        cartItems.map((item) => {
           if (item?.product_id === cartItem?.product_id) {
-
-            item.quantity += cartItem.quantity;
-
-            this.props.updateCartItem(item);
+            item.quantity += cartItem.quantity
+            return this.props.updateCartItem(item);
+          } else {
+           
+             return  cartItems[cartItem.product_id] = this.props.createCartItem(cartItem) 
           }
         });
+        // if (existProduct){
+        //   this.props.updateCartItem(cartItem);
+        // } else {
+        //   this.props.createCartItem(cartItem);
+        // }
+        // return (cartItems[cartItem.product_id] = this.props.createCartItem(cartItem));
       } else {
-        debugger
-        cartItems[cartItem.product_id] = this.props.createCartItem(cartItem);
+        // debugger;
+        return cartItems[cartItem.product_id] = this.props.createCartItem(cartItem);
       }
     } else {
       this.setState({ errors: "Please log in first!" });
       this.props.openModal("Login");
     }
   }
+
   quantityHandler(e) {
     this.setState({ quantity: parseInt(e.target.value) });
   }
@@ -76,7 +129,7 @@ class ProductShow extends React.Component {
                   onChange={this.quantityHandler}
                 >
                   <option value="1" defaultValue={this.state.quantity}>
-                  1
+                    1
                   </option>
                   <option value="2">2</option>
                   <option value="3">3</option>
