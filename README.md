@@ -95,7 +95,7 @@ class SessionForm extends React.Component {
 
 For searching function, to have all the searched items render properly using the same product_index component, in productSearchHandler, i add an "isShown: true" flag for all items that match searchTerminput. After that, in RECEIVE_ALL_PRODUCTS, I map through all products, only products with "isShown: true" are rendered as searched result. 
 
-productSearchHandler(searchTermInput){
+```productSearchHandler(searchTermInput){
     this.setState({ searchTerm: searchTermInput });
       let filterResult = this.props.products.map((product) =>
       {
@@ -112,7 +112,7 @@ productSearchHandler(searchTermInput){
        this.props.updateAllProducts(filterResult);
     }
 
-```const productsReducer = (state = {}, action) => {
+const productsReducer = (state = {}, action) => {
     Object.freeze(state);
     let nextState = Object.assign({}, state);
     switch (action.type) {
@@ -125,9 +125,5 @@ productSearchHandler(searchTermInput){
 } ```
 
 ### Future directions for the project
-* Each user will have their profile page.
-* All users will be able to see all products listing.
-* All users will be able to look up items by name and category.
-* All users will be able to add/edit/remove items to their shopping cart by login.
-* Users will be able to check out items in the shopping cart by login.
-* Logged in users will be able to write/edit/remove their own review for products.
+* Each user will have their profile page with profile picture.
+
