@@ -27,6 +27,34 @@ Homi is a cloned version of Esty.com, an E-commerce platform where independent a
 
 ![](https://homi-seeds.s3.us-east-2.amazonaws.com/loginout_SparkVideo.gif)
 
+
+2. Product listing: 
+
+Users, including guest users, will be able to view products. 
+All user can search products by interested categories from dropping menu on the Navigation bar and seasonal suggestions"
+
+![](https://homi-seeds.s3.us-east-2.amazonaws.com/category_SparkVideo.gif)
+
+3. Shopping Cart Item
+
+Logged in users can add items to their shopping cart. Users can update the quantity of items in their cart by select dropdown menu of quantity. Users can also remove products from their shopping cart. The total price will be reflected based on what is in the shopping cart and the quantity for each product.
+
+![](https://homi-seeds.s3.us-east-2.amazonaws.com/shoppingcart.png)
+
+4. Search Functionality
+
+All users are able to search for items by name and by category based on the search input. 
+
+![](https://homi-seeds.s3.us-east-2.amazonaws.com/homi_searching.gif)
+
+5. Reviews
+
+Logged in users will be able to write reviews for products. They  will be able to edit and remove their own reviews. 
+
+![](https://homi-seeds.s3.us-east-2.amazonaws.com/review.png)
+
+### Code Snippet 
+
 To have my session form modals close properly, I have to add an "isSubmited: false" in the state, and use shouldComponentUpdate to check the state on every submit. If there is no error, form is processed and modal closes. If there are errors, errors are rendered and users only can login/signup when they pass all user validations.
 
 ```...javascript
@@ -63,12 +91,38 @@ class SessionForm extends React.Component {
   }
 }
 ```
-2. Product listing: 
 
-Users, including guest users, will be able to view products. 
-All user can search products by interested categories from dropping menu on the Navigation bar and seasonal suggestions"
 
-![](https://homi-seeds.s3.us-east-2.amazonaws.com/category_SparkVideo.gif)
+For searching function, to have all the searched items render properly using the same product_index component, in productSearchHandler, i add an "isShown: true" flag for all items that match searchTerminput. After that, in RECEIVE_ALL_PRODUCTS, I map through all products, only products with "isShown: true" are rendered as searched result. 
+
+productSearchHandler(searchTermInput){
+    this.setState({ searchTerm: searchTermInput });
+      let filterResult = this.props.products.map((product) =>
+      {
+      if (Object.values(product)
+      .join(" ")
+      .toLowerCase()
+      .includes(searchTermInput.toLowerCase())){
+        product.isShown = true
+      } else {
+        product.isShown = false
+      }
+      return product
+      })
+       this.props.updateAllProducts(filterResult);
+    }
+
+```const productsReducer = (state = {}, action) => {
+    Object.freeze(state);
+    let nextState = Object.assign({}, state);
+    switch (action.type) {
+        case RECEIVE_ALL_PRODUCTS:
+            return Object.values(action.products).map ((product) => {
+                product.isShown = true
+                return product;
+            })
+    }
+} ```
 
 ### Future directions for the project
 * Each user will have their profile page.
