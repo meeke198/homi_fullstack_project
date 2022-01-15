@@ -13,10 +13,6 @@ const productsReducer = (state = {}, action) => {
         case UPDATE_ALL_PRODUCTS: 
             return action.products;
         case RECEIVE_PRODUCT:
-            // const index = state.findIndex(item => item.id === action.product.id) 
-            // if (index > -1) {
-            //     nextState[index ] = action.product
-            // }
             nextState[action.product.id] = action.product;
             return nextState;
         default:
