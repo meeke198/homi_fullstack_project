@@ -73,26 +73,26 @@ class ProductShow extends React.Component {
          product_id: product.id,
          quantity: this.state.quantity,
        };
-      if (cartItems.length) {
-        cartItems.map((item) => {
-          if (item?.product_id === cartItem?.product_id) {
-            item.quantity += cartItem.quantity
-            return this.props.updateCartItem(item);
-          } else {
+       
+      // if (cartItems.length) {
+        // cartItems.findI((item) => {
+        //   if (item?.product_id === cartItem?.product_id) {
+        //     item.quantity += cartItem.quantity
+        //     return this.props.updateCartItem(item);
+        //   } else {
            
-             return  cartItems[cartItem.product_id] = this.props.createCartItem(cartItem) 
-          }
-        });
-        // if (existProduct){
-        //   this.props.updateCartItem(cartItem);
-        // } else {
-        //   this.props.createCartItem(cartItem);
-        // }
-        // return (cartItems[cartItem.product_id] = this.props.createCartItem(cartItem));
-      } else {
-        // debugger;
-        return cartItems[cartItem.product_id] = this.props.createCartItem(cartItem);
-      }
+        //      return  cartItems[cartItem.product_id] = this.props.createCartItem(cartItem) 
+        //   }
+        // });
+
+       let itemIndex = (cartItems || []).findIndex((item) => item.product_id === cartItem.product_id);
+       if (itemIndex > -1){
+          cartItems[itemIndex].quantity += cartItem.quantity;
+          return this.props.updateCartItem(cartItems[itemIndex]);
+       } else {
+          this.props.createCartItem(cartItem); 
+       }
+
     } else {
       this.setState({ errors: "Please log in first!" });
       this.props.openModal("Login");
