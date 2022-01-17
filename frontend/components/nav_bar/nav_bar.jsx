@@ -11,6 +11,7 @@ import { BsShop } from "react-icons/bs";
 import { GrNotes } from "react-icons/gr";
 import SearchBar from "./search_bar";
 
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +22,9 @@ class NavBar extends React.Component {
     this.logoutHandler = this.logoutHandler.bind(this);
     this.loginHandler = this.loginHandler.bind(this);
     this.goToCart = this.goToCart.bind(this);
+    this.goToHomePage = this.goToHomePage.bind(this);
   }
+
   toggleDropdown(e) {
     e.stopPropagation();
     this.setState({ isDropdown: !this.state.isDropdown });
@@ -31,21 +34,35 @@ class NavBar extends React.Component {
     this.props.logout();
     this.props.history.push({ pathname: "/" });
   }
-  loginHandler() {
-    this.props.openModal("login");
-    this.setState({isDropdown: false})
+
+  goToHomePage() {
+    let newProducts = (Object.values(this.props.products) || []).map((product) => {
+      product.isShown = true
+      return product;
+    })
+    this.props.updateAllProducts(newProducts);
   }
 
- goToCart(){
-   this.props.history.push({ pathname:'/cart_items' })
- }
+  loginHandler() {
+    this.props.openModal("login");
+    this.setState({ isDropdown: false });
+  }
+
+  goToCart() {
+    this.props.history.push({ pathname: "/cart_items" });
+  }
   render() {
+    // const history = useHistory();
+    // console.log("history ne", history)
+
     const { currentUser, cartItems } = this.props;
     let totalItems = 0;
     let cart = (cartItems || []).filter(
       (item) => item.cart_id === currentUser.id
     );
-    (cart || []).map((item) => {totalItems += item.quantity });
+    (cart || []).map((item) => {
+      totalItems += item.quantity;
+    });
     const { isDropdown } = this.state;
     let dropdownMenu;
     if (isDropdown && currentUser) {
@@ -57,7 +74,9 @@ class NavBar extends React.Component {
               <div className="drop-down-item">
                 <p> Hello {currentUser.email}</p>
                 <p>
-                  <Link className="link" to="/users/profile">View Your Profile</Link>
+                  <Link className="link" to="/users/profile">
+                    View Your Profile
+                  </Link>
                 </p>
               </div>
             </div>
@@ -99,7 +118,7 @@ class NavBar extends React.Component {
         <div>
           <div>
             <BsCart4
-            onClick={this.goToCart}
+              onClick={this.goToCart}
               style={{
                 marginLeft: 15,
                 width: 30,
@@ -133,9 +152,8 @@ class NavBar extends React.Component {
       </div>
     );
     return (
-      
       <header className="nav-bar">
-        <Link to="/">
+        <Link to="/" onClick={this.goToHomePage}>
           <img
             className="logo-img"
             src="https://homi-seeds.s3.us-east-2.amazonaws.com/homilogo.png"

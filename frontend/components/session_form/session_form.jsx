@@ -38,6 +38,7 @@ class SessionForm extends React.Component {
     const user = {email: this.state.email, password: this.state.password};
     this.props.processForm(user);
     this.setState({isSubmited: true})
+    localStorage.setItem("messageWelcome", true)
   }
 
   loginDemo() {

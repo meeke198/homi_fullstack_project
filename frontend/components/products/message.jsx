@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 
 const Messages = [
@@ -40,56 +40,71 @@ const MessageItem = (props) => {
 };
 
 
-
 class Message extends React.Component {
-  constructor(props){
-      super(props)
-      this.state = {
-        displayWelcome: true
-      };
-      this.handleWelcome = this.handleWelcome.bind(this)
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+    displayWelcome: localStorage.getItem("messageWelcome")
+  }
+    this.handleWelcome = this.handleWelcome.bind(this);
+    localStorage.setItem("messageWelcome", false);
+  }
+  componentWillUnmount() {
+    localStorage.setItem("messageWelcome", false);
+  }
+  shouldComponentUpdate() {
+    localStorage.setItem("messageWelcome", false);
+    console.log("text gi do");
+    return true;
+  }
+  componentWillMount() {
+    console.log(this.props)
+  }
 
-handleWelcome(){
-  this.setState({displayWelcome: false})
-}
-render (){
-  const {currentUser} = this.props
-  const display = currentUser && this.state.displayWelcome ? (
-    <div
-      className="message-text"
-      style={{ textAlign: "center", marginBottom: 30 }}
-    >
-      Welcome back, <span>{currentUser.email}!</span>
-    </div>
-  ) : (
-    <div
-      className="message-text"
-      style={{ textAlign: "center", marginBottom: 30 }}
-    >
-      Bring on the holidays! Discover meaningful finds!
-    </div>
-  );
-  return (
-    <div onClick={() => this.handleWelcome()} style={{ paddingTop: 40, backgroundColor: "#FDEBD2", width: "100wv" }}>
+  handleWelcome() {
+    this.setState({ displayWelcome: false });
+  }
+  render() {
+    const { currentUser } = this.props;
+    const display =
+      currentUser && this.state.displayWelcome ? (
+        <div
+          className="message-text"
+          style={{ textAlign: "center", marginBottom: 30 }}
+        >
+          Welcome back, <span>{currentUser?.email}!</span>
+        </div>
+      ) : (
+        <div
+          className="message-text"
+          style={{ textAlign: "center", marginBottom: 30 }}
+        >
+          Bring on the holidays! Discover meaningful finds!
+        </div>
+      );
+    return (
       <div
-        className="message-text"
-        style={{ textAlign: "center", marginBottom: 30 }}
+        onClick={() => this.handleWelcome()}
+        style={{ paddingTop: 40, backgroundColor: "#FDEBD2", width: "100wv" }}
       >
-        <div>{display}</div>
+        <div
+          className="message-text"
+          style={{ textAlign: "center", marginBottom: 30 }}
+        >
+          <div>{display}</div>
+        </div>
+        <div className="message-container">
+          {Messages.map((message, idx) => (
+            <MessageItem
+              key={idx}
+              title={message.title}
+              imageUrl={message.imageUrl}
+            />
+          ))}
+        </div>
       </div>
-      <div className="message-container">
-        {Messages.map((message, idx) => (
-          <MessageItem
-            key={idx}
-            title={message.title}
-            imageUrl={message.imageUrl}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
+    );
+  }
 };
 
 const mapStateToProps = (state) => ({
