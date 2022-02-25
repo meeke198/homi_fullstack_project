@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import list from "./menu";
 import ProductIndex from "../products/product_index";
-import { updateAllProducts } from "../../actions/product_actions";
+import { fetchProducts } from "../../actions/product_actions";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -42,19 +42,19 @@ class SearchBar extends React.Component {
 
   productSearchHandler(searchTermInput){
     this.setState({ searchTerm: searchTermInput });
-      let filterResult = this.props.products.map((product) =>
-      {
-      if (Object.values(product)
-      .join(" ")
-      .toLowerCase()
-      .includes(searchTermInput.toLowerCase())){
-        product.isShown = true
-      } else {
-        product.isShown = false
-      }
-      return product
-      })
-       this.props.updateAllProducts(filterResult);
+      // let filterResult = this.props.products.map((product) =>
+      // {
+      // if (Object.values(product)
+      // .join(" ")
+      // .toLowerCase()
+      // .includes(searchTermInput.toLowerCase())){
+      //   product.isShown = true
+      // } else {
+      //   product.isShown = false
+      // }
+      // return product
+      // })
+       this.props.fetchProducts(searchTermInput);
     }
 
   render() {
@@ -81,7 +81,7 @@ const mSTP = (state) => ({
   products: Object.values(state.entities.products),
 });
 const mDTP = (dispatch) => ({
-  updateAllProducts: (products) => dispatch(updateAllProducts(products)),
+  fetchProducts: (searchTermInput) => dispatch(fetchProducts(searchTermInput)),
 });
 
 export default connect(mSTP, mDTP)(SearchBar);

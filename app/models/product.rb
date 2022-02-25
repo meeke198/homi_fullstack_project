@@ -31,4 +31,11 @@ class Product < ApplicationRecord
     class_name: :CartItem
 
     has_one_attached :photo
+
+    def self.search_query_match(query)
+        # debugger
+        # self.where("LOWER(name) LIKE ?", "%" + query.downcase + "%")
+         self.where("LOWER(products.product_name) LIKE ?", "%" + query + "%" ) .or(self.where("LOWER(products.category) LIKE ?", "%" + query + "%" )) 
+        #   .or(self.where("products.description LIKE ?", "%" + query + "%" ))
+    end
 end

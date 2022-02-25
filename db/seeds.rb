@@ -276,7 +276,7 @@ product33 = Product.create!(product_name: "Geometric Copper Mirror - Small - Lar
 mirror5 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/mirror5.jpg")
 product33.photo.attach(io: mirror5, filename:"mirror5.jpg")
 
-product34 = Product.create!(product_name: "TWhite Oak Floating Shelf - Custom Length, Depth, and Finish Color with Hidden Bracket and Mounting Hardware Included", description: "Finish Color - Natural, Sweet Honey with Glaze, Weathered Oak, Pickled White, Antique Oak, Classic Gray Ebony, Nature", category: "floatingshelves", price: 290, seller_id: 34)
+product34 = Product.create!(product_name: "White Oak Floating Shelf - Custom Length, Depth, and Finish Color with Hidden Bracket and Mounting Hardware Included", description: "Finish Color - Natural, Sweet Honey with Glaze, Weathered Oak, Pickled White, Antique Oak, Classic Gray Ebony, Nature", category: "floatingshelves", price: 290, seller_id: 34)
 floatingshelf5 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/floatingshelf5.jpg")
 product34.photo.attach(io: floatingshelf5, filename:"floatingshelf5.jpg")
 

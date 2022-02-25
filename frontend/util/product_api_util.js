@@ -1,6 +1,6 @@
-export const fetchProducts = () => {
+export const fetchProducts = (searchTermInput) => {
     return $.ajax({
-        url: "/api/products",
+        url: `/api/products?search=${searchTermInput}`, 
     });
 };
 

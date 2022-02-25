@@ -57,9 +57,9 @@ class Message extends React.Component {
     console.log("text gi do");
     return true;
   }
-  componentWillMount() {
-    console.log(this.props)
-  }
+  // componentWillMount() {
+  //   console.log(this.props)
+  // }
 
   handleWelcome() {
     this.setState({ displayWelcome: false });

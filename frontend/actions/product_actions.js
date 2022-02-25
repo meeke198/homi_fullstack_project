@@ -20,9 +20,10 @@ export const actionUpdateAllProducts = products => ({
 })
 
 
-export const fetchProducts = () => dispatch => {
-    return ProductApiUtil.fetchProducts()
-    .then(products => dispatch(receiveAllProducts(products)));
+export const fetchProducts = (searchInputTerm) => dispatch => {
+    return ProductApiUtil.fetchProducts(searchInputTerm).then((products) =>
+      dispatch(receiveAllProducts(products))
+    );
 };
 
 export const fetchProduct = productId => dispatch => {

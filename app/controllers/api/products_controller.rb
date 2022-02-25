@@ -1,7 +1,15 @@
 class Api::ProductsController < ApplicationController
   def index 
-   @products = Product.all
-   render :index
+    # debugger
+    # if params[:search] == ""
+    #   @products = Product.all
+    # else
+    #   @products == Product.where("product_name LIKE ?", "%" + params[:search] + "%" ) .or(Product.where("category LIKE ?", "%" + params[:search] + "%" )) .or(Product.where("discription LIKE ?", "%" + params[:search] + "%" ))
+    #   debugger
+      
+    # end
+    @products = Product.search_query_match(params[:search])
+    render :index
   end
 
 
@@ -10,7 +18,9 @@ class Api::ProductsController < ApplicationController
     render :show
   end
 
-  
+  # def search 
+  #   @products = Product.where("product_name LIKE ")
+  # end
 
   private
   

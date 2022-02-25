@@ -5,11 +5,7 @@ const productsReducer = (state = {}, action) => {
     let nextState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_ALL_PRODUCTS:
-            return Object.values(action.products).map ((product) => {
-                product.isShown = true
-                return product;
-            }
-            )
+            return Object.values(action.products)
         case UPDATE_ALL_PRODUCTS: 
             return action.products;
         case RECEIVE_PRODUCT:
