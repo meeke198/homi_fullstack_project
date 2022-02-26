@@ -3,7 +3,6 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
     "babel-loader": "^8.2.3",
     "babel-plugin-import": "^1.13.3",
@@ -41,6 +40,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/runtime": "^7.17.2",
     "file-loader": "^6.2.0"
   }
 }

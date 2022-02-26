@@ -1,9 +1,9 @@
+import React from 'react';
 import { FaSearchDollar } from "react-icons/fa";
-import React, { useState } from "react";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import list from "./menu";
-import ProductIndex from "../products/product_index";
+import { connect } from "react-redux";
+// import ProductIndex from "../../products/product_index";
 import { fetchProducts } from "../../actions/product_actions";
 
 class SearchBar extends React.Component {
@@ -32,42 +32,29 @@ class SearchBar extends React.Component {
       this.productSearchHandler(e.target.value);
       this.clearInput();
     }
-    
   }
-  clearInput(){
+  clearInput() {
     this.setState({
-      searchTerm: ''
+      searchTerm: "",
     });
   }
 
-  productSearchHandler(searchTermInput){
+  productSearchHandler(searchTermInput) {
     this.setState({ searchTerm: searchTermInput });
-      // let filterResult = this.props.products.map((product) =>
-      // {
-      // if (Object.values(product)
-      // .join(" ")
-      // .toLowerCase()
-      // .includes(searchTermInput.toLowerCase())){
-      //   product.isShown = true
-      // } else {
-      //   product.isShown = false
-      // }
-      // return product
-      // })
-       this.props.fetchProducts(searchTermInput);
-    }
+    this.props.fetchProducts(searchTermInput);
+  }
 
   render() {
     return (
       <div className="searching-container">
-        <input
-          className="searching-input"
-          type="text"
-          placeholder="Search for anything"
-          value={this.state.searchTerm}
-          onChange={this.onChange}
-          onKeyDown={this.handleKeyDown}
-        />
+          <input
+            className="searching-input"
+            type="text"
+            placeholder="Search for anything"
+            value={this.state.searchTerm}
+            onChange={this.onChange}
+            onKeyDown={this.handleKeyDown}
+          />
         <FaSearchDollar
           style={{ marginRight: 25, width: 30, height: 25 }}
           onClick={this.onClick}
@@ -77,11 +64,14 @@ class SearchBar extends React.Component {
   }
 }
 
+
+
+
 const mSTP = (state) => ({
   products: Object.values(state.entities.products),
 });
 const mDTP = (dispatch) => ({
-  fetchProducts: (searchTermInput) => dispatch(fetchProducts(searchTermInput)),
+  fetchProducts: (searchTermInput) => {dispatch(fetchProducts(searchTermInput))},
 });
 
 export default connect(mSTP, mDTP)(SearchBar);

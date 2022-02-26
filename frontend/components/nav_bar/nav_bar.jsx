@@ -22,7 +22,7 @@ class NavBar extends React.Component {
     this.logoutHandler = this.logoutHandler.bind(this);
     this.loginHandler = this.loginHandler.bind(this);
     this.goToCart = this.goToCart.bind(this);
-    this.goToHomePage = this.goToHomePage.bind(this);
+    // this.goToHomePage = this.goToHomePage.bind(this);
   }
 
   toggleDropdown(e) {
@@ -35,13 +35,13 @@ class NavBar extends React.Component {
     this.props.history.push({ pathname: "/" });
   }
 
-  goToHomePage() {
-    let newProducts = (Object.values(this.props.products) || []).map((product) => {
-      product.isShown = true
-      return product;
-    })
-    this.props.updateAllProducts(newProducts);
-  }
+  // goToHomePage() {
+    // let newProducts = (Object.values(this.props.products) || []).map((product) => {
+    //   product.isShown = true
+    //   return product;
+    // })
+  //   this.props.fetchProducts("");
+  // }
 
   loginHandler() {
     this.props.openModal("login");
@@ -153,7 +153,7 @@ class NavBar extends React.Component {
     );
     return (
       <header className="nav-bar">
-        <Link to="/" onClick={this.goToHomePage}>
+        <Link to="/">
           <img
             className="logo-img"
             src="https://homi-seeds.s3.us-east-2.amazonaws.com/homilogo.png"

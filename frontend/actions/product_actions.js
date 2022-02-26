@@ -21,9 +21,10 @@ export const actionUpdateAllProducts = products => ({
 
 
 export const fetchProducts = (searchInputTerm) => dispatch => {
-    return ProductApiUtil.fetchProducts(searchInputTerm).then((products) =>
-      dispatch(receiveAllProducts(products))
-    );
+    return ProductApiUtil.fetchProducts(searchInputTerm).then((products) => {
+        dispatch(receiveAllProducts(products))
+        Promise.resolve()
+    });
 };
 
 export const fetchProduct = productId => dispatch => {

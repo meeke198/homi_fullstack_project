@@ -54,12 +54,8 @@ class Message extends React.Component {
   }
   shouldComponentUpdate() {
     localStorage.setItem("messageWelcome", false);
-    console.log("text gi do");
     return true;
   }
-  // componentWillMount() {
-  //   console.log(this.props)
-  // }
 
   handleWelcome() {
     this.setState({ displayWelcome: false });
