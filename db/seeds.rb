@@ -296,7 +296,7 @@ product38 = Product.create!(product_name: "RUSTIC Console Table SLIMLINE With Ha
 table4 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/table4.jpg")
 product38.photo.attach(io: table4, filename:"table4.jpg")
 
-product39 = Product.create!(product_name: "Kitchen stool Safety", description: "The kitchen step stool, safety stool, or kids step stool is an adjustable kitchen chair or Montessori tower for toddlers. ", category: "tables", price: 55.99, seller_id: 39)
+product39 = Product.create!(product_name: "Modern Walnut Dining Table - Extension", description: "This custom made walnut table is made by hand in our shop! Any size, shape or color available.", category: "tables", price: 55.99, seller_id: 39)
 table5 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/table5.jpg")
 product39.photo.attach(io: table5, filename:"table5.jpg")
 
@@ -358,7 +358,7 @@ product53 = Product.create!(product_name: "RUSTIC Console Table SLIMLINE With Ha
 diningtable4 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/diningtable4.jpg")
 product53.photo.attach(io: diningtable4, filename:"diningtable4.jpg")
 
-product54 = Product.create!(product_name: "Kitchen stool Safety", description: "The kitchen step stool, safety stool, or kids step stool is an adjustable kitchen chair or Montessori tower for toddlers. ", category: "dining tables", price: 55.99, seller_id: 54)
+product54 = Product.create!(product_name: "Rustic Wood Trestle Dining Table - Rustic Kitchen Table - Wood Dining Table - Farmhouse Kitchen Table", description: " If you’re looking for completely customizable, handmade items, you’re at the right place. We have made tables, benches, signs, side tables, blanket ladders, car decals, chairs, tv stands, desks, shoe racks, kitchen racks and many more items. ", category: "dining tables", price: 55.99, seller_id: 54)
 diningtable5 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/diningtable5.jpg")
 product54.photo.attach(io: diningtable5, filename:"diningtable5.jpg")
 
@@ -374,7 +374,7 @@ product57 = Product.create!(product_name: "RUSTIC Console Table SLIMLINE With Ha
 cuttingboard3 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/cuttingboard3.jpg")
 product57.photo.attach(io: cuttingboard3, filename:"cuttingboard3.jpg")
 
-product58 = Product.create!(product_name: "Kitchen stool Safety", description: "The kitchen step stool, safety stool, or kids step stool is an adjustable kitchen chair or Montessori tower for toddlers. ", category: "cutting boards", price: 55.99, seller_id: 58)
+product58 = Product.create!(product_name: "Personalized, Engraved Cutting Board with Wreath Design for Housewarming or Closing Gift, Chirstmas Gift", description: "Create a cherished family heirloom with this engraved, name and date cutting board! We will take your name and date and laser engrave it into our high quality, hardwood cutting boards. ", category: "cutting boards", price: 55.99, seller_id: 58)
 cuttingboard4 = URI.open("https://homi-seeds.s3.us-east-2.amazonaws.com/cuttingboard4.jpg")
 product58.photo.attach(io: cuttingboard4, filename:"cuttingboard4.jpg")
 

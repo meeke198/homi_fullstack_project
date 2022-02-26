@@ -38,10 +38,6 @@ class ProductIndex extends React.Component {
     if (!products.length){
       return (
         <div className="not-found">
-          {/* <img
-            style={{ width: "50%"}}
-            src="https://cdn.searchenginejournal.com/wp-content/uploads/2021/05/dbe72790-3923-41c4-aa05-44c1e229e7c4-60ac27781f931.jpeg"
-          ></img> */}
           <img
             style={{ width: "10%", heigh: "10%" }}
             src="https://img.icons8.com/dotty/80/000000/nothing-found.png"
