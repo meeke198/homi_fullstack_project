@@ -93,37 +93,65 @@ class SessionForm extends React.Component {
 ```
 
 
-For searching function, to have all the searched items render properly using the same product_index component, in productSearchHandler, i add an "isShown: true" flag for all items that match searchTerminput. After that, in RECEIVE_ALL_PRODUCTS, I map through all products, only products with "isShown: true" are rendered as searched result. 
+For searching function, to have all the searched items render properly using the same ProductIndex component, in product_actions.js, the fetchProducts has to be a promise so that i can async await fetchProducts function in componentDidMount in product_index.js. The ProductIndex component will render the PageNotFound component when !products.length, therefore, i have to add "isLoading: false" into the state, setState ({ isLoading: true} ), and having a loading progess styling with css while waiting for the products data from the back end instead of render PageNotFound component. I can reuse ProductIndex component to render searched items and all products properly at the end.
 
 ```...javascript
-  productSearchHandler(searchTermInput){
-    this.setState({ searchTerm: searchTermInput });
-      let filterResult = this.props.products.map((product) =>
-      {
-      if (Object.values(product)
-      .join(" ")
-      .toLowerCase()
-      .includes(searchTermInput.toLowerCase())){
-        product.isShown = true
-      } else {
-        product.isShown = false
-      }
-      return product
-      })
-       this.props.updateAllProducts(filterResult);
-    }
+product_actions.js
+export const fetchProducts = (searchInputTerm) => dispatch => {
+    return ProductApiUtil.fetchProducts(searchInputTerm).then((products) => {
+        dispatch(receiveAllProducts(products))
+        Promise.resolve()
+    });
+};
 
-const productsReducer = (state = {}, action) => {
-    Object.freeze(state);
-    let nextState = Object.assign({}, state);
-    switch (action.type) {
-        case RECEIVE_ALL_PRODUCTS:
-            return Object.values(action.products).map ((product) => {
-                product.isShown = true
-                return product;
-            })
+product_index.js
+ class ProductIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: false
     }
-} ```
+  }
+
+ async componentDidMount() {
+   this.setState ({ isLoading: true} ) 
+   await this.props.fetchProducts("");
+    this.setState({ isLoading: false}); 
+  }
+
+  render() {
+    const { products } = this.props;
+    const ProductItems = (products || []).map((product, i) => {
+      return <ProductIndexItem key={`${product.id}-${i}`} product={product} />;
+    });
+    if(this.state.isLoading){
+      return (
+        <div>
+          <div className="progress">
+            <div className="color"></div>
+          </div>
+          <div style={{fontWeight: 900, fontSize: 20, textAlign: "center"}}>Loading...</div>
+        </div>
+      );
+      if (!products.length){
+      return (
+        <div className="not-found">
+          <img
+            style={{ width: "10%", heigh: "10%" }}
+            src="https://img.icons8.com/dotty/80/000000/nothing-found.png"
+          />
+          <h1 className="not-found-message">Item not found</h1>
+          <p
+            className="enter btn"
+            onClick={() => this.props.fetchProducts("")}
+            style={{ fontWeight: "bolder" }}
+          >
+            Go back to homepage
+          </p>
+        </div>
+      );
+     }
+ ```
 
 ### Future directions for the project
 * Each user will have their profile page with profile picture.
