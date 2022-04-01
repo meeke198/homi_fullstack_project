@@ -1,0 +1,40 @@
+
+.message-container {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  margin-top: 100px;
+  background-color: white;
+  .message-sub-container {
+    transform: translate(0, -50%);
+  }
+  .message-outer-block {
+    display: flex;
+    justify-content: space-around;
+    background-color: azure;
+    width: 100vw;
+  }
+  .message-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .message-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 9999px;
+      transition: all 0.2s ease-in-out;
+    }
+    .message-img:hover {
+      transform: scale(1.15);
+    }
+    .message-title {
+      font-size: 15px;
+      font-weight: 400;
+      padding-bottom: 0;
+      padding-top: 20px;
+      text-decoration: none;
+      color: black;
+    }
+  }
+}

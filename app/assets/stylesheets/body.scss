@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Limelight&display=swap");
+$lime-light: "Limelight", cursive;
+$comfortaa: "Comfortaa", cursive;
+
+body {
+  font-family: $comfortaa;
+}
+
+.home {
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #ffbf86;
+  h1 {
+    height: 100%;
+    z-index: 1;
+    color: pink;
+    text-shadow: 1px 1px 15px black;
+    text-align: center;
+    width: 100%;
+  }
+}

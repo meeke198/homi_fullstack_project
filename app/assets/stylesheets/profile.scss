@@ -1,0 +1,93 @@
+.profile{
+    width: 100vw;
+    margin: 30px 30px;
+}
+.icon-container{
+    width: 130px;
+    height: 90px;
+    border: solid 2px black;
+    border-radius: 15px;
+    background-color: #EAEAEA;
+    padding: 3px 3px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+.cross{
+    background: black;
+}
+.icon-container:hover{
+     transform: scale(1.05);
+}
+.icon-outer{
+    text-align: center;
+}
+.image{ 
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin-right: 30px;
+}
+.shopping-cart{
+    width: 35%;
+    height: 35%;
+    align-items: center;
+    margin: auto;
+}
+.cart-image{
+    width: 60%;
+    height: 50%;
+}
+.user-name{
+    display: flex;
+}
+.user-follower{
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-left: 5%;
+    padding-top: 10px;
+}
+h3{
+    font-weight: bolder;
+    font-size: 30px;
+}
+.camera{
+    position: relative;
+    display: flex;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    z-index: 10;
+    background-color: lightgray;
+    margin-top: 70px;
+    margin-left: 70px;
+    justify-content: center;
+    align-items: center;
+}
+.profile-icons{
+    display: flex;
+}
+.title{
+    font-weight: bolder;
+}
+.icon{
+    width: 40px;
+    height: 40px;
+    font-weight: bolder;
+}
+#cross-symbol{
+    text-align: center;
+    font-size: 50px;
+    color: white;
+}
+p{
+    margin-left: 0;
+}
+#nothing{
+    text-align: left;
+}
