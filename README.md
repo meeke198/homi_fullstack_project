@@ -93,7 +93,7 @@ class SessionForm extends React.Component {
 ```
 
 
-For searching function, to have all the searched items render properly using the same ProductIndex component, in product_actions.js, the fetchProducts has to be a promise so that i can async await fetchProducts function in componentDidMount in product_index.js. The ProductIndex component will render the PageNotFound component when !products.length, therefore, i have to add "isLoading: false" into the state, setState ({ isLoading: true} ), and having a loading progess styling with css while waiting for the products data from the back end instead of render PageNotFound component. I can reuse ProductIndex component to render searched items and all products properly at the end.
+For searching function, to have all the searched items render properly using the same ProductIndex component, in product_actions.js, the fetchProducts has to be a promise so that i can async await fetchProducts function in componentDidMount in product_index.js. The ProductIndex component will render the PageNotFound component when !products.length, therefore, i have to add "isLoading: false" into the state, setState ({ isLoading: true} ), and having a progress div which is styled with css, to show the loading progress while waiting for the products fetched from the backend instead of render PageNotFound component. I can reuse ProductIndex component to render searched items and all products properly at the end.
 
 ```...javascript
 product_actions.js
