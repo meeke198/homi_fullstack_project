@@ -14,13 +14,27 @@ $comfortaa: "Comfortaa", cursive;
   display: flex;
   position: absolute;
   justify-content: center;
-  width: 30%;
-  height: 80%;
+  width: 90%;
+  height: 70%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
   border-radius: 30px;
+  
+}
+@media screen and (min-width: 640px){
+  .modal-child{
+    width: 50%;
+    height: 80%;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .modal-child{
+    width: 30%;
+    height: 80%;
+  }
 }
 .form-box {
   display: flex;
