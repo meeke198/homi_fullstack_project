@@ -6,7 +6,7 @@ class Category extends React.Component {
     super(props);
   }
   componentDidMount(){
-      this.props.fetchProducts(searchTermInput);
+      this.props.fetchProducts("");
   }
   render(){
       let { products } = this.props
