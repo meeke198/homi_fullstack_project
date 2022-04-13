@@ -109,7 +109,7 @@ class SessionForm extends React.Component {
               <br />
               <div className="login-form-bottom">
                 <input
-                  className="submit-form-button"
+                  className="submit-form-button login"
                   type="submit"
                   value="Log in"
                   onClick={this.handleSubmit}

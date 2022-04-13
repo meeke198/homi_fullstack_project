@@ -1,3 +1,4 @@
+
 export const fetchProducts = (searchTermInput) => {
     return $.ajax({
         url: `/api/products?search=${searchTermInput}`, 
