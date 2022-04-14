@@ -73,12 +73,7 @@ class SessionForm extends React.Component {
               onClick={this.props.closeModal}
             />
           </div>
-          <div className="modal-header">
-            <p style={{ fontSize: 20, fontWeight: 50 }}>Log in</p>
-            <button className="btn" onClick={() => openModal("signup")}>
-              Register
-            </button>
-          </div>
+        
 
           <form className="form-box">
             <br />
@@ -107,13 +102,22 @@ class SessionForm extends React.Component {
               </div>
               {this.renderErrors()}
               <br />
-              <div className="login-form-bottom">
+              <div className="session-form-bottom">
                 <input
                   className="submit-form-button login"
                   type="submit"
                   value="Log in"
                   onClick={this.handleSubmit}
                 />
+                <p>
+                  Have no account?{" "}
+                  <span
+                    onClick={() => openModal("signup")}
+                    style={{ fontWeight: 900, cursor: "grab" }}
+                  >
+                    Register
+                  </span>
+                </p>
                 <br />
                 <button type="button" className="btn" onClick={this.loginDemo}>
                   Demo User
@@ -133,7 +137,6 @@ class SessionForm extends React.Component {
           />
           <form onSubmit={this.handleSubmit} className="form-box">
             <br />
-            <p style={{ fontSize: 28, fontWeight: 80 }}>Sign up</p>
             <div className="login-form">
               <br />
               <div className="form-input-wrapper">
@@ -159,11 +162,22 @@ class SessionForm extends React.Component {
               <br />
               {this.renderErrors()}
               <br />
-              <input
-                className="submit-form-button"
-                type="submit"
-                value="Sign up"
-              />
+              <div className="session-form-bottom">
+                <input
+                  className="submit-form-button login"
+                  type="submit"
+                  value="Sign up"
+                />
+                <p style={{ textAlign: "center" }}>
+                  Have an account?{" "}
+                  <span
+                    onClick={() => openModal("login")}
+                    style={{ fontWeight: 900, cursor: "grab" }}
+                  >
+                    Log in
+                  </span>
+                </p>
+              </div>
             </div>
           </form>
         </div>
