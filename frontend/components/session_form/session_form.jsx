@@ -188,4 +188,3 @@ class SessionForm extends React.Component {
 
 export default SessionForm;
 //this.props.processForm(user) => similar to action, actions container(mDTP) it either login or signup user
-// ready to deploy
