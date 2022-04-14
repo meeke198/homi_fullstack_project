@@ -18,51 +18,6 @@ class ProductShow extends React.Component {
     this.props.fetchProduct(this.props.match.params.productId);
   }
 
-  // addItemToCartHandler(e) {
-  //   debugger;
-  //   e.preventDefault();
-  //   let { cartItems, currentUser, product } = this.props;
-  //   if (currentUser) {
-  //     const cartItem = {
-  //       cart_id: currentUser.id,
-  //       product_id: product.id,
-  //       quantity: this.state.quantity,
-  //     };
-
-  //         (cartItems || []).map((item) => {
-  //         if (item?.product_id === cartItem?.product_id) {
-  //           item.quantity += cartItem.quantity
-  //           this.props.updateCartItem(item);
-  //           // existProduct = true;
-  //         }
-  //      else {
-  //       this.props.createCartItem(cartItem);
-  //     }})
-
-  // if (existProduct) {
-  //   this.props.updateCartItem(item);
-
-  //       item.quantity += cartItem.quantity;
-  //   debugger;
-  //   cartItems.forEach((item) => {
-  //     debugger
-  //     if (item?.product_id === cartItem?.product_id) {
-  //       item.quantity += cartItem.quantity;
-  //       return this.props.updateCartItem(item);
-  //     } else {
-  //       debugger
-  //       return this.props.createCartItem(cartItem);
-  //     }
-  //   });
-  // } else {
-  //   debugger
-  //   return this.props.createCartItem(cartItem);
-  // }
-
-  //   } else {
-  //     this.props.openModal("Login");
-  //   }
-  // }
 
   addItemToCartHandler(e) {
     e.preventDefault();
@@ -73,17 +28,6 @@ class ProductShow extends React.Component {
          product_id: product.id,
          quantity: this.state.quantity,
        };
-       
-      // if (cartItems.length) {
-        // cartItems.findI((item) => {
-        //   if (item?.product_id === cartItem?.product_id) {
-        //     item.quantity += cartItem.quantity
-        //     return this.props.updateCartItem(item);
-        //   } else {
-           
-        //      return  cartItems[cartItem.product_id] = this.props.createCartItem(cartItem) 
-        //   }
-        // });
 
        let itemIndex = (cartItems || []).findIndex((item) => item.product_id === cartItem.product_id);
        if (itemIndex > -1){
